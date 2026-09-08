@@ -11,6 +11,7 @@ List<RouteBase> get $appRoutes => [
   $onboarding1Route,
   $onboarding2Route,
   $onboarding3Route,
+  $chooseRuleRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -105,6 +106,33 @@ mixin $Onboarding3Route on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/onboarding3');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $chooseRuleRoute => GoRouteData.$route(
+  path: '/chooseRule',
+  hasOverriddenOnExit: false,
+  factory: $ChooseRuleRoute._fromState,
+);
+
+mixin $ChooseRuleRoute on GoRouteData {
+  static ChooseRuleRoute _fromState(GoRouterState state) =>
+      const ChooseRuleRoute();
+
+  @override
+  String get location => GoRouteData.$location('/chooseRule');
 
   @override
   void go(BuildContext context) => context.go(location);

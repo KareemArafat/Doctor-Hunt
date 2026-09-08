@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/router/routes_names.dart';
+import 'package:doctor_hunt/app/features/main/presentation/screens/choose_rule.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding1.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding2.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding3.dart';
@@ -42,5 +43,14 @@ class Onboarding3Route extends GoRouteData with $Onboarding3Route {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const Onboarding3();
+  }
+}
+
+@TypedGoRoute<ChooseRuleRoute>(path: RoutesNames.chooseRule)
+class ChooseRuleRoute extends GoRouteData with $ChooseRuleRoute {
+  const ChooseRuleRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ChooseRule();
   }
 }

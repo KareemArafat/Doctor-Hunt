@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/routes_names.dart';
 import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/utils/app_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
@@ -5,6 +6,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/main/presentation/widgets/background_circle.dart';
 import 'package:doctor_hunt/app/features/main/presentation/widgets/skip_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Onboarding3 extends StatelessWidget {
   const new({super.key});
@@ -31,7 +33,7 @@ class Onboarding3 extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () => context.go(RoutesNames.chooseRule),
                   size: Size(295, 55),
                   child: Text('Get Started', style: AppStyles.style18),
                 ),
