@@ -1,9 +1,9 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
-import 'package:doctor_hunt/app/core/utils/app_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
-import 'package:doctor_hunt/app/features/main/presentation/widgets/rule_cards.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/widgets/rule_cards.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class ChooseRoleScreen extends StatelessWidget {
@@ -20,16 +20,14 @@ class ChooseRoleScreen extends StatelessWidget {
               SizedBox(height: 32),
               Image.asset(AppImages.assetsIconsLogo, height: 70),
               SizedBox(height: 10),
-              Text('Doctor Hunt', style: AppStyles.style25),
+              Text(context.t.appName, style: context.bold24),
               SizedBox(height: 60),
-              Text('Choose your role', style: AppStyles.style28),
+              Text(context.t.chooseRoleTittle, style: context.regular28),
               SizedBox(height: 8),
               Text(
-                'The selected role determines the experience and available features.',
+                context.t.chooseRoleDescription,
+                style: context.regular14Secondary,
                 textAlign: TextAlign.center,
-                style: AppStyles.style14.copyWith(
-                  color: AppColors.secondaryColor,
-                ),
               ),
               SizedBox(height: 32),
               RuleCards(),
@@ -37,7 +35,7 @@ class ChooseRoleScreen extends StatelessWidget {
               CustomButton(
                 onPressed: () {},
                 size: Size(350, 55),
-                child: Text('Continue', style: AppStyles.style16),
+                child: Text(context.t.kContinue, style: context.semiBold16White),
               ),
               SizedBox(height: 32),
             ],

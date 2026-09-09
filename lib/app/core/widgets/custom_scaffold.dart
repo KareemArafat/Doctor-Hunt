@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {

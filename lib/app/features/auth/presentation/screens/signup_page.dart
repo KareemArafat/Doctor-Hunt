@@ -1,7 +1,7 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
-import 'package:doctor_hunt/app/core/utils/app_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/external_sign_button.dart';
+import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatelessWidget {
@@ -13,19 +13,13 @@ class SignupPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Join us to start searching', style: AppStyles.style25),
+          Text(context.t.signup, style: context.medium24),
           Text(
-            'You can search course, apply course and find scholarship for abroad studies',
-            style: AppStyles.style14.copyWith(color: AppColors.secondaryColor),
+            context.t.signDescription,
+            style: context.regular14Secondary,
             textAlign: TextAlign.center,
           ),
-          Row(
-            children: [
-              Spacer(),
-          ExternalSignButton(),
-              Container(),
-            ],
-          ),
+          Row(children: [Spacer(), ExternalSignButton(), Container()]),
           Spacer(),
         ],
       ),

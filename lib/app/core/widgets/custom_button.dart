@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: size,
         foregroundColor: Colors.white,
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.primary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(10),
         ),

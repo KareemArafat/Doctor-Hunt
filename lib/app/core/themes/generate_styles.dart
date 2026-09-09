@@ -2,27 +2,26 @@ import 'dart:io';
 
 void main() {
   final List<String> colors = [
-    'primary',
-    'primaryLight',
-    'primaryDark',
-    'secondary',
-    'secondaryLight',
-    'secondaryDark',
-    'textMain',
-    'textSub',
-    'textPlaceholder',
-    'textBorders',
-    'danger',
-    'dangerLight',
-    'success',
-    'successLight',
-    'warning',
-    'warningLight',
     'white',
-    'black',
-    'boxShadow',
+    'primary',
+    'secondary',
+    // 'primaryLight',
+    // 'primaryDark',
+    // 'secondaryLight',
+    // 'secondaryDark',
+    // 'textMain',
+    // 'textSub',
+    // 'textPlaceholder',
+    // 'textBorders',
+    // 'danger',
+    // 'dangerLight',
+    // 'success',
+    // 'successLight',
+    // 'warning',
+    // 'warningLight',
+    // 'black',
+    // 'boxShadow',
   ];
-
   final List<String> fontWeights = [
     'light',
     'regular',
@@ -32,6 +31,8 @@ void main() {
   ];
   final List<int> fontSizes = [
     8,
+    9,
+    10,
     11,
     12,
     14,
@@ -47,13 +48,12 @@ void main() {
     36,
     40,
   ];
-  const String outputPath = 'lib/generated/';
-  const String importColorsClass =
-      "import '../app/core/themes/app_colors.dart';";
-  const nameColorsClass = 'AppColors';
 
+  const outputPath = 'lib/generated/';
+  const importColorsClass = "import '../app/core/themes/app_colors.dart';";
+  const nameColorsClass = 'AppColors';
   // Create a new file named 'style_atoms.dart'
-  final File file = File('${outputPath}style_atoms.dart');
+  final File file = File('${outputPath}app_styles.dart');
   // Create a sink to write to the file
   final sink = file.openWrite();
   // Write the header for the file
@@ -68,19 +68,18 @@ void main() {
   generateFontSizes(sink, fontSizes);
   generateWeightAndPxMixes(sink, fontSizes, fontWeights);
   generateFinalGetters(sink, fontSizes, fontWeights, colors);
-
   sink.close();
 }
 
 String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
 Future<void> generateWeightAtoms(IOSink sink) async => sink.writeln('''
-  
 extension WeightAtoms on BuildContext {
-  TextStyle get style => Theme.of(this).textTheme.titleMedium!.copyWith(
-        color: Color(0xFF1A1A1A),
-        fontFamily: 'Almarai',
-      );
+  TextStyle get style => Theme.of(this).textTheme.titleMedium!;
+  // .copyWith(
+  //       color: Color(0xFF1A1A1A),
+  //       fontFamily: 'Almarai',
+  //     );
   TextStyle get light => style.copyWith(fontWeight: FontWeight.w300);
   TextStyle get regular => style.copyWith(fontWeight: FontWeight.normal);
   TextStyle get medium => style.copyWith(fontWeight: FontWeight.w500);
@@ -127,12 +126,12 @@ void generateFinalGetters(
   List<String> fontWeights,
   List<String> colors,
 ) {
-  for (final String wieght in fontWeights) {
-    sink.writeln('extension ${capitalize(wieght)}Atoms on BuildContext {');
+  for (final String weight in fontWeights) {
+    sink.writeln('extension ${capitalize(weight)}Atoms on BuildContext {');
     for (final int size in fontSizes) {
       for (final String color in colors) {
         sink.writeln(
-          '  TextStyle get $wieght$size${capitalize(color)} => $wieght$size.$color;',
+          '  TextStyle get $weight$size${capitalize(color)} => $weight$size.$color;',
         );
       }
     }

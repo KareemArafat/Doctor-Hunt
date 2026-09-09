@@ -41,7 +41,7 @@ mixin $SplashRoute on GoRouteData {
 }
 
 RouteBase get $onboarding1Route => GoRouteData.$route(
-  path: '1',
+  path: '/onboarding1',
   hasOverriddenOnExit: false,
   factory: $Onboarding1Route._fromState,
 );
@@ -51,7 +51,7 @@ mixin $Onboarding1Route on GoRouteData {
       const Onboarding1Route();
 
   @override
-  String get location => GoRouteData.$location('1');
+  String get location => GoRouteData.$location('/onboarding1');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -68,7 +68,7 @@ mixin $Onboarding1Route on GoRouteData {
 }
 
 RouteBase get $onboarding2Route => GoRouteData.$route(
-  path: '2',
+  path: '/onboarding2',
   hasOverriddenOnExit: false,
   factory: $Onboarding2Route._fromState,
 );
@@ -78,7 +78,7 @@ mixin $Onboarding2Route on GoRouteData {
       const Onboarding2Route();
 
   @override
-  String get location => GoRouteData.$location('2');
+  String get location => GoRouteData.$location('/onboarding2');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -95,7 +95,7 @@ mixin $Onboarding2Route on GoRouteData {
 }
 
 RouteBase get $onboarding3Route => GoRouteData.$route(
-  path: '3',
+  path: '/onboarding3',
   hasOverriddenOnExit: false,
   factory: $Onboarding3Route._fromState,
 );
@@ -105,7 +105,7 @@ mixin $Onboarding3Route on GoRouteData {
       const Onboarding3Route();
 
   @override
-  String get location => GoRouteData.$location('3');
+  String get location => GoRouteData.$location('/onboarding3');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -122,7 +122,7 @@ mixin $Onboarding3Route on GoRouteData {
 }
 
 RouteBase get $chooseRuleRoute => GoRouteData.$route(
-  path: '4',
+  path: '/chooseRule',
   hasOverriddenOnExit: false,
   factory: $ChooseRuleRoute._fromState,
 );
@@ -132,7 +132,7 @@ mixin $ChooseRuleRoute on GoRouteData {
       const ChooseRuleRoute();
 
   @override
-  String get location => GoRouteData.$location('4');
+  String get location => GoRouteData.$location('/chooseRule');
 
   @override
   void go(BuildContext context) => context.go(location);

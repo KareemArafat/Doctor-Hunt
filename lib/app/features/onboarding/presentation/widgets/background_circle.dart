@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BackgroundCircle extends StatelessWidget {
@@ -15,7 +15,7 @@ class BackgroundCircle extends StatelessWidget {
         width: 342,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.primaryColor,
+          color: AppColors.primary,
         ),
       ),
     );

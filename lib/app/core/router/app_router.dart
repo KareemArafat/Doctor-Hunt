@@ -1,8 +1,8 @@
-import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
-import 'package:doctor_hunt/app/features/main/presentation/screens/choose_role_screen.dart';
-import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding1.dart';
-import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding2.dart';
-import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding3.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_screen.dart';
+import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
+import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 part 'app_router.g.dart';
@@ -14,38 +14,52 @@ class SplashRoute extends GoRouteData with $SplashRoute {
   const SplashRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignupPage();
+    return const SplashScreen();
   }
 }
 
-@TypedGoRoute<Onboarding1Route>(path: '1')
+@TypedGoRoute<Onboarding1Route>(path: '/onboarding1')
 class Onboarding1Route extends GoRouteData with $Onboarding1Route {
   const Onboarding1Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Onboarding1();
+    return OnboardingScreen(
+      image: AppImages.assetsImagesOnboarding1,
+      title: context.t.onboarding1Title,
+      onPressed: () => const Onboarding2Route().push(context),
+    );
   }
 }
 
-@TypedGoRoute<Onboarding2Route>(path: '2')
+@TypedGoRoute<Onboarding2Route>(path: '/onboarding2')
 class Onboarding2Route extends GoRouteData with $Onboarding2Route {
   const Onboarding2Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Onboarding2();
+    return OnboardingScreen(
+      image: AppImages.assetsImagesOnboarding2,
+      title: context.t.onboarding2Title,
+      isRight: true,
+      onPressed: () => const Onboarding3Route().push(context),
+    );
   }
 }
 
-@TypedGoRoute<Onboarding3Route>(path: '3')
+@TypedGoRoute<Onboarding3Route>(path: '/onboarding3')
 class Onboarding3Route extends GoRouteData with $Onboarding3Route {
   const Onboarding3Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Onboarding3();
+    return OnboardingScreen(
+      image: AppImages.assetsImagesOnboarding3,
+      title: context.t.onboarding3Title,
+      isEnd: true,
+      onPressed: () => const ChooseRuleRoute().go(context),
+    );
   }
 }
 
-@TypedGoRoute<ChooseRuleRoute>(path: '4')
+@TypedGoRoute<ChooseRuleRoute>(path: '/chooseRule')
 class ChooseRuleRoute extends GoRouteData with $ChooseRuleRoute {
   const ChooseRuleRoute();
   @override

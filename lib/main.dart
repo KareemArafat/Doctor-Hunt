@@ -1,5 +1,4 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,11 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      color: Colors.white,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.rubikTextTheme(),
-        primaryColor: AppColors.primaryColor,
       ),
     );
   }

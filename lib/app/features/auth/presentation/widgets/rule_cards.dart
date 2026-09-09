@@ -1,6 +1,7 @@
-import 'package:doctor_hunt/app/core/utils/app_colors.dart';
-import 'package:doctor_hunt/app/core/utils/app_styles.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class RuleCards extends StatefulWidget {
@@ -55,7 +56,7 @@ class _RuleCardsState extends State<RuleCards> {
                         width: 20,
                         color: isPatient
                             ? AppColors.activeItems
-                            : AppColors.secondaryColor,
+                            : AppColors.secondary,
                       ),
                     ),
                     SizedBox(width: 16),
@@ -63,12 +64,10 @@ class _RuleCardsState extends State<RuleCards> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Patient', style: AppStyles.style20),
+                          Text(context.t.patient, style: context.semiBold20),
                           Text(
-                            'Find doctors, book appointments,and manage your medical records.',
-                            style: AppStyles.style14.copyWith(
-                              color: AppColors.secondaryColor,
-                            ),
+                            context.t.chooseRolePatientDescription,
+                            style: context.regular14Secondary,
                           ),
                         ],
                       ),
@@ -133,7 +132,7 @@ class _RuleCardsState extends State<RuleCards> {
                         width: 20,
                         color: !isPatient
                             ? AppColors.activeItems
-                            : AppColors.secondaryColor,
+                            : AppColors.secondary,
                       ),
                     ),
                     SizedBox(width: 16),
@@ -141,12 +140,10 @@ class _RuleCardsState extends State<RuleCards> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Admin', style: AppStyles.style20),
+                          Text(context.t.admin, style: context.semiBold20),
                           Text(
-                            'Manage doctors, appointments,users, and the platform.',
-                            style: AppStyles.style14.copyWith(
-                              color: AppColors.secondaryColor,
-                            ),
+                            context.t.chooseRoleAdminDescription,
+                            style: context.regular14Secondary,
                           ),
                         ],
                       ),
