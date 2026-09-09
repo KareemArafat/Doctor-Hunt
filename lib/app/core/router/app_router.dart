@@ -1,5 +1,7 @@
-import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_screen.dart';
-import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
+import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_page.dart';
 import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -23,7 +25,7 @@ class Onboarding1Route extends GoRouteData with $Onboarding1Route {
   const Onboarding1Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return OnboardingScreen(
+    return OnboardingPage(
       image: AppImages.assetsImagesOnboarding1,
       title: context.t.onboarding1Title,
       onPressed: () => const Onboarding2Route().push(context),
@@ -36,7 +38,7 @@ class Onboarding2Route extends GoRouteData with $Onboarding2Route {
   const Onboarding2Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return OnboardingScreen(
+    return OnboardingPage(
       image: AppImages.assetsImagesOnboarding2,
       title: context.t.onboarding2Title,
       isRight: true,
@@ -50,7 +52,7 @@ class Onboarding3Route extends GoRouteData with $Onboarding3Route {
   const Onboarding3Route();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return OnboardingScreen(
+    return OnboardingPage(
       image: AppImages.assetsImagesOnboarding3,
       title: context.t.onboarding3Title,
       isEnd: true,
@@ -64,6 +66,24 @@ class ChooseRuleRoute extends GoRouteData with $ChooseRuleRoute {
   const ChooseRuleRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ChooseRoleScreen();
+    return const ChooseRolePage();
+  }
+}
+
+@TypedGoRoute<SignupRoute>(path: '/signup')
+class SignupRoute extends GoRouteData with $SignupRoute {
+  const SignupRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SignupPage();
+  }
+}
+
+@TypedGoRoute<LoginRoute>(path: '/login')
+class LoginRoute extends GoRouteData with $LoginRoute {
+  const LoginRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const LoginPage();
   }
 }

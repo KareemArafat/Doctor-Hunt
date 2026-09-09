@@ -111,14 +111,14 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Sign up'
 	String get signup => 'Sign up';
 
-	/// en: 'Have an account? '
-	String get haveAccount => 'Have an account? ';
+	/// en: 'Have an account? Log in'
+	String get haveAccount => 'Have an account? Log in';
 
 	/// en: 'Login'
 	String get login => 'Login';
 
-	/// en: 'Don’t have an account? '
-	String get DoNotHaveAccount => 'Don’t have an account? ';
+	/// en: 'Don’t have an account? Join us'
+	String get DoNotHaveAccount => 'Don’t have an account? Join us';
 
 	/// en: 'Forgot Password'
 	String get forgotPassword => 'Forgot Password';
@@ -176,9 +176,9 @@ extension on Translations {
 			'password' => 'Password',
 			'agreePrivacyPolicy' => 'I agree with the Terms of Service & Privacy Policy',
 			'signup' => 'Sign up',
-			'haveAccount' => 'Have an account? ',
+			'haveAccount' => 'Have an account? Log in',
 			'login' => 'Login',
-			'DoNotHaveAccount' => 'Don’t have an account? ',
+			'DoNotHaveAccount' => 'Don’t have an account? Join us',
 			'forgotPassword' => 'Forgot Password',
 			'forgotPasswordDescription' => 'Enter your email for the verification process, we will send 4 digits code to your email.',
 			'enterDigitsTittle' => 'Enter 4 Digits Code',

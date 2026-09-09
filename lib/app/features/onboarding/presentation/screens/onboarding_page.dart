@@ -6,7 +6,7 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingPage extends StatelessWidget {
   const new({
     super.key,
     required this.image,

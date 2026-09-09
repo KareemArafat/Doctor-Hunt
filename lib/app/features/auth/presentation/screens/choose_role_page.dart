@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/rule_cards.dart';
@@ -6,7 +7,7 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
-class ChooseRoleScreen extends StatelessWidget {
+class ChooseRolePage extends StatelessWidget {
   const new({super.key});
 
   @override
@@ -33,9 +34,12 @@ class ChooseRoleScreen extends StatelessWidget {
               RuleCards(),
               Spacer(),
               CustomButton(
-                onPressed: () {},
+                onPressed: () => SignupRoute().push(context),
                 size: Size(350, 55),
-                child: Text(context.t.kContinue, style: context.semiBold16White),
+                child: Text(
+                  context.t.kContinue,
+                  style: context.semiBold16White,
+                ),
               ),
               SizedBox(height: 32),
             ],
