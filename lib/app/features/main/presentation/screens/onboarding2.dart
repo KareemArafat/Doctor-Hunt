@@ -1,12 +1,11 @@
-import 'package:doctor_hunt/app/core/router/routes_names.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/utils/app_styles.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/main/presentation/widgets/background_circle.dart';
 import 'package:doctor_hunt/app/features/main/presentation/widgets/skip_button.dart';
+import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class Onboarding2 extends StatelessWidget {
   const new({super.key});
@@ -22,7 +21,7 @@ class Onboarding2 extends StatelessWidget {
             child: Column(
               children: [
                 Spacer(flex: 2),
-                Image.asset(AppImages.onboarding2),
+                Image.asset(AppImages.assetsImagesOnboarding2),
                 Spacer(flex: 2),
                 Text('Choose Best Doctors', style: AppStyles.style28),
                 SizedBox(height: 5),
@@ -33,7 +32,7 @@ class Onboarding2 extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomButton(
-                  onPressed: () => context.push(RoutesNames.onboarding3),
+                  onPressed: () => Onboarding3Route().push(context),
                   size: Size(295, 55),
                   child: Text('Next', style: AppStyles.style18),
                 ),

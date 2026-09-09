@@ -1,11 +1,8 @@
 import 'dart:async';
-
-import 'package:doctor_hunt/app/core/router/routes_names.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
-import 'package:doctor_hunt/app/core/utils/app_styles.dart';
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     timer = Timer(const Duration(seconds: 3), () {
       if (!mounted) return;
-      context.go(RoutesNames.onboarding1);
+      Onboarding1Route().push(context);
     });
   }
 
@@ -38,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Image.asset(AppImages.logo)),
+          Center(child: Image.asset(AppImages.assetsIconsLogo)),
           const SizedBox(height: 10),
-          Text('Doctor Hunt', style: AppStyles.style25),
+          //     Text(context.t.appName, style: AppStyles.style25),
         ],
       ),
     );

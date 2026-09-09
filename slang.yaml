@@ -1,0 +1,4 @@
+base_locale: en
+input_file_pattern: .json
+input_directory: assets/localization
+output_directory: lib/generated

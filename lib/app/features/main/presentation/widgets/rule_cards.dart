@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/utils/app_colors.dart';
-import 'package:doctor_hunt/app/core/utils/app_images.dart';
 import 'package:doctor_hunt/app/core/utils/app_styles.dart';
+import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:flutter/material.dart';
 
 class RuleCards extends StatefulWidget {
@@ -30,8 +30,8 @@ class _RuleCardsState extends State<RuleCards> {
                       : AppColors.disableCard,
                   border: Border.all(
                     color: isPatient
-                        ? AppColors.activeBorder
-                        : AppColors.disableBorder,
+                        ? AppColors.activeItems
+                        : AppColors.disableItems,
                     width: 2,
                   ),
                 ),
@@ -46,15 +46,15 @@ class _RuleCardsState extends State<RuleCards> {
                       decoration: BoxDecoration(
                         color: isPatient
                             ? AppColors.disableCard
-                            : AppColors.disableBorder,
+                            : AppColors.disableItems,
                         borderRadius: BorderRadius.circular(100),
                       ),
                       child: Image.asset(
-                        AppImages.patient,
+                        AppImages.assetsIconsPatient,
                         height: 25,
                         width: 20,
                         color: isPatient
-                            ? AppColors.activeBorder
+                            ? AppColors.activeItems
                             : AppColors.secondaryColor,
                       ),
                     ),
@@ -86,7 +86,7 @@ class _RuleCardsState extends State<RuleCards> {
                   icon: Icon(
                     Icons.check_circle,
                     size: 25,
-                    color: AppColors.activeBorder,
+                    color: AppColors.activeItems,
                   ),
                 ),
               ),
@@ -108,8 +108,8 @@ class _RuleCardsState extends State<RuleCards> {
                       : AppColors.disableCard,
                   border: Border.all(
                     color: !isPatient
-                        ? AppColors.activeBorder
-                        : AppColors.disableBorder,
+                        ? AppColors.activeItems
+                        : AppColors.disableItems,
                     width: 2,
                   ),
                 ),
@@ -124,15 +124,15 @@ class _RuleCardsState extends State<RuleCards> {
                       decoration: BoxDecoration(
                         color: !isPatient
                             ? AppColors.disableCard
-                            : AppColors.disableBorder,
+                            : AppColors.disableItems,
                         borderRadius: BorderRadius.circular(100),
                       ),
                       child: Image.asset(
-                        AppImages.admin,
+                        AppImages.assetsIconsAdmin,
                         height: 25,
                         width: 20,
                         color: !isPatient
-                            ? AppColors.activeBorder
+                            ? AppColors.activeItems
                             : AppColors.secondaryColor,
                       ),
                     ),
@@ -164,7 +164,7 @@ class _RuleCardsState extends State<RuleCards> {
                   icon: Icon(
                     Icons.check_circle,
                     size: 25,
-                    color: AppColors.activeBorder,
+                    color: AppColors.activeItems,
                   ),
                 ),
               ),
