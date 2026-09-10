@@ -19,6 +19,7 @@ dependencies:
   go_router: ^18.0.1
   slang: ^4.19.0
   slang_flutter: ^4.19.0
+  pinput: ^6.0.2
 
 
 dev_dependencies:

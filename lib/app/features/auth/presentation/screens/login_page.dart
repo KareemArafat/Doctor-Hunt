@@ -1,11 +1,16 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/widgets/forgot_password_bottom_sheet.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/google_auth_button.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/widgets/otp_digits_bottom_sheet.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/widgets/reset_password_bottom_sheet.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const new({super.key});
@@ -17,11 +22,17 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController forgotPasswordEmailController =
+      TextEditingController();
+  final TextEditingController newPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    forgotPasswordEmailController.dispose();
     super.dispose();
   }
 
@@ -34,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             SizedBox(height: 130),
             Text(context.t.loginTittle, style: context.medium24),
+            SizedBox(height: 8),
             Text(
               context.t.signDescription,
               style: context.regular14Secondary,
@@ -60,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 17),
             GestureDetector(
-              onTap: () {},
+              onTap: () => showForgotPasswordBottomSheet(context),
               child: Text(
                 context.t.forgotPassword,
                 style: context.regular14Primary,
@@ -77,6 +89,57 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 45),
           ],
         ),
+      ),
+    );
+  }
+
+  Future<void> showForgotPasswordBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.white,
+      scrollControlDisabledMaxHeightRatio: 50,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+      ),
+      builder: (context) => ForgotPasswordBottomSheet(
+        controller: forgotPasswordEmailController,
+        onPressed: () {
+          context.pop();
+          showOtpDigitsBottomSheet(context);
+        },
+      ),
+    );
+  }
+
+  Future<void> showOtpDigitsBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.white,
+      scrollControlDisabledMaxHeightRatio: 50,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+      ),
+      builder: (context) => OtpDigitsBottomSheet(
+        onPressed: () {
+          context.pop();
+          showResetPasswordBottomSheet(context);
+        },
+      ),
+    );
+  }
+
+  Future<void> showResetPasswordBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.white,
+      scrollControlDisabledMaxHeightRatio: 50,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+      ),
+      builder: (context) => ResetPasswordBottomSheet(
+        newPasswordController: newPasswordController,
+        confirmPasswordController: confirmPasswordController,
+        onPressed: () {},
       ),
     );
   }

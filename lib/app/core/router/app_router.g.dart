@@ -14,6 +14,7 @@ List<RouteBase> get $appRoutes => [
   $chooseRuleRoute,
   $signupRoute,
   $loginRoute,
+  $adminLoginRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -187,6 +188,33 @@ mixin $LoginRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/login');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $adminLoginRoute => GoRouteData.$route(
+  path: '/adminLogin',
+  hasOverriddenOnExit: false,
+  factory: $AdminLoginRoute._fromState,
+);
+
+mixin $AdminLoginRoute on GoRouteData {
+  static AdminLoginRoute _fromState(GoRouterState state) =>
+      const AdminLoginRoute();
+
+  @override
+  String get location => GoRouteData.$location('/adminLogin');
 
   @override
   void go(BuildContext context) => context.go(location);

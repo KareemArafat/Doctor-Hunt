@@ -31,6 +31,10 @@
     "enterDigitsDescription": "Enter the 4 digits code that you received on your email.",
     "resetPasswordTittle": "Reset Password",
     "resetPasswordDescription": "Set the new password for your account so you can login and access all the features.",
+    "newPassword": "New Password",
+    "reEnterPassword": "Re-enter Password",
     "continue": "Continue",
-    "updatePassword": "Update Password"
+    "updatePassword": "Update Password",
+    "adminLogin": "Admin Login",
+    "adminLoginDescription": "Sign in to access your admin dashboard"
 }

@@ -34,7 +34,7 @@ class ChooseRolePage extends StatelessWidget {
               RuleCards(),
               Spacer(),
               CustomButton(
-                onPressed: () => SignupRoute().push(context),
+                onPressed: () => AdminLoginRoute().push(context),
                 size: Size(350, 55),
                 child: Text(
                   context.t.kContinue,

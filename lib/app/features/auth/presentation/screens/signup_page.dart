@@ -38,6 +38,7 @@ class _SignupPageState extends State<SignupPage> {
           children: [
             SizedBox(height: 130),
             Text(context.t.signupTittle, style: context.medium24),
+            SizedBox(height: 8),
             Text(
               context.t.signDescription,
               style: context.regular14Secondary,

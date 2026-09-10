@@ -138,11 +138,23 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Set the new password for your account so you can login and access all the features.'
 	String get resetPasswordDescription => 'Set the new password for your account so you can login and access all the features.';
 
+	/// en: 'New Password'
+	String get newPassword => 'New Password';
+
+	/// en: 'Re-enter Password'
+	String get reEnterPassword => 'Re-enter Password';
+
 	/// en: 'Continue'
 	String get kContinue => 'Continue';
 
 	/// en: 'Update Password'
 	String get updatePassword => 'Update Password';
+
+	/// en: 'Admin Login'
+	String get adminLogin => 'Admin Login';
+
+	/// en: 'Sign in to access your admin dashboard'
+	String get adminLoginDescription => 'Sign in to access your admin dashboard';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -185,8 +197,12 @@ extension on Translations {
 			'enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
 			'resetPasswordTittle' => 'Reset Password',
 			'resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
+			'newPassword' => 'New Password',
+			'reEnterPassword' => 'Re-enter Password',
 			'kContinue' => 'Continue',
 			'updatePassword' => 'Update Password',
+			'adminLogin' => 'Admin Login',
+			'adminLoginDescription' => 'Sign in to access your admin dashboard',
 			_ => null,
 		};
 	}

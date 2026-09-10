@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/features/auth/presentation/screens/admin_login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
@@ -85,5 +86,14 @@ class LoginRoute extends GoRouteData with $LoginRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const LoginPage();
+  }
+}
+
+@TypedGoRoute<AdminLoginRoute>(path: '/adminLogin')
+class AdminLoginRoute extends GoRouteData with $AdminLoginRoute {
+  const AdminLoginRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AdminLoginPage();
   }
 }
