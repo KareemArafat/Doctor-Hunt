@@ -7,11 +7,13 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.size,
     required this.child,
+    this.radius = 10,
   });
 
   final Function() onPressed;
   final Size size;
   final Widget child;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class CustomButton extends StatelessWidget {
         foregroundColor: Colors.white,
         backgroundColor: AppColors.primary,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(10),
+          borderRadius: BorderRadiusGeometry.circular(radius),
         ),
       ),
       child: child,

@@ -155,6 +155,111 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Sign in to access your admin dashboard'
 	String get adminLoginDescription => 'Sign in to access your admin dashboard';
+
+	/// en: 'Doctors'
+	String get doctors => 'Doctors';
+
+	/// en: 'Active Doctors'
+	String get activeDoctors => 'Active Doctors';
+
+	/// en: 'Total Doctors'
+	String get totalDoctors => 'Total Doctors';
+
+	/// en: 'Search doctors...'
+	String get searchDoctors => 'Search doctors...';
+
+	/// en: 'No Doctors Found'
+	String get noDoctorsFound => 'No Doctors Found';
+
+	/// en: 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.'
+	String get noDoctorsFoundDescription => 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.';
+
+	/// en: 'Add Doctor'
+	String get addDoctor => 'Add Doctor';
+
+	/// en: 'Create Doctor'
+	String get createDoctor => 'Create Doctor';
+
+	/// en: 'Add Photo'
+	String get addPhoto => 'Add Photo';
+
+	/// en: 'Doctor Name'
+	String get doctorName => 'Doctor Name';
+
+	/// en: 'e.g. Dr. Ahmed Ali'
+	String get doctorNameExample => 'e.g. Dr. Ahmed Ali';
+
+	/// en: 'Medical Specialty'
+	String get medicalSpecialty => 'Medical Specialty';
+
+	/// en: 'Select Specialty'
+	String get selectSpecialty => 'Select Specialty';
+
+	/// en: 'Edit Doctor'
+	String get editDoctor => 'Edit Doctor';
+
+	/// en: 'Tap photo to change'
+	String get tapPhotoToChange => 'Tap photo to change';
+
+	/// en: 'Specialty'
+	String get specialty => 'Specialty';
+
+	/// en: 'Doctor Status'
+	String get doctorStatus => 'Doctor Status';
+
+	/// en: 'Active & Available'
+	String get activeAndAvailable => 'Active & Available';
+
+	/// en: 'Save Changes'
+	String get saveChanges => 'Save Changes';
+
+	/// en: 'Delete Doctor'
+	String get deleteDoctor => 'Delete Doctor';
+
+	/// en: 'Settings'
+	String get settings => 'Settings';
+
+	/// en: 'Admin Profile'
+	String get adminProfile => 'Admin Profile';
+
+	/// en: 'Edit super admin details & permissions'
+	String get adminProfileDescription => 'Edit super admin details & permissions';
+
+	/// en: 'Change Password'
+	String get changePassword => 'Change Password';
+
+	/// en: 'Update master security credentials'
+	String get changePasswordDescription => 'Update master security credentials';
+
+	/// en: 'App Information'
+	String get appInformation => 'App Information';
+
+	/// en: 'Build version '
+	String get buildVersion  => 'Build version ';
+
+	/// en: 'Logout'
+	String get Logout => 'Logout';
+
+	/// en: 'Edit Profile'
+	String get editProfile => 'Edit Profile';
+
+	/// en: 'Full Name'
+	String get fullName => 'Full Name';
+
+	/// en: 'Email Address'
+	String get emailAddress => 'Email Address';
+
+	/// en: 'Doctor Details'
+	String get doctorDetails => 'Doctor Details';
+
+	/// en: 'Account Status'
+	String get accountStatus => 'Account Status';
+
+	/// en: 'Active'
+	String get active => 'Active';
+
+	/// en: 'Inactive'
+	String get inactive => 'Inactive';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -203,6 +308,41 @@ extension on Translations {
 			'updatePassword' => 'Update Password',
 			'adminLogin' => 'Admin Login',
 			'adminLoginDescription' => 'Sign in to access your admin dashboard',
+			'doctors' => 'Doctors',
+			'activeDoctors' => 'Active Doctors',
+			'totalDoctors' => 'Total Doctors',
+			'searchDoctors' => 'Search doctors...',
+			'noDoctorsFound' => 'No Doctors Found',
+			'noDoctorsFoundDescription' => 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.',
+			'addDoctor' => 'Add Doctor',
+			'createDoctor' => 'Create Doctor',
+			'addPhoto' => 'Add Photo',
+			'doctorName' => 'Doctor Name',
+			'doctorNameExample' => 'e.g. Dr. Ahmed Ali',
+			'medicalSpecialty' => 'Medical Specialty',
+			'selectSpecialty' => 'Select Specialty',
+			'editDoctor' => 'Edit Doctor',
+			'tapPhotoToChange' => 'Tap photo to change',
+			'specialty' => 'Specialty',
+			'doctorStatus' => 'Doctor Status',
+			'activeAndAvailable' => 'Active & Available',
+			'saveChanges' => 'Save Changes',
+			'deleteDoctor' => 'Delete Doctor',
+			'settings' => 'Settings',
+			'adminProfile' => 'Admin Profile',
+			'adminProfileDescription' => 'Edit super admin details & permissions',
+			'changePassword' => 'Change Password',
+			'changePasswordDescription' => 'Update master security credentials',
+			'appInformation' => 'App Information',
+			'buildVersion ' => 'Build version ',
+			'Logout' => 'Logout',
+			'editProfile' => 'Edit Profile',
+			'fullName' => 'Full Name',
+			'emailAddress' => 'Email Address',
+			'doctorDetails' => 'Doctor Details',
+			'accountStatus' => 'Account Status',
+			'active' => 'Active',
+			'inactive' => 'Inactive',
 			_ => null,
 		};
 	}

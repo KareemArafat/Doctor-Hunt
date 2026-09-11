@@ -2,12 +2,22 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-  const new({super.key, required this.body});
+  const new({
+    super.key,
+    required this.body,
+    this.bottomNavigationBar,
+    this.floatingActionButton,
+  });
   final Widget body;
+  final Widget? bottomNavigationBar;
+  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: bottomNavigationBar,
+      floatingActionButton: floatingActionButton,
       body: Stack(
         children: [
           Positioned(

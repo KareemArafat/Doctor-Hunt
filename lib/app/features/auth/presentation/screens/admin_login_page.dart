@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
@@ -43,7 +44,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
             ),
             SizedBox(height: 55),
             CustomButton(
-              onPressed: () {},
+              onPressed: () => AdminHomeRoute().go(context),
               size: Size(295, 55),
               child: Text(context.t.login, style: context.medium18White),
             ),

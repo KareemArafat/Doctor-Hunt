@@ -1,3 +1,7 @@
+import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/admin_login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
@@ -95,5 +99,41 @@ class AdminLoginRoute extends GoRouteData with $AdminLoginRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const AdminLoginPage();
+  }
+}
+
+@TypedGoRoute<AdminHomeRoute>(path: '/adminHome')
+class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
+  const AdminHomeRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AdminHomePage();
+  }
+}
+
+@TypedGoRoute<CreateDoctorRoute>(path: '/createDoctor')
+class CreateDoctorRoute extends GoRouteData with $CreateDoctorRoute {
+  const CreateDoctorRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const CreateDoctorPage();
+  }
+}
+
+@TypedGoRoute<EditDoctorRoute>(path: '/editDoctor')
+class EditDoctorRoute extends GoRouteData with $EditDoctorRoute {
+  const EditDoctorRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const EditDoctorPage();
+  }
+}
+
+@TypedGoRoute<DoctorDetailsRoute>(path: '/doctorDetails')
+class DoctorDetailsRoute extends GoRouteData with $DoctorDetailsRoute {
+  const DoctorDetailsRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const DoctorDetailsPage();
   }
 }
