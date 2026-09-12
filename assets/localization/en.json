@@ -71,5 +71,7 @@
     "doctorDetails": "Doctor Details",
     "accountStatus": "Account Status",
     "active": "Active",
-    "inactive": "Inactive"
+    "inactive": "Inactive",
+    "administrator": "Administrator",
+    "adminAccount": "admin@doctorhunt.com"
 }

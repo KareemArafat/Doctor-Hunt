@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_body.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/settings_page_body.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_view_body.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/settings_view_body.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -18,7 +18,7 @@ class AdminHomePage extends StatefulWidget {
 class _AdminHomePageState extends State<AdminHomePage> {
   int selectedIndex = 0;
 
-  final List<Widget> pages = const [HomePageBody(), SettingsPageBody()];
+  final List<Widget> pages = const [DoctorsViewBody(), SettingsViewBody()];
 
   void onItemTapped(int index) => setState(() => selectedIndex = index);
 
@@ -26,19 +26,21 @@ class _AdminHomePageState extends State<AdminHomePage> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: SafeArea(child: pages[selectedIndex]),
-      floatingActionButton: CustomButton(
-        onPressed: () {},
-        size: Size(120, 40),
-        radius: 100,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.add, size: 16),
-            SizedBox(width: 6),
-            Text(context.t.addDoctor, style: context.regular12White),
-          ],
-        ),
-      ),
+      floatingActionButton: selectedIndex == 0
+          ? CustomButton(
+              onPressed: () {},
+              size: Size(120, 40),
+              radius: 100,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add, size: 16),
+                  SizedBox(width: 6),
+                  Text(context.t.addDoctor, style: context.regular12White),
+                ],
+              ),
+            )
+          : null,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         child: Theme(

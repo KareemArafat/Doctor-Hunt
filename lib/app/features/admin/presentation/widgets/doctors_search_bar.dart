@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -9,20 +10,9 @@ class DoctorsSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ShadowCard(
       height: 40,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.cardBorder),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 8,
-            offset: Offset(0, 2),
-            color: AppColors.black.withValues(alpha: 0.05),
-          ),
-        ],
-      ),
+      padding: 0,
       child: TextField(
         cursorColor: AppColors.black,
         style: context.regular12,

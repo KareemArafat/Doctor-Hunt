@@ -8,12 +8,14 @@ class CustomButton extends StatelessWidget {
     required this.size,
     required this.child,
     this.radius = 10,
+    this.backgroundColor = AppColors.primary,
   });
 
   final Function() onPressed;
   final Size size;
   final Widget child;
   final double radius;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: size,
         foregroundColor: Colors.white,
-        backgroundColor: AppColors.primary,
+        backgroundColor: backgroundColor,
+        shadowColor: Colors.transparent,
+        overlayColor: AppColors.black.withValues(alpha: 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(radius),
         ),

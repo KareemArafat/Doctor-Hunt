@@ -5,6 +5,7 @@ void main() {
     'white',
     'primary',
     'secondary',
+    'errorItems',
     // 'primaryLight',
     // 'primaryDark',
     // 'secondaryLight',

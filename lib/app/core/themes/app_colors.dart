@@ -18,5 +18,8 @@ abstract class AppColors {
 
   static const cardBorder = Color(0XFFF1F5F9);
 
-  static const errorItems = Colors.red;
+  static const iconsBackground = Color(0XFFEEF6EE);
+
+  static const errorItems = Color(0XFFBA1A1A);
+  static const errorItemsBackground = Color(0XFFFFDAD6);
 }

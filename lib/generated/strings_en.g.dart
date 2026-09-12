@@ -260,6 +260,12 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Inactive'
 	String get inactive => 'Inactive';
+
+	/// en: 'Administrator'
+	String get administrator => 'Administrator';
+
+	/// en: 'admin@doctorhunt.com'
+	String get adminAccount => 'admin@doctorhunt.com';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -343,6 +349,8 @@ extension on Translations {
 			'accountStatus' => 'Account Status',
 			'active' => 'Active',
 			'inactive' => 'Inactive',
+			'administrator' => 'Administrator',
+			'adminAccount' => 'admin@doctorhunt.com',
 			_ => null,
 		};
 	}
