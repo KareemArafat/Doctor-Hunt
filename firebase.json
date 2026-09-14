@@ -1,0 +1,25 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "doctor-hunt-138ba",
+                    "appId": "1:404095667798:android:7ecfd687726431e45275f7",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "doctor-hunt-138ba",
+                    "configurations": {
+                        "android": "1:404095667798:android:7ecfd687726431e45275f7",
+                        "ios": "1:404095667798:ios:07a57af9836243985275f7",
+                        "macos": "1:404095667798:ios:07a57af9836243985275f7",
+                        "web": "1:404095667798:web:a13f5473640bfff55275f7",
+                        "windows": "1:404095667798:web:8c27ee06399e600c5275f7"
+                    }
+                }
+            }
+        }
+    }
+}
