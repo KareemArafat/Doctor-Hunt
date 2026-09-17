@@ -14,7 +14,6 @@ List<RouteBase> get $appRoutes => [
   $chooseRuleRoute,
   $signupRoute,
   $loginRoute,
-  $adminLoginRoute,
   $adminHomeRoute,
   $createDoctorRoute,
   $editDoctorRoute,
@@ -188,10 +187,17 @@ RouteBase get $loginRoute => GoRouteData.$route(
 );
 
 mixin $LoginRoute on GoRouteData {
-  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+  static LoginRoute _fromState(GoRouterState state) => LoginRoute(
+    isAdmin: _$boolConverter(state.uri.queryParameters['is-admin']!),
+  );
+
+  LoginRoute get _self => this as LoginRoute;
 
   @override
-  String get location => GoRouteData.$location('/login');
+  String get location => GoRouteData.$location(
+    '/login',
+    queryParams: {'is-admin': _self.isAdmin.toString()},
+  );
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -207,31 +213,15 @@ mixin $LoginRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $adminLoginRoute => GoRouteData.$route(
-  path: '/adminLogin',
-  hasOverriddenOnExit: false,
-  factory: $AdminLoginRoute._fromState,
-);
-
-mixin $AdminLoginRoute on GoRouteData {
-  static AdminLoginRoute _fromState(GoRouterState state) =>
-      const AdminLoginRoute();
-
-  @override
-  String get location => GoRouteData.$location('/adminLogin');
-
-  @override
-  void go(BuildContext context) => context.go(location);
-
-  @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  @override
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  @override
-  void replace(BuildContext context) => context.replace(location);
+bool _$boolConverter(String value) {
+  switch (value) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw UnsupportedError('Cannot convert "$value" into a bool.');
+  }
 }
 
 RouteBase get $adminHomeRoute => GoRouteData.$route(
