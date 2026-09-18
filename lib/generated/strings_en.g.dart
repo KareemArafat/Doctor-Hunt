@@ -144,8 +144,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Re-enter Password'
 	String get reEnterPassword => 'Re-enter Password';
 
-	/// en: 'Continue'
-	String get kContinue => 'Continue';
+	/// en: 'continue'
+	String get kContinue => 'continue';
 
 	/// en: 'Update Password'
 	String get updatePassword => 'Update Password';
@@ -310,7 +310,7 @@ extension on Translations {
 			'resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
 			'newPassword' => 'New Password',
 			'reEnterPassword' => 'Re-enter Password',
-			'kContinue' => 'Continue',
+			'kContinue' => 'continue',
 			'updatePassword' => 'Update Password',
 			'adminLogin' => 'Admin Login',
 			'adminLoginDescription' => 'Sign in to access your admin dashboard',

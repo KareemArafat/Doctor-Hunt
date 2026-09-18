@@ -5,6 +5,7 @@ import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
+import 'package:doctor_hunt/app/features/home/presentation/screens/home_page.dart';
 import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_page.dart';
 import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -93,15 +94,6 @@ class LoginRoute extends GoRouteData with $LoginRoute {
   }
 }
 
-// @TypedGoRoute<AdminLoginRoute>(path: '/adminLogin')
-// class AdminLoginRoute extends GoRouteData with $AdminLoginRoute {
-//   const AdminLoginRoute();
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) {
-//     return const AdminLoginPage();
-//   }
-// }
-
 @TypedGoRoute<AdminHomeRoute>(path: '/adminHome')
 class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
   const AdminHomeRoute();
@@ -135,5 +127,14 @@ class DoctorDetailsRoute extends GoRouteData with $DoctorDetailsRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const DoctorDetailsPage();
+  }
+}
+
+@TypedGoRoute<HomeRoute>(path: '/home')
+class HomeRoute extends GoRouteData with $HomeRoute {
+  const HomeRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const HomePage();
   }
 }

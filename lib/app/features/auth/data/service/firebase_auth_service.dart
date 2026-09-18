@@ -12,6 +12,10 @@ class FirebaseAuthService {
     final credential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     await credential.user?.updateDisplayName(name);
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(credential.user!.uid)
+        .set({'isAdmin': false});
     return credential;
   }
 
