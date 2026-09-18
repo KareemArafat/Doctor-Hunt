@@ -1,12 +1,17 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
+import 'package:doctor_hunt/app/core/utils/cubit_observer.dart';
+import 'package:doctor_hunt/app/core/utils/get_it.dart';
 import 'package:doctor_hunt/firebase_options.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
+  Bloc.observer = CubitObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(TranslationProvider(child: const MyApp()));
 }

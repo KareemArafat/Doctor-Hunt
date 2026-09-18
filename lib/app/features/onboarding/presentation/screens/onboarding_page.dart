@@ -32,7 +32,7 @@ class OnboardingPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 90),
-                Image.asset(image),
+                Image.asset(image, width: 335, height: 335),
                 SizedBox(height: 90),
                 Text(title, style: context.medium28),
                 SizedBox(height: 5),
