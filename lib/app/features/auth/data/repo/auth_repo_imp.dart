@@ -38,6 +38,11 @@ class AuthRepoImp extends AuthRepo {
         email: email,
         password: password,
       );
+
+      final isSameRuleType = await firebaseAuthService.roleTypeCheck(
+        user: result,
+      );
+      if (!isSameRuleType) return left(Errors(errorMessage: ''));
       return right(result);
     } on FirebaseAuthException catch (e) {
       return left(Errors(errorMessage: e.code));

@@ -81,10 +81,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 55),
                   CustomButton(
-                    onPressed: () => context.read<LoginCubit>().login(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    ),
+                    onPressed: () => AdminHomeRoute().go(context),
+
+                    // () => context.read<LoginCubit>().login(
+                    //   email: emailController.text,
+                    //   password: passwordController.text,
+                    // ),
                     size: Size(295, 55),
                     child: BlocBuilder<LoginCubit, LoginState>(
                       builder: (context, state) {

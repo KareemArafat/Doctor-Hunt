@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
