@@ -14,10 +14,10 @@ class EmptyDoctorsList extends StatelessWidget {
         children: [
           Image.asset(AppImages.assetsIconsAddDoctors, height: 80, width: 80),
           SizedBox(height: 20),
-          Text(context.t.noDoctorsFound, style: context.bold16),
+          Text(t.noDoctorsFound, style: context.bold16),
           SizedBox(height: 8),
           Text(
-            context.t.noDoctorsFoundDescription,
+            t.noDoctorsFoundDescription,
             style: context.regular12Secondary,
             textAlign: TextAlign.center,
           ),

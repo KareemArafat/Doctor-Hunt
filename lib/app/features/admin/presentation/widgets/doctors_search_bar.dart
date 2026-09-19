@@ -17,7 +17,7 @@ class DoctorsSearchBar extends StatelessWidget {
         cursorColor: AppColors.black,
         style: context.regular12,
         decoration: InputDecoration(
-          hintText: context.t.searchDoctors,
+          hintText: t.searchDoctors,
           hintStyle: context.regular12Secondary,
           contentPadding: EdgeInsets.symmetric(horizontal: 12),
           prefixIcon: Image.asset(

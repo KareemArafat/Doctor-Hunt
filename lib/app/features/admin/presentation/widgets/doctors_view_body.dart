@@ -11,56 +11,47 @@ class DoctorsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
-      child: Column(
-        children: [
-          HomePageAppBar(title: context.t.doctors),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Expanded(
-                child: ShadowCard(
-                  height: 75,
-                  padding: 12,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        context.t.activeDoctors,
-                        style: context.regular11Secondary,
-                      ),
-                      SizedBox(height: 4),
-                      Text('1000', style: context.bold18),
-                    ],
-                  ),
+    return Column(
+      children: [
+        HomePageAppBar(title: t.doctors),
+        SizedBox(height: 20),
+        Row(
+          children: [
+            Expanded(
+              child: ShadowCard(
+                height: 75,
+                padding: 12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.activeDoctors, style: context.regular11Secondary),
+                    SizedBox(height: 4),
+                    Text('1000', style: context.bold18),
+                  ],
                 ),
               ),
-              SizedBox(width: 12),
-              Expanded(
-                child: ShadowCard(
-                  height: 75,
-                  padding: 12,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        context.t.totalDoctors,
-                        style: context.regular11Secondary,
-                      ),
-                      SizedBox(height: 4),
-                      Text('2000', style: context.bold18),
-                    ],
-                  ),
+            ),
+            SizedBox(width: 12),
+            Expanded(
+              child: ShadowCard(
+                height: 75,
+                padding: 12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.totalDoctors, style: context.regular11Secondary),
+                    SizedBox(height: 4),
+                    Text('2000', style: context.bold18),
+                  ],
                 ),
               ),
-            ],
-          ),
-          SizedBox(height: 8),
-          DoctorsSearchBar(),
-          EmptyDoctorsList(),
-        ],
-      ),
+            ),
+          ],
+        ),
+        SizedBox(height: 8),
+        DoctorsSearchBar(),
+        EmptyDoctorsList(),
+      ],
     );
   }
 }

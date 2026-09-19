@@ -73,5 +73,6 @@
     "active": "Active",
     "inactive": "Inactive",
     "administrator": "Administrator",
-    "adminAccount": "admin@doctorhunt.com"
+    "adminAccount": "admin@doctorhunt.com",
+    "pleaseSelectSpecialty": "Please select specialty"
 }

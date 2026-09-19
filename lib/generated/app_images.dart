@@ -10,6 +10,8 @@ class AppImages {
 
   static const String assetsIconsCardiology = "assets/icons/cardiology.png";
 
+  static const String assetsIconsChooseImage = "assets/icons/choose_image.png";
+
   static const String assetsIconsDoctors = "assets/icons/doctors.png";
 
   static const String assetsIconsGoogle = "assets/icons/google.png";

@@ -6,7 +6,7 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SelectRole extends StatelessWidget {
+class RolesTypes extends StatelessWidget {
   const new({super.key});
 
   @override
@@ -19,15 +19,15 @@ class SelectRole extends StatelessWidget {
           return Column(
             children: [
               DisableRole(
-                title: context.t.patient,
-                description: context.t.chooseRolePatientDescription,
+                title: t.patient,
+                description: t.chooseRolePatientDescription,
                 image: AppImages.assetsIconsPatient,
                 onTap: () => cubit.chooseRolePatient(),
               ),
               SizedBox(height: 16),
               ActiveRole(
-                title: context.t.admin,
-                description: context.t.chooseRoleAdminDescription,
+                title: t.admin,
+                description: t.chooseRoleAdminDescription,
                 image: AppImages.assetsIconsAdmin,
               ),
             ],
@@ -37,14 +37,14 @@ class SelectRole extends StatelessWidget {
           return Column(
             children: [
               ActiveRole(
-                title: context.t.patient,
-                description: context.t.chooseRolePatientDescription,
+                title: t.patient,
+                description: t.chooseRolePatientDescription,
                 image: AppImages.assetsIconsPatient,
               ),
               SizedBox(height: 16),
               DisableRole(
-                title: context.t.admin,
-                description: context.t.chooseRoleAdminDescription,
+                title: t.admin,
+                description: t.chooseRoleAdminDescription,
                 image: AppImages.assetsIconsAdmin,
                 onTap: () => cubit.chooseRoleAdmin(),
               ),
@@ -54,15 +54,15 @@ class SelectRole extends StatelessWidget {
         return Column(
           children: [
             DisableRole(
-              title: context.t.patient,
-              description: context.t.chooseRolePatientDescription,
+              title: t.patient,
+              description: t.chooseRolePatientDescription,
               image: AppImages.assetsIconsPatient,
               onTap: () async => await cubit.chooseRolePatient(),
             ),
             SizedBox(height: 16),
             DisableRole(
-              title: context.t.admin,
-              description: context.t.chooseRoleAdminDescription,
+              title: t.admin,
+              description: t.chooseRoleAdminDescription,
               image: AppImages.assetsIconsAdmin,
               onTap: () async => await cubit.chooseRoleAdmin(),
             ),

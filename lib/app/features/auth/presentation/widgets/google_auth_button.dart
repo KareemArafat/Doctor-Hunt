@@ -29,7 +29,7 @@ class GoogleAuthButton extends StatelessWidget {
           children: [
             Image.asset(AppImages.assetsIconsGoogle, height: 18, width: 18),
             const SizedBox(width: 5),
-            Text(context.t.google, style: context.light16Secondary),
+            Text(t.google, style: context.light16Secondary),
           ],
         ),
       ),

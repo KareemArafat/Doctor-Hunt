@@ -7,10 +7,12 @@ class CustomScaffold extends StatelessWidget {
     required this.body,
     this.bottomNavigationBar,
     this.floatingActionButton,
+    this.isOnboarding = false,
   });
   final Widget body;
   final Widget? bottomNavigationBar;
   final Widget? floatingActionButton;
+  final bool isOnboarding;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,15 @@ class CustomScaffold extends StatelessWidget {
               ),
             ),
           ),
-          body,
+          SafeArea(
+            top: !isOnboarding,
+            child: Padding(
+              padding: isOnboarding
+                  ? EdgeInsets.zero
+                  : const EdgeInsets.symmetric(horizontal: 20),
+              child: body,
+            ),
+          ),
         ],
       ),
     );

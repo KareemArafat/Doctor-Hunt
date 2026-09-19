@@ -40,92 +40,80 @@ class _SignupPageState extends State<SignupPage> {
       child: Builder(
         builder: (context) {
           return CustomScaffold(
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  SizedBox(height: 130),
-                  Text(context.t.signupTittle, style: context.medium24),
-                  SizedBox(height: 8),
-                  Text(
-                    context.t.signDescription,
-                    style: context.regular14Secondary,
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 65),
-                  GoogleAuthButton(),
-                  SizedBox(height: 34),
-                  CustomTextField(
-                    controller: nameController,
-                    hintText: context.t.name,
-                  ),
-                  SizedBox(height: 18),
-                  CustomTextField(
-                    controller: emailController,
-                    hintText: context.t.email,
-                  ),
-                  SizedBox(height: 18),
-                  CustomTextField(
-                    controller: passwordController,
-                    hintText: context.t.password,
-                    isPassword: true,
-                  ),
-                  SizedBox(height: 14),
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => setState(() => iAgree = !iAgree),
-                        child: Icon(
-                          Icons.circle,
-                          size: 16,
-                          color: iAgree
-                              ? AppColors.primary
-                              : AppColors.secondary.withValues(alpha: 0.5),
-                        ),
+            body: Column(
+              children: [
+                SizedBox(height: 130),
+                Text(t.signupTittle, style: context.medium24),
+                SizedBox(height: 8),
+                Text(
+                  t.signDescription,
+                  style: context.regular14Secondary,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 65),
+                GoogleAuthButton(),
+                SizedBox(height: 34),
+                CustomTextField(controller: nameController, hintText: t.name),
+                SizedBox(height: 18),
+                CustomTextField(controller: emailController, hintText: t.email),
+                SizedBox(height: 18),
+                CustomTextField(
+                  controller: passwordController,
+                  hintText: t.password,
+                  isPassword: true,
+                ),
+                SizedBox(height: 14),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => setState(() => iAgree = !iAgree),
+                      child: Icon(
+                        Icons.circle,
+                        size: 16,
+                        color: iAgree
+                            ? AppColors.primary
+                            : AppColors.secondary.withValues(alpha: 0.5),
                       ),
-                      SizedBox(width: 10),
-                      Flexible(
-                        child: Text(
-                          context.t.agreePrivacyPolicy,
-                          style: context.regular12Secondary,
-                        ),
+                    ),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: Text(
+                        t.agreePrivacyPolicy,
+                        style: context.regular12Secondary,
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 55),
-                  CustomButton(
-                    onPressed: () => context.read<SignupCubit>().signup(
-                      name: nameController.text,
-                      email: emailController.text,
-                      password: passwordController.text,
                     ),
-                    size: Size(295, 55),
-                    child: BlocBuilder<SignupCubit, SignupState>(
-                      builder: (context, state) {
-                        if (state is SignupLoading) {
-                          return CustomLoadingWidget(size: -2);
-                        }
-                        return Text(
-                          context.t.signup,
-                          style: context.medium18White,
-                        );
-                      },
-                    ),
+                  ],
+                ),
+                SizedBox(height: 55),
+                CustomButton(
+                  onPressed: () => context.read<SignupCubit>().signup(
+                    name: nameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
                   ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: () async {
-                      final isAdmin = await SharedPref.getIsAdmin();
-                      LoginRoute(isAdmin: isAdmin).pushReplacement(context);
+                  size: Size(295, 55),
+                  child: BlocBuilder<SignupCubit, SignupState>(
+                    builder: (context, state) {
+                      if (state is SignupLoading) {
+                        return CustomLoadingWidget(size: -2);
+                      }
+                      return Text(t.signup, style: context.medium18White);
                     },
-                    child: Text(
-                      context.t.DoNotHaveAccount,
-                      style: context.regular14Primary,
-                    ),
                   ),
-                  SizedBox(height: 45),
-                ],
-              ),
+                ),
+                Spacer(),
+                GestureDetector(
+                  onTap: () async {
+                    final isAdmin = await SharedPref.getIsAdmin();
+                    LoginRoute(isAdmin: isAdmin).pushReplacement(context);
+                  },
+                  child: Text(
+                    t.DoNotHaveAccount,
+                    style: context.regular14Primary,
+                  ),
+                ),
+                SizedBox(height: 45),
+              ],
             ),
           );
         },

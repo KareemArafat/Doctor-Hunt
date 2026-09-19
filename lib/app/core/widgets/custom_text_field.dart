@@ -28,6 +28,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
     isPassword = widget.isPassword;
   }
 
+  OutlineInputBorder _border(Color color) => OutlineInputBorder(
+    borderRadius: BorderRadius.circular(12),
+    borderSide: BorderSide(color: color),
+    gapPadding: 0,
+  );
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -36,6 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       style: context.light16,
       cursorColor: AppColors.black,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(16),
         suffixIcon: widget.isPassword
             ? IconButton(
                 highlightColor: AppColors.transparent,
@@ -50,20 +57,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintStyle: context.light16Secondary,
         fillColor: AppColors.white,
         filled: true,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: AppColors.secondary.withValues(alpha: 0.16),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.activeItems),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.errorItems),
-        ),
+        enabledBorder: _border(AppColors.secondary.withValues(alpha: 0.16)),
+        focusedBorder: _border(AppColors.activeItems),
+        errorBorder: _border(AppColors.errorItems),
+        focusedErrorBorder: _border(AppColors.errorItems),
       ),
     );
   }

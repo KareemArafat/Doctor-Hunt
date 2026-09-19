@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
@@ -25,10 +26,10 @@ class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: SafeArea(child: pages[selectedIndex]),
+      body: pages[selectedIndex],
       floatingActionButton: selectedIndex == 0
           ? CustomButton(
-              onPressed: () {},
+              onPressed: () => CreateDoctorRoute().push(context),
               size: Size(120, 40),
               radius: 100,
               child: Row(
@@ -36,7 +37,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                 children: [
                   Icon(Icons.add, size: 16),
                   SizedBox(width: 6),
-                  Text(context.t.addDoctor, style: context.regular12White),
+                  Text(t.addDoctor, style: context.regular12White),
                 ],
               ),
             )

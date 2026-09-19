@@ -12,7 +12,7 @@ class SkipButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(foregroundColor: AppColors.secondary),
       onPressed: () => ChooseRuleRoute().go(context),
-      child: Text(context.t.skip, style: context.regular14Secondary),
+      child: Text(t.skip, style: context.regular14Secondary),
     );
   }
 }

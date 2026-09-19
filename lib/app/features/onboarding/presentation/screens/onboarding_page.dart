@@ -24,35 +24,33 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      isOnboarding: true,
       body: Stack(
         children: [
           BackgroundCircle(isRight: isRight),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                SizedBox(height: 90),
-                Image.asset(image, width: 335, height: 335),
-                SizedBox(height: 90),
-                Text(title, style: context.medium28),
-                SizedBox(height: 5),
-                Text(
-                  context.t.onboardingDescription,
-                  style: context.regular14Secondary,
-                  textAlign: TextAlign.center,
+          Column(
+            children: [
+              SizedBox(height: 90),
+              Image.asset(image, width: 335, height: 335),
+              SizedBox(height: 90),
+              Text(title, style: context.medium28),
+              SizedBox(height: 5),
+              Text(
+                t.onboardingDescription,
+                style: context.regular14Secondary,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 50),
+              CustomButton(
+                onPressed: onPressed,
+                size: Size(295, 55),
+                child: Text(
+                  isEnd ? t.getStarted : t.next,
+                  style: context.medium18White,
                 ),
-                SizedBox(height: 50),
-                CustomButton(
-                  onPressed: onPressed,
-                  size: Size(295, 55),
-                  child: Text(
-                    isEnd ? context.t.getStarted : context.t.next,
-                    style: context.medium18White,
-                  ),
-                ),
-                if (!isEnd) SkipButton(),
-              ],
-            ),
+              ),
+              if (!isEnd) SkipButton(),
+            ],
           ),
         ],
       ),

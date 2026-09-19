@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Center(child: Image.asset(AppImages.assetsIconsLogo)),
           const SizedBox(height: 10),
-          Text(context.t.appName, style: context.bold24),
+          Text(t.appName, style: context.bold24),
         ],
       ),
     );

@@ -32,7 +32,7 @@ class Onboarding1Route extends GoRouteData with $Onboarding1Route {
   Widget build(BuildContext context, GoRouterState state) {
     return OnboardingPage(
       image: AppImages.assetsImagesOnboarding1,
-      title: context.t.onboarding1Title,
+      title: t.onboarding1Title,
       onPressed: () => const Onboarding2Route().push(context),
     );
   }
@@ -45,7 +45,7 @@ class Onboarding2Route extends GoRouteData with $Onboarding2Route {
   Widget build(BuildContext context, GoRouterState state) {
     return OnboardingPage(
       image: AppImages.assetsImagesOnboarding2,
-      title: context.t.onboarding2Title,
+      title: t.onboarding2Title,
       isRight: true,
       onPressed: () => const Onboarding3Route().push(context),
     );
@@ -59,7 +59,7 @@ class Onboarding3Route extends GoRouteData with $Onboarding3Route {
   Widget build(BuildContext context, GoRouterState state) {
     return OnboardingPage(
       image: AppImages.assetsImagesOnboarding3,
-      title: context.t.onboarding3Title,
+      title: t.onboarding3Title,
       isEnd: true,
       onPressed: () => const ChooseRuleRoute().go(context),
     );
@@ -108,7 +108,7 @@ class CreateDoctorRoute extends GoRouteData with $CreateDoctorRoute {
   const CreateDoctorRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const CreateDoctorPage();
+    return CreateDoctorPage();
   }
 }
 

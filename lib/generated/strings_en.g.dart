@@ -266,6 +266,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'admin@doctorhunt.com'
 	String get adminAccount => 'admin@doctorhunt.com';
+
+	/// en: 'Please select specialty'
+	String get pleaseSelectSpecialty => 'Please select specialty';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -351,6 +354,7 @@ extension on Translations {
 			'inactive' => 'Inactive',
 			'administrator' => 'Administrator',
 			'adminAccount' => 'admin@doctorhunt.com',
+			'pleaseSelectSpecialty' => 'Please select specialty',
 			_ => null,
 		};
 	}
