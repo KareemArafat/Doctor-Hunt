@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -19,14 +20,19 @@ class HomePageAppBar extends StatelessWidget {
           width: 36,
           child: isMainPage
               ? Center(
-                  child: Container(
-                    height: 32,
-                    width: 32,
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      shape: BoxShape.circle,
+                  child: GestureDetector(
+                    onTap: () => EditAdminProfileRoute().push(context),
+                    child: Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text('A', style: context.bold14White),
+                      ),
                     ),
-                    child: Center(child: Text('A', style: context.bold14White)),
                   ),
                 )
               : GestureDetector(

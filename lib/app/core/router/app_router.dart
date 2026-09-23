@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_admin_profile_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
@@ -100,6 +101,15 @@ class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const AdminHomePage();
+  }
+}
+
+@TypedGoRoute<EditAdminProfileRoute>(path: '/editAdminProfile')
+class EditAdminProfileRoute extends GoRouteData with $EditAdminProfileRoute {
+  const EditAdminProfileRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const EditAdminProfilePage();
   }
 }
 

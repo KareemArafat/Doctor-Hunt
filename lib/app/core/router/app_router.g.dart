@@ -15,6 +15,7 @@ List<RouteBase> get $appRoutes => [
   $signupRoute,
   $loginRoute,
   $adminHomeRoute,
+  $editAdminProfileRoute,
   $createDoctorRoute,
   $editDoctorRoute,
   $doctorDetailsRoute,
@@ -237,6 +238,33 @@ mixin $AdminHomeRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/adminHome');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $editAdminProfileRoute => GoRouteData.$route(
+  path: '/editAdminProfile',
+  hasOverriddenOnExit: false,
+  factory: $EditAdminProfileRoute._fromState,
+);
+
+mixin $EditAdminProfileRoute on GoRouteData {
+  static EditAdminProfileRoute _fromState(GoRouterState state) =>
+      const EditAdminProfileRoute();
+
+  @override
+  String get location => GoRouteData.$location('/editAdminProfile');
 
   @override
   void go(BuildContext context) => context.go(location);
