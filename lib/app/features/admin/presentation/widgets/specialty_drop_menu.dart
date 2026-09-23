@@ -6,10 +6,14 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class SpecialtyDropMenu extends StatelessWidget {
-  new({super.key});
+  const SpecialtyDropMenu({
+    super.key,
+    this.prefixIcon,
+    required this.valueListenable,
+  });
 
-  final List<String> items = ['Male', 'Female'];
-  final valueListenable = ValueNotifier<String?>(null);
+  final Widget? prefixIcon;
+  final ValueNotifier<String> valueListenable;
 
   OutlineInputBorder _border(Color color) => OutlineInputBorder(
     borderRadius: BorderRadius.circular(12),
@@ -22,7 +26,7 @@ class SpecialtyDropMenu extends StatelessWidget {
     return DropdownButtonFormField2<String>(
       valueListenable: valueListenable,
       validator: (value) => value == null ? t.pleaseSelectSpecialty : null,
-      onChanged: (value) => valueListenable.value = value,
+      onChanged: (value) => valueListenable.value = value!,
       hint: Text(t.selectSpecialty, style: context.light16Secondary),
       items: AppConsts.specialties
           .map(
@@ -43,6 +47,7 @@ class SpecialtyDropMenu extends StatelessWidget {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
       ),
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         fillColor: AppColors.white,
         filled: true,
         contentPadding: EdgeInsets.all(16),

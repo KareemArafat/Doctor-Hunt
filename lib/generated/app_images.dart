@@ -2,15 +2,13 @@
 class AppImages {
   AppImages._();
   
-  static const String assetsIconsActive = "assets/icons/active.png";
-
   static const String assetsIconsAddDoctors = "assets/icons/add_doctors.png";
+
+  static const String assetsIconsAddPhoto = "assets/icons/add_photo.png";
 
   static const String assetsIconsAdmin = "assets/icons/admin.png";
 
-  static const String assetsIconsCardiology = "assets/icons/cardiology.png";
-
-  static const String assetsIconsChooseImage = "assets/icons/choose_image.png";
+  static const String assetsIconsChangePhoto = "assets/icons/change_photo.png";
 
   static const String assetsIconsDoctors = "assets/icons/doctors.png";
 
@@ -22,9 +20,13 @@ class AppImages {
 
   static const String assetsIconsPatient = "assets/icons/patient.png";
 
+  static const String assetsIconsProfile = "assets/icons/profile.png";
+
   static const String assetsIconsSearch = "assets/icons/search.png";
 
   static const String assetsIconsSettings = "assets/icons/settings.png";
+
+  static const String assetsIconsSpecialty = "assets/icons/specialty.png";
 
   static const String assetsIconsStatus = "assets/icons/status.png";
 

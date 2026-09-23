@@ -29,7 +29,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
       body: pages[selectedIndex],
       floatingActionButton: selectedIndex == 0
           ? CustomButton(
-              onPressed: () => CreateDoctorRoute().push(context),
+              onPressed: () => EditDoctorRoute().push(context),
               size: Size(120, 40),
               radius: 100,
               child: Row(

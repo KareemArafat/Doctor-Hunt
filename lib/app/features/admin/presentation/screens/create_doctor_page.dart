@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 class CreateDoctorPage extends StatelessWidget {
   new({super.key});
   final _formKey = GlobalKey<FormState>();
+  final ValueNotifier<String> valueListenable = ValueNotifier('select');
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CreateDoctorPage extends StatelessWidget {
             SizedBox(height: 50),
             Center(
               child: Image.asset(
-                AppImages.assetsIconsChooseImage,
+                AppImages.assetsIconsAddPhoto,
                 height: 96,
                 width: 96,
               ),
@@ -41,7 +42,7 @@ class CreateDoctorPage extends StatelessWidget {
             SizedBox(height: 20),
             Text(t.medicalSpecialty, style: context.medium12),
             SizedBox(height: 8),
-            SpecialtyDropMenu(),
+            SpecialtyDropMenu(valueListenable: valueListenable),
             SizedBox(height: 44),
             CustomButton(
               onPressed: () {
