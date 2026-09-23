@@ -8,7 +8,9 @@ class AppImages {
 
   static const String assetsIconsAdmin = "assets/icons/admin.png";
 
-  static const String assetsIconsChangePhoto = "assets/icons/change_photo.png";
+  static const String assetsIconsCamera = "assets/icons/camera.png";
+
+  static const String assetsIconsCheck = "assets/icons/check.png";
 
   static const String assetsIconsDoctors = "assets/icons/doctors.png";
 

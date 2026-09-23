@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -44,9 +45,12 @@ class SettingsViewBody extends StatelessWidget {
           padding: 0,
           child: Column(
             children: [
-              settingsItem(
-                context: context,
-                icon: Icons.manage_accounts,
+              ListItem(
+                prefix: Icon(
+                  Icons.manage_accounts,
+                  size: 20,
+                  color: AppColors.primary,
+                ),
                 title: t.adminProfile,
                 description: t.adminProfileDescription,
               ),
@@ -56,9 +60,12 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              settingsItem(
-                context: context,
-                icon: Icons.lock_reset,
+              ListItem(
+                prefix: Icon(
+                  Icons.lock_reset,
+                  size: 20,
+                  color: AppColors.primary,
+                ),
                 title: t.changePassword,
                 description: t.changePasswordDescription,
               ),
@@ -68,9 +75,12 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              settingsItem(
-                context: context,
-                icon: Icons.info_outlined,
+              ListItem(
+                prefix: Icon(
+                  Icons.info_outlined,
+                  size: 20,
+                  color: AppColors.primary,
+                ),
                 title: t.appInformation,
                 description: t.buildVersion,
                 trailing: Container(
@@ -102,49 +112,6 @@ class SettingsViewBody extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget settingsItem({
-    required BuildContext context,
-    required IconData icon,
-    required String title,
-    required String description,
-    Widget? trailing,
-  }) {
-    return Padding(
-      padding: EdgeInsets.all(16),
-      child: Row(
-        children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-              color: AppColors.iconsBackground,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(icon, size: 20, color: AppColors.primary),
-          ),
-          SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(title, style: context.semiBold14),
-                Text(description, style: context.regular12Secondary),
-              ],
-            ),
-          ),
-          SizedBox(width: 6),
-          trailing ??
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: AppColors.secondary,
-                size: 16,
-              ),
-        ],
-      ),
     );
   }
 }

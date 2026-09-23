@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_doctor_status.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -47,28 +48,9 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
         children: [
           HomePageAppBar(title: t.editDoctor, isMainPage: false),
           SizedBox(height: 50),
-          Center(
-            child: GestureDetector(
-              onTap: () {},
-              child: Stack(
-                children: [
-                  Container(
-                    height: 112,
-                    width: 112,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.white, width: 3),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(AppImages.assetsImagesOnboarding1),
-                  ),
-                  Positioned(
-                    right: -2,
-                    bottom: -6,
-                    child: Image.asset(AppImages.assetsIconsChangePhoto),
-                  ),
-                ],
-              ),
-            ),
+          DoctorImageView(
+            image: AppImages.assetsImagesOnboarding1,
+            imageIcon: AppImages.assetsIconsCamera,
           ),
           SizedBox(height: 10),
           Center(
