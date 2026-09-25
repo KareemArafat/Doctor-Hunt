@@ -25,6 +25,7 @@ class SpecialtyDropMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButtonFormField2<String>(
       valueListenable: valueListenable,
+
       validator: (value) => value == null ? t.pleaseSelectSpecialty : null,
       onChanged: (value) => valueListenable.value = value!,
       hint: Text(t.selectSpecialty, style: context.light16Secondary),

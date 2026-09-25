@@ -269,6 +269,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Please select specialty'
 	String get pleaseSelectSpecialty => 'Please select specialty';
+
+	/// en: 'This field is required'
+	String get thisFieldIsRequired => 'This field is required';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -355,6 +358,7 @@ extension on Translations {
 			'administrator' => 'Administrator',
 			'adminAccount' => 'admin@doctorhunt.com',
 			'pleaseSelectSpecialty' => 'Please select specialty',
+			'thisFieldIsRequired' => 'This field is required',
 			_ => null,
 		};
 	}

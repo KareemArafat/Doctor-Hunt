@@ -10,8 +10,8 @@ class CreateDoctorCubit extends Cubit<CreateDoctorState> {
   final AdminRepo adminRepo = getIt<AdminRepo>();
 
   Future<void> createDoctor({required DoctorModel doctorModel}) async {
+    emit(CreateDoctorLoading());
     final result = await adminRepo.createDoctor(doctorModel: doctorModel);
-
     result.fold(
       (l) => emit(CreateDoctorFailure(errorMessage: l.errorMessage)),
       (r) => emit(CreateDoctorSuccess()),

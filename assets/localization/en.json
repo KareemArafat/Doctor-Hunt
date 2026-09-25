@@ -74,5 +74,6 @@
     "inactive": "Inactive",
     "administrator": "Administrator",
     "adminAccount": "admin@doctorhunt.com",
-    "pleaseSelectSpecialty": "Please select specialty"
+    "pleaseSelectSpecialty": "Please select specialty",
+    "thisFieldIsRequired": "This field is required"
 }

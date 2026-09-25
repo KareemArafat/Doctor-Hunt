@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -43,6 +44,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) =>
+          value == null || value.isEmpty ? t.thisFieldIsRequired : null,
       readOnly: widget.isReadOnly,
       initialValue: widget.text,
       controller: widget.controller,
@@ -66,6 +69,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintStyle: context.light16Secondary,
         fillColor: AppColors.white,
         filled: true,
+        errorStyle: context.light10ErrorItems,
         enabledBorder: _border(AppColors.secondary.withValues(alpha: 0.16)),
         disabledBorder: _border(AppColors.secondary.withValues(alpha: 0.16)),
         focusedBorder: _border(AppColors.activeItems),

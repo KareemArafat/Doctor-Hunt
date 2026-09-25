@@ -21,17 +21,9 @@ class CreateDoctorPage extends StatefulWidget {
 }
 
 class _CreateDoctorPageState extends State<CreateDoctorPage> {
-  late GlobalKey<FormState> formKey;
-  late TextEditingController nameController;
-  late ValueNotifier<String?> specialtyNotifier;
-
-  @override
-  void initState() {
-    formKey = GlobalKey();
-    nameController = TextEditingController();
-    specialtyNotifier = ValueNotifier(null);
-    super.initState();
-  }
+  final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final specialtyNotifier = ValueNotifier<String?>(null);
 
   @override
   void dispose() {
@@ -72,7 +64,7 @@ class _CreateDoctorPageState extends State<CreateDoctorPage> {
               Text(t.medicalSpecialty, style: context.medium12),
               SizedBox(height: 8),
               SpecialtyDropMenu(valueListenable: specialtyNotifier),
-              SizedBox(height: 44),
+              SizedBox(height: 50),
               BlocConsumer<CreateDoctorCubit, CreateDoctorState>(
                 listener: (context, state) {
                   if (state is CreateDoctorSuccess) context.pop();
