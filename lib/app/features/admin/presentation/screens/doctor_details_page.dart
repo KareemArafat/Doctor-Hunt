@@ -30,7 +30,6 @@ class DoctorDetailsPage extends StatelessWidget {
           Text('description', style: context.medium14),
           SizedBox(height: 50),
           ShadowCard(
-            padding: 0,
             child: Column(
               children: [
                 ListItem(

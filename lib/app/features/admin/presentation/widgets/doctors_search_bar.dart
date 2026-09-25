@@ -12,7 +12,6 @@ class DoctorsSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadowCard(
       height: 40,
-      padding: 0,
       child: TextField(
         cursorColor: AppColors.black,
         style: context.regular12,

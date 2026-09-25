@@ -5,18 +5,23 @@ class ShadowCard extends StatelessWidget {
   const new({
     super.key,
     required this.child,
-    required this.padding,
+    this.horizontalPadding,
+    this.verticalPadding,
     this.height,
   });
   final Widget child;
-  final double padding;
+  final double? horizontalPadding;
+  final double? verticalPadding;
   final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      padding: EdgeInsets.all(padding),
+      padding: EdgeInsets.symmetric(
+        horizontal: horizontalPadding ?? 0,
+        vertical: verticalPadding ?? 0,
+      ),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16),

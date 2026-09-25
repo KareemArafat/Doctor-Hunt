@@ -19,7 +19,8 @@ class SettingsViewBody extends StatelessWidget {
         SizedBox(height: 20),
         ShadowCard(
           height: 88,
-          padding: 16,
+          horizontalPadding: 16,
+          verticalPadding: 16,
           child: Row(
             children: [
               Image.asset(
@@ -42,7 +43,6 @@ class SettingsViewBody extends StatelessWidget {
         ),
         SizedBox(height: 24),
         ShadowCard(
-          padding: 0,
           child: Column(
             children: [
               ListItem(

@@ -1,6 +1,6 @@
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -20,7 +20,8 @@ class DoctorsViewBody extends StatelessWidget {
             Expanded(
               child: ShadowCard(
                 height: 75,
-                padding: 12,
+                horizontalPadding: 12,
+                verticalPadding: 12,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -35,7 +36,8 @@ class DoctorsViewBody extends StatelessWidget {
             Expanded(
               child: ShadowCard(
                 height: 75,
-                padding: 12,
+                horizontalPadding: 12,
+                verticalPadding: 12,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -50,7 +52,14 @@ class DoctorsViewBody extends StatelessWidget {
         ),
         SizedBox(height: 8),
         DoctorsSearchBar(),
-        EmptyDoctorsList(),
+        SizedBox(height: 8),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) => DoctorsListItem(),
+          ),
+        ),
+        //  EmptyDoctorsList(),
       ],
     );
   }

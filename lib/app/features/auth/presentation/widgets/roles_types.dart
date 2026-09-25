@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/features/auth/presentation/controller/choose_role_cubit/choose_role_cubit.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/active_role.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/disable_role.dart';
 import 'package:doctor_hunt/generated/app_images.dart';

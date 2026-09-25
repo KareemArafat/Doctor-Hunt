@@ -13,7 +13,7 @@ class SpecialtyDropMenu extends StatelessWidget {
   });
 
   final Widget? prefixIcon;
-  final ValueNotifier<String> valueListenable;
+  final ValueNotifier<String?> valueListenable;
 
   OutlineInputBorder _border(Color color) => OutlineInputBorder(
     borderRadius: BorderRadius.circular(12),

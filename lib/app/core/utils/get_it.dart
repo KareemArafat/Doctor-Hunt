@@ -1,3 +1,6 @@
+import 'package:doctor_hunt/app/features/admin/data/repo/admin_repo.dart';
+import 'package:doctor_hunt/app/features/admin/data/repo/admin_repo_imp.dart';
+import 'package:doctor_hunt/app/features/admin/data/services/firebase_admin_service.dart';
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo.dart';
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo_imp.dart';
 import 'package:doctor_hunt/app/features/auth/data/service/firebase_auth_service.dart';
@@ -7,8 +10,12 @@ final getIt = GetIt.instance;
 
 void setupGetIt() {
   getIt.registerLazySingleton(() => FirebaseAuthService());
+  getIt.registerLazySingleton(() => FirebaseAdminService());
 
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImp(firebaseAuthService: getIt()),
+  );
+  getIt.registerLazySingleton<AdminRepo>(
+    () => AdminRepoImp(firebaseAdminService: getIt()),
   );
 }

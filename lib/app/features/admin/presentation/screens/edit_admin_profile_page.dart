@@ -26,6 +26,12 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
   }
 
   @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: Column(
