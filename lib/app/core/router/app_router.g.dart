@@ -315,23 +315,27 @@ RouteBase get $editDoctorRoute => GoRouteData.$route(
 
 mixin $EditDoctorRoute on GoRouteData {
   static EditDoctorRoute _fromState(GoRouterState state) =>
-      const EditDoctorRoute();
+      EditDoctorRoute($extra: state.extra as DoctorModel);
+
+  EditDoctorRoute get _self => this as EditDoctorRoute;
 
   @override
   String get location => GoRouteData.$location('/editDoctor');
 
   @override
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
   @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: _self.$extra);
 
   @override
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
 }
 
 RouteBase get $doctorDetailsRoute => GoRouteData.$route(
@@ -342,23 +346,27 @@ RouteBase get $doctorDetailsRoute => GoRouteData.$route(
 
 mixin $DoctorDetailsRoute on GoRouteData {
   static DoctorDetailsRoute _fromState(GoRouterState state) =>
-      const DoctorDetailsRoute();
+      DoctorDetailsRoute($extra: state.extra as DoctorModel);
+
+  DoctorDetailsRoute get _self => this as DoctorDetailsRoute;
 
   @override
   String get location => GoRouteData.$location('/doctorDetails');
 
   @override
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
   @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: _self.$extra);
 
   @override
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
 }
 
 RouteBase get $homeRoute => GoRouteData.$route(

@@ -1,6 +1,8 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
@@ -11,7 +13,8 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDetailsPage extends StatelessWidget {
-  const new({super.key});
+  const new({super.key, required this.doctorModel});
+  final DoctorModel doctorModel;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,7 @@ class DoctorDetailsPage extends StatelessWidget {
             imageIcon: AppImages.assetsIconsCheck,
           ),
           SizedBox(height: 12),
-          Text('kareem', style: context.bold24),
-          Text('description', style: context.medium14),
+          Text(doctorModel.name, style: context.bold24),
           SizedBox(height: 50),
           ShadowCard(
             child: Column(
@@ -38,7 +40,7 @@ class DoctorDetailsPage extends StatelessWidget {
                     color: AppColors.primary,
                   ),
                   title: t.specialty,
-                  description: 'description',
+                  description: doctorModel.specialty,
                   trailing: SizedBox(),
                 ),
                 Divider(
@@ -50,7 +52,7 @@ class DoctorDetailsPage extends StatelessWidget {
                 ListItem(
                   prefix: Image.asset(AppImages.assetsIconsStatus),
                   title: t.accountStatus,
-                  description: 'description',
+                  description: doctorModel.status,
                   trailing: SizedBox(),
                 ),
               ],
@@ -58,7 +60,7 @@ class DoctorDetailsPage extends StatelessWidget {
           ),
           SizedBox(height: 50),
           CustomButton(
-            onPressed: () {},
+            onPressed: () => EditDoctorRoute($extra: doctorModel).push(context),
             size: Size(350, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

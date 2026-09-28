@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
@@ -124,19 +125,22 @@ class CreateDoctorRoute extends GoRouteData with $CreateDoctorRoute {
 
 @TypedGoRoute<EditDoctorRoute>(path: '/editDoctor')
 class EditDoctorRoute extends GoRouteData with $EditDoctorRoute {
-  const EditDoctorRoute();
+  const EditDoctorRoute({required this.$extra});
+  final DoctorModel $extra;
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const EditDoctorPage();
+    return EditDoctorPage(doctorModel: $extra);
   }
 }
 
 @TypedGoRoute<DoctorDetailsRoute>(path: '/doctorDetails')
 class DoctorDetailsRoute extends GoRouteData with $DoctorDetailsRoute {
-  const DoctorDetailsRoute();
+  const DoctorDetailsRoute({required this.$extra});
+  final DoctorModel $extra;
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const DoctorDetailsPage();
+    return DoctorDetailsPage(doctorModel: $extra);
   }
 }
 
