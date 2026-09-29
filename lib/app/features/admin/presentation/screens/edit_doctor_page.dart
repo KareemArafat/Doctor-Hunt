@@ -127,13 +127,16 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
                             ),
                     ),
                     Center(
-                      child: CustomTextButton(
-                        onPressed: () => context
-                            .read<EditDoctorCubit>()
-                            .deleteDoctor(id: widget.doctorModel.id!),
-                        child: state is DeleteDoctorLoading
-                            ? CustomLoadingWidget(size: -2)
-                            : Row(
+                      child: state is DeleteDoctorLoading
+                          ? CustomLoadingWidget(
+                              size: -2,
+                              color: AppColors.primary,
+                            )
+                          : CustomTextButton(
+                              onPressed: () => context
+                                  .read<EditDoctorCubit>()
+                                  .deleteDoctor(id: widget.doctorModel.id!),
+                              child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Icon(
@@ -148,7 +151,7 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
                                   ),
                                 ],
                               ),
-                      ),
+                            ),
                     ),
                   ],
                 );

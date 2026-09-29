@@ -8,7 +8,6 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      //  style: TextButton.styleFrom(foregroundColor: AppColors.secondary),
       onPressed: onPressed,
       child: child,
     );

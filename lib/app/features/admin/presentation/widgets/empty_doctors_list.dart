@@ -8,21 +8,19 @@ class EmptyDoctorsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(AppImages.assetsIconsAddDoctors, height: 80, width: 80),
-          SizedBox(height: 20),
-          Text(t.noDoctorsFound, style: context.bold16),
-          SizedBox(height: 8),
-          Text(
-            t.noDoctorsFoundDescription,
-            style: context.regular12Secondary,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(AppImages.assetsIconsAddDoctors, height: 80, width: 80),
+        SizedBox(height: 20),
+        Text(t.noDoctorsFound, style: context.bold16),
+        SizedBox(height: 8),
+        Text(
+          t.noDoctorsFoundDescription,
+          style: context.regular12Secondary,
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
