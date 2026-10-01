@@ -1,82 +1,78 @@
-﻿// import 'package:flutter/material.dart';
-// import 'package:hrzz/app/core/extensions/context_extensions.dart';
-// import 'package:hrzz/generated/my_icons.dart';
-// import '../../../generated/translations.g.dart';
-// import '../enums/internet_status.dart';
-// import '../enums/snack_bar.dart';
-// import '../services/internet_connection_service.dart';
-// import '../themes/app_colors.dart';
-// import '../utils/show_message.dart';
-// import '../widgets/animated_snackbar.dart';
-// enum SnackBarStatus { success, error, warning }
+﻿import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:flutter/material.dart';
 
-// extension CustomSnackBar on BuildContext {
-//   Color getSnackBarColor(SnackBarStatus snackBarStatus) {
-//     late Color bgColor;
-//     if (snackBarStatus == SnackBarStatus.success) {
-//       bgColor = AppColors.success;
-//     } else if (snackBarStatus == SnackBarStatus.error) {
-//       bgColor = AppColors.danger;
-//     } else {
-//       bgColor = AppColors.warning;
-//     }
-//     return bgColor;
-//   }
+enum SnackBarStatus { success, error, warning }
 
-//   Color getSnackBarLightColor(SnackBarStatus snackBarStatus) {
-//     late Color lightBgColor;
-//     if (snackBarStatus == SnackBarStatus.success) {
-//       lightBgColor = AppColors.successLight;
-//     } else if (snackBarStatus == SnackBarStatus.error) {
-//       lightBgColor = AppColors.danger;
-//     } else {
-//       lightBgColor = AppColors.warningLight;
-//     }
-//     return lightBgColor;
-//   }
+extension CustomSnackBar on BuildContext {
+  Color getSnackBarColor(SnackBarStatus snackBarStatus) {
+    late Color bgColor;
 
-//   IconData getIcons(SnackBarStatus status) {
-//     late IconData icon;
-//     if (status == SnackBarStatus.success) {
-//       icon = MyIcons.tickCircleBold;
-//     } else if (status == SnackBarStatus.error) {
-//       icon = MyIcons.dangerBold;
-//     } else {
-//       icon = MyIcons.warning2Bold;
-//     }
-//     return icon;
-//   }
+    if (snackBarStatus == SnackBarStatus.success) {
+      bgColor = AppColors.primary;
+    } else if (snackBarStatus == SnackBarStatus.error) {
+      bgColor = AppColors.errorItems;
+    } else {
+      bgColor = AppColors.secondary;
+    }
+    return bgColor;
+  }
 
-//   Future<void> showCustomSnackBar({
-//     required String message,
-//     String desc = '',
-//     SnackBarStatus snackBarStatus = SnackBarStatus.error,
-//   }) {
-//     final Color bgColor = getSnackBarColor(snackBarStatus);
-//     ScaffoldMessenger.of(this).clearSnackBars();
-//     ScaffoldMessenger.of(this).showSnackBar(
-//       SnackBar(
-//         width: currContext.width,
-//         behavior: SnackBarBehavior.floating,
-//         duration: const Duration(seconds: 2),
-//         backgroundColor: Colors.transparent,
-//         elevation: 0,
-//         content: AnimatedSnackBar(
-//           borderColor: bgColor,
-//           iconData: getIcons(snackBarStatus),
-//           iconColor: bgColor,
-//           message: message,
-//           desc: desc,
-//           messageColor: AppColors.textMain,
-//           animatedColor: bgColor,
-//           lightAnimatedColor: getSnackBarLightColor(snackBarStatus),
-//           verticalColor: bgColor,
-//         ),
-//       ),
-//     );
-//     return Future.value();
-//   }
-// }
+  // Color getSnackBarLightColor(SnackBarStatus snackBarStatus) {
+  //   late Color lightBgColor;
+  //   if (snackBarStatus == SnackBarStatus.success) {
+  //     lightBgColor = Colors.green.shade200;
+  //   } else if (snackBarStatus == SnackBarStatus.error) {
+  //     lightBgColor = Colors.red.shade200;
+  //   } else {
+  //     lightBgColor = Colors.orange.shade200;
+  //   }
+  //   return lightBgColor;
+  // }
+
+  IconData getIcons(SnackBarStatus status) {
+    late IconData icon;
+    if (status == SnackBarStatus.success) {
+      icon = Icons.check;
+    } else if (status == SnackBarStatus.error) {
+      icon = Icons.error_outline;
+    } else {
+      icon = Icons.warning;
+    }
+    return icon;
+  }
+
+  Future<void> showCustomSnackBar({
+    required String message,
+    SnackBarStatus snackBarStatus = SnackBarStatus.error,
+  }) {
+    final Color bgColor = getSnackBarColor(snackBarStatus);
+    ScaffoldMessenger.of(this).clearSnackBars();
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+        backgroundColor: AppColors.transparent,
+        duration: const Duration(seconds: 3),
+        elevation: 0,
+        content: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Icon(getIcons(snackBarStatus), color: AppColors.white),
+              SizedBox(width: 10),
+              Text(message, style: semiBold14White),
+            ],
+          ),
+        ),
+      ),
+    );
+    return Future.value();
+  }
+}
 
 // extension InternetSnackBar on BuildContext {
 //   void initInternetListeners() {
@@ -94,11 +90,11 @@
 //   Color getSnackBarColor(SnackBarStatus snackBarStatus) {
 //     late Color bgColor;
 //     if (snackBarStatus == SnackBarStatus.success) {
-//       bgColor = AppColors.success;
+//       bgColor = Colors.green;
 //     } else if (snackBarStatus == SnackBarStatus.error) {
-//       bgColor = AppColors.danger;
+//       bgColor = Colors.red;
 //     } else {
-//       bgColor = AppColors.warning;
+//       bgColor = Colors.orange;
 //     }
 //     return bgColor;
 //   }
@@ -112,7 +108,7 @@
 //       showCloseIcon: true,
 //       closeIconColor: AppColors.white,
 //       content: Text(
-//         tr.disconnected,
+//         'disconnected',
 //         style: const TextStyle(
 //           fontSize: 14.0,
 //           color: AppColors.white,
@@ -132,7 +128,7 @@
 //         behavior: SnackBarBehavior.floating,
 //         backgroundColor: bgColor,
 //         content: Text(
-//           tr.connected,
+//           'connected',
 //           style: const TextStyle(
 //             fontSize: 14.0,
 //             color: AppColors.white,
@@ -151,7 +147,7 @@
 //         behavior: SnackBarBehavior.floating,
 //         backgroundColor: bgColor,
 //         content: Text(
-//           tr.internetWeak,
+//           'internetWeak',
 //           style: const TextStyle(
 //             fontSize: 14.0,
 //             color: AppColors.white,
