@@ -17,6 +17,7 @@ class EditAdminProfilePage extends StatefulWidget {
 }
 
 class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
+  final GlobalKey<FormState> formKey = GlobalKey();
   late TextEditingController nameController;
 
   @override
@@ -34,52 +35,56 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          HomePageAppBar(title: t.editProfile, isMainPage: false),
-          SizedBox(height: 50),
-          DoctorImageView(
-            image: AppImages.assetsImagesOnboarding1,
-            imageIcon: AppImages.assetsIconsCamera,
-          ),
-          SizedBox(height: 10),
-          Center(
-            child: Text(t.tapPhotoToChange, style: context.medium12Primary),
-          ),
-          SizedBox(height: 30),
-          Text(t.fullName, style: context.medium12),
-          SizedBox(height: 8),
-          CustomTextField(
-            controller: nameController,
-            prefixIcon: Image.asset(
-              AppImages.assetsIconsProfile,
-              color: AppColors.primary,
+      body: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            HomePageAppBar(title: t.editProfile, isMainPage: false),
+            SizedBox(height: 50),
+            DoctorImageView(
+              image: AppImages.assetsImagesOnboarding1,
+              imageIcon: AppImages.assetsIconsCamera,
             ),
-          ),
-          SizedBox(height: 20),
-          Text(t.emailAddress, style: context.medium12),
-          SizedBox(height: 8),
-          CustomTextField(
-            isReadOnly: true,
-            text: 'example@gmail.com',
-            prefixIcon: Icon(Icons.email, color: AppColors.primary),
-          ),
-          Spacer(),
-          CustomButton(
-            onPressed: () {},
-            size: Size(350, 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.check, size: 20),
-                SizedBox(width: 8),
-                Text(t.saveChanges, style: context.semiBold14White),
-              ],
+            SizedBox(height: 10),
+            Center(
+              child: Text(t.tapPhotoToChange, style: context.medium12Primary),
             ),
-          ),
-          SizedBox(height: 60),
-        ],
+            SizedBox(height: 30),
+            Text(t.fullName, style: context.medium12),
+            SizedBox(height: 8),
+            CustomTextField(
+              controller: nameController,
+              prefixIcon: Image.asset(
+                AppImages.assetsIconsProfile,
+                color: AppColors.primary,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(t.emailAddress, style: context.medium12),
+            SizedBox(height: 8),
+            CustomTextField(
+              isReadOnly: true,
+              text: 'example@gmail.com',
+              prefixIcon: Icon(Icons.email, color: AppColors.primary),
+            ),
+            SizedBox(height: 50),
+            CustomButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {}
+              },
+              size: Size(350, 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.check, size: 20),
+                  SizedBox(width: 8),
+                  Text(t.saveChanges, style: context.semiBold14White),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -272,6 +272,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'This field is required'
 	String get thisFieldIsRequired => 'This field is required';
+
+	/// en: 'Doctor added successfully!'
+	String get doctorAddedSuccessfully => 'Doctor added successfully!';
+
+	/// en: 'Doctor edited successfully!'
+	String get doctorEditedSuccessfully => 'Doctor edited successfully!';
+
+	/// en: 'Doctor deleted successfully!'
+	String get doctorDeletedSuccessfully => 'Doctor deleted successfully!';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -359,6 +368,9 @@ extension on Translations {
 			'adminAccount' => 'admin@doctorhunt.com',
 			'pleaseSelectSpecialty' => 'Please select specialty',
 			'thisFieldIsRequired' => 'This field is required',
+			'doctorAddedSuccessfully' => 'Doctor added successfully!',
+			'doctorEditedSuccessfully' => 'Doctor edited successfully!',
+			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
 			_ => null,
 		};
 	}

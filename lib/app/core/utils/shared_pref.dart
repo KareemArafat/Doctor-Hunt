@@ -20,4 +20,14 @@ abstract class SharedPref {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('name') ?? '';
   }
+
+  static Future<void> setEmail(String email) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
+  }
+
+  static Future<String> getEmail() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email') ?? '';
+  }
 }

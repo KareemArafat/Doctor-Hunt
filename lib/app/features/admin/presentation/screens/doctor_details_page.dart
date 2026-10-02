@@ -29,7 +29,11 @@ class DoctorDetailsPage extends StatelessWidget {
             imageIcon: AppImages.assetsIconsCheck,
           ),
           SizedBox(height: 12),
-          Text(doctorModel.name, style: context.bold24),
+          Text(
+            doctorModel.name,
+            style: context.bold24,
+            textAlign: TextAlign.center,
+          ),
           SizedBox(height: 50),
           ShadowCard(
             child: Column(
@@ -61,7 +65,6 @@ class DoctorDetailsPage extends StatelessWidget {
           SizedBox(height: 50),
           CustomButton(
             onPressed: () => EditDoctorRoute($extra: doctorModel).push(context),
-            size: Size(350, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

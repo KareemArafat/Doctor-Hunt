@@ -75,5 +75,8 @@
     "administrator": "Administrator",
     "adminAccount": "admin@doctorhunt.com",
     "pleaseSelectSpecialty": "Please select specialty",
-    "thisFieldIsRequired": "This field is required"
+    "thisFieldIsRequired": "This field is required",
+    "doctorAddedSuccessfully": "Doctor added successfully!",
+    "doctorEditedSuccessfully": "Doctor edited successfully!",
+    "doctorDeletedSuccessfully": "Doctor deleted successfully!"
 }

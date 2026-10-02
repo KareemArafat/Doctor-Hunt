@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class DoctorsListItem extends StatelessWidget {
@@ -33,30 +34,51 @@ class DoctorsListItem extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(doctorModel.name, style: context.bold14),
-                  Text(
-                    doctorModel.specialty,
-                    style: context.regular11Secondary,
-                  ),
-                  SizedBox(height: 2),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: AppColors.iconsBackground,
-                      borderRadius: BorderRadius.circular(12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      doctorModel.name,
+                      style: context.bold14,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.circle, size: 8, color: AppColors.primary),
-                        SizedBox(width: 4),
-                        Text(doctorModel.status, style: context.bold11Primary),
-                      ],
+                    Text(
+                      doctorModel.specialty,
+                      style: context.regular11Secondary,
                     ),
-                  ),
-                ],
+                    SizedBox(height: 2),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: doctorModel.status == t.active
+                            ? AppColors.iconsBackground
+                            : AppColors.errorItems,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            size: 8,
+                            color: doctorModel.status == t.active
+                                ? AppColors.primary
+                                : AppColors.errorItems,
+                          ),
+                          SizedBox(width: 4),
+                          Text(
+                            doctorModel.status,
+                            style: doctorModel.status == t.active
+                                ? context.bold11Primary
+                                : context.bold11ErrorItems,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

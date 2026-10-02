@@ -15,26 +15,8 @@ class LoginCubit extends Cubit<LoginState> {
 
     result.fold((l) => emit(LoginFailure(errorMessage: l.errorMessage)), (r) {
       SharedPref.setName(r.user?.displayName ?? '');
+      SharedPref.setEmail(r.user?.email ?? '');
       emit(LoginSuccess());
     });
-  }
-
-  Future<void> signup({
-    required String name,
-    required String email,
-    required String password,
-  }) async {
-    emit(LoginLoading());
-
-    final result = await authRepo.signup(
-      name: name,
-      email: email,
-      password: password,
-    );
-
-    result.fold(
-      (l) => emit(LoginFailure(errorMessage: l.errorMessage)),
-      (r) => emit(LoginSuccess()),
-    );
   }
 }

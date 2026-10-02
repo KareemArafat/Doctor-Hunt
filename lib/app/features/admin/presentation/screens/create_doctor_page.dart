@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
@@ -70,6 +71,10 @@ class _CreateDoctorPageState extends State<CreateDoctorPage> {
                 listener: (context, state) async {
                   if (state is CreateDoctorSuccess) {
                     context.pop();
+                    context.showCustomSnackBar(
+                      message: t.doctorAddedSuccessfully,
+                      status: SnackBarStatus.success,
+                    );
                     await context.read<AllDoctorsCubit>().getAllDoctors();
                   }
                 },
@@ -86,7 +91,6 @@ class _CreateDoctorPageState extends State<CreateDoctorPage> {
                         );
                       }
                     },
-                    size: Size(350, 50),
                     child: state is CreateDoctorLoading
                         ? CustomLoadingWidget(size: -2)
                         : Text(t.createDoctor, style: context.semiBold16White),

@@ -56,14 +56,22 @@ class _AdminHomePageState extends State<AdminHomePage> {
             selectedFontSize: 0,
             items: [
               BottomNavigationBarItem(
-                icon: barItem(context: context, index: 0),
+                icon: bottomBarItem(context: context, index: 0),
                 label: '',
-                activeIcon: barItem(context: context, index: 0, isActive: true),
+                activeIcon: bottomBarItem(
+                  context: context,
+                  index: 0,
+                  isActive: true,
+                ),
               ),
               BottomNavigationBarItem(
-                icon: barItem(context: context, index: 1),
+                icon: bottomBarItem(context: context, index: 1),
                 label: '',
-                activeIcon: barItem(context: context, index: 1, isActive: true),
+                activeIcon: bottomBarItem(
+                  context: context,
+                  index: 1,
+                  isActive: true,
+                ),
               ),
             ],
           ),
@@ -72,7 +80,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
     );
   }
 
-  Widget barItem({
+  Widget bottomBarItem({
     required BuildContext context,
     required int index,
     bool isActive = false,

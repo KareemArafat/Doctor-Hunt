@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
@@ -27,6 +28,7 @@ class EditDoctorPage extends StatefulWidget {
 }
 
 class _EditDoctorPageState extends State<EditDoctorPage> {
+  final GlobalKey<FormState> formKey = GlobalKey();
   late TextEditingController nameController;
   late TextEditingController statusController;
   late ValueNotifier<String> specialtyNotifier;
@@ -52,112 +54,134 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
     return BlocProvider(
       create: (context) => EditDoctorCubit(),
       child: CustomScaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HomePageAppBar(title: t.editDoctor, isMainPage: false),
-            SizedBox(height: 50),
-            DoctorImageView(
-              image: AppImages.assetsImagesOnboarding1,
-              imageIcon: AppImages.assetsIconsCamera,
-            ),
-            SizedBox(height: 10),
-            Center(
-              child: Text(t.tapPhotoToChange, style: context.medium12Primary),
-            ),
-            SizedBox(height: 30),
-            Text(t.doctorName, style: context.medium12),
-            SizedBox(height: 8),
-            CustomTextField(
-              controller: nameController,
-              prefixIcon: Image.asset(
-                AppImages.assetsIconsProfile,
-                color: AppColors.primary,
+        body: Form(
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HomePageAppBar(title: t.editDoctor, isMainPage: false),
+              SizedBox(height: 50),
+              DoctorImageView(
+                image: AppImages.assetsImagesOnboarding1,
+                imageIcon: AppImages.assetsIconsCamera,
               ),
-            ),
-            SizedBox(height: 20),
-            Text(t.medicalSpecialty, style: context.medium12),
-            SizedBox(height: 8),
-            SpecialtyDropMenu(
-              valueListenable: specialtyNotifier,
-              prefixIcon: Image.asset(
-                AppImages.assetsIconsSpecialty,
-                color: AppColors.primary,
+              SizedBox(height: 10),
+              Center(
+                child: Text(t.tapPhotoToChange, style: context.medium12Primary),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(t.doctorStatus, style: context.medium12),
-            SizedBox(height: 8),
-            ChangeDoctorStatus(statusController: statusController),
-            SizedBox(height: 50),
-            BlocConsumer<EditDoctorCubit, EditDoctorState>(
-              listener: (context, state) async {
-                if (state is EditDoctorSuccess ||
-                    state is DeleteDoctorSuccess) {
-                  AdminHomeRoute().go(context);
-                  await context.read<AllDoctorsCubit>().getAllDoctors();
-                }
-              },
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    CustomButton(
-                      onPressed: () =>
-                          context.read<EditDoctorCubit>().editDoctor(
-                            doctorModel: DoctorModel(
-                              id: widget.doctorModel.id,
-                              name: nameController.text,
-                              specialty: specialtyNotifier.value,
-                              status: statusController.text,
-                            ),
-                          ),
-                      size: Size(350, 50),
-                      child: state is EditDoctorLoading
-                          ? CustomLoadingWidget(size: -2)
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.check, size: 20),
-                                SizedBox(width: 8),
-                                Text(
-                                  t.saveChanges,
-                                  style: context.semiBold14White,
-                                ),
-                              ],
-                            ),
-                    ),
-                    Center(
-                      child: state is DeleteDoctorLoading
-                          ? CustomLoadingWidget(
-                              size: -2,
-                              color: AppColors.primary,
-                            )
-                          : CustomTextButton(
-                              onPressed: () => context
-                                  .read<EditDoctorCubit>()
-                                  .deleteDoctor(id: widget.doctorModel.id!),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
+              SizedBox(height: 30),
+              Text(t.doctorName, style: context.medium12),
+              SizedBox(height: 8),
+              CustomTextField(
+                controller: nameController,
+                prefixIcon: Image.asset(
+                  AppImages.assetsIconsProfile,
+                  color: AppColors.primary,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(t.medicalSpecialty, style: context.medium12),
+              SizedBox(height: 8),
+              SpecialtyDropMenu(
+                valueListenable: specialtyNotifier,
+                prefixIcon: Image.asset(
+                  AppImages.assetsIconsSpecialty,
+                  color: AppColors.primary,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(t.doctorStatus, style: context.medium12),
+              SizedBox(height: 8),
+              ChangeDoctorStatus(statusController: statusController),
+              SizedBox(height: 50),
+              BlocConsumer<EditDoctorCubit, EditDoctorState>(
+                listener: (context, state) async {
+                  if (state is EditDoctorSuccess) {
+                    AdminHomeRoute().go(context);
+                    context.showCustomSnackBar(
+                      message: t.doctorEditedSuccessfully,
+                      status: SnackBarStatus.success,
+                    );
+                    await context.read<AllDoctorsCubit>().getAllDoctors();
+                  } else if (state is DeleteDoctorSuccess) {
+                    AdminHomeRoute().go(context);
+                    context.showCustomSnackBar(
+                      message: t.doctorDeletedSuccessfully,
+                      status: SnackBarStatus.success,
+                    );
+                    await context.read<AllDoctorsCubit>().getAllDoctors();
+                  } else if (state is EditDoctorFailure) {
+                    context.showCustomSnackBar(message: state.errorMessage);
+                  } else if (state is DeleteDoctorFailure) {
+                    context.showCustomSnackBar(message: state.errorMessage);
+                  }
+                },
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      CustomButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            context.read<EditDoctorCubit>().editDoctor(
+                              doctorModel: DoctorModel(
+                                id: widget.doctorModel.id,
+                                name: nameController.text,
+                                specialty: specialtyNotifier.value,
+                                status: statusController.text,
+                              ),
+                            );
+                          }
+                        },
+                        child: state is EditDoctorLoading
+                            ? CustomLoadingWidget(size: -2)
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
-                                    Icons.delete,
-                                    size: 18,
-                                    color: AppColors.errorItems,
-                                  ),
+                                  Icon(Icons.check, size: 20),
                                   SizedBox(width: 8),
                                   Text(
-                                    t.deleteDoctor,
-                                    style: context.semiBold12ErrorItems,
+                                    t.saveChanges,
+                                    style: context.semiBold14White,
                                   ),
                                 ],
                               ),
-                            ),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ],
+                      ),
+                      Center(
+                        child: state is DeleteDoctorLoading
+                            ? Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: CustomLoadingWidget(
+                                  size: -2,
+                                  color: AppColors.primary,
+                                ),
+                              )
+                            : CustomTextButton(
+                                onPressed: () => context
+                                    .read<EditDoctorCubit>()
+                                    .deleteDoctor(id: widget.doctorModel.id!),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.delete,
+                                      size: 18,
+                                      color: AppColors.errorItems,
+                                    ),
+                                    SizedBox(width: 8),
+                                    Text(
+                                      t.deleteDoctor,
+                                      style: context.semiBold12ErrorItems,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

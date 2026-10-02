@@ -5,72 +5,66 @@ import 'package:flutter/material.dart';
 enum SnackBarStatus { success, error, warning }
 
 extension CustomSnackBar on BuildContext {
-  Color getSnackBarColor(SnackBarStatus snackBarStatus) {
-    late Color bgColor;
-
-    if (snackBarStatus == SnackBarStatus.success) {
-      bgColor = AppColors.primary;
-    } else if (snackBarStatus == SnackBarStatus.error) {
-      bgColor = AppColors.errorItems;
-    } else {
-      bgColor = AppColors.secondary;
+  Color _getColor(SnackBarStatus status) {
+    late Color color;
+    switch (status) {
+      case SnackBarStatus.success:
+        color = AppColors.primary;
+      case SnackBarStatus.error:
+        color = AppColors.errorItems;
+      case SnackBarStatus.warning:
+        color = AppColors.secondary;
     }
-    return bgColor;
+    return color;
   }
 
-  // Color getSnackBarLightColor(SnackBarStatus snackBarStatus) {
-  //   late Color lightBgColor;
-  //   if (snackBarStatus == SnackBarStatus.success) {
-  //     lightBgColor = Colors.green.shade200;
-  //   } else if (snackBarStatus == SnackBarStatus.error) {
-  //     lightBgColor = Colors.red.shade200;
-  //   } else {
-  //     lightBgColor = Colors.orange.shade200;
-  //   }
-  //   return lightBgColor;
-  // }
-
-  IconData getIcons(SnackBarStatus status) {
+  IconData _getIcons(SnackBarStatus status) {
     late IconData icon;
-    if (status == SnackBarStatus.success) {
-      icon = Icons.check;
-    } else if (status == SnackBarStatus.error) {
-      icon = Icons.error_outline;
-    } else {
-      icon = Icons.warning;
+    switch (status) {
+      case SnackBarStatus.success:
+        icon = Icons.check;
+      case SnackBarStatus.error:
+        icon = Icons.error_outline;
+      case SnackBarStatus.warning:
+        icon = Icons.warning;
     }
     return icon;
   }
 
-  Future<void> showCustomSnackBar({
+  void showCustomSnackBar({
     required String message,
-    SnackBarStatus snackBarStatus = SnackBarStatus.error,
+    SnackBarStatus status = SnackBarStatus.success,
   }) {
-    final Color bgColor = getSnackBarColor(snackBarStatus);
     ScaffoldMessenger.of(this).clearSnackBars();
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
         backgroundColor: AppColors.transparent,
-        duration: const Duration(seconds: 3),
+        duration: const Duration(seconds: 2),
         elevation: 0,
         content: Container(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
-            color: bgColor,
             borderRadius: BorderRadius.circular(12),
+            color: _getColor(status),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.secondary,
+                offset: Offset(4, 4),
+                blurRadius: 5,
+              ),
+            ],
           ),
           child: Row(
             children: [
-              Icon(getIcons(snackBarStatus), color: AppColors.white),
+              Icon(_getIcons(status), color: AppColors.white, size: 20),
               SizedBox(width: 10),
-              Text(message, style: semiBold14White),
+              Flexible(child: Text(message, style: semiBold14White)),
             ],
           ),
         ),
       ),
     );
-    return Future.value();
   }
 }
 
