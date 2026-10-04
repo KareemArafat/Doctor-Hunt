@@ -13,7 +13,7 @@ class DoctorModel {
     required this.status,
   });
 
-  factory DoctorModel.fromFireBase(Map<String, dynamic> data, String id) {
+  factory DoctorModel.fromFirebase(Map<String, dynamic> data, String id) {
     return DoctorModel(
       id: id,
       photo: data['photo'],
@@ -23,7 +23,7 @@ class DoctorModel {
     );
   }
 
-  Map<String, dynamic> toFireBase() {
+  Map<String, dynamic> toFirebase() {
     return {
       'name': name,
       'specialty': specialty,

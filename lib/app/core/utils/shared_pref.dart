@@ -1,4 +1,7 @@
-﻿import 'package:shared_preferences/shared_preferences.dart';
+﻿import 'dart:convert';
+
+import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class SharedPref {
   static Future<void> setIsAdmin(bool isAdmin) async {
@@ -11,23 +14,16 @@ abstract class SharedPref {
     return prefs.getBool('isAdmin') ?? false;
   }
 
-  static Future<void> setName(String name) async {
+  static Future<void> setUserModel(UserModel user) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('name', name);
+    await prefs.setString('user', jsonEncode(user.toJson()));
   }
 
-  static Future<String> getName() async {
+  static Future<UserModel> getUserModel() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('name') ?? '';
-  }
-
-  static Future<void> setEmail(String email) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('email', email);
-  }
-
-  static Future<String> getEmail() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('email') ?? '';
+    final Map<String, dynamic> userMap = jsonDecode(
+      prefs.getString('user') ?? '',
+    );
+    return UserModel.fromJson(userMap);
   }
 }

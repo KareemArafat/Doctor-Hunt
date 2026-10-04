@@ -25,6 +25,7 @@ class HomePageAppBar extends StatelessWidget {
                     child: Container(
                       height: 32,
                       width: 32,
+                      
                       decoration: BoxDecoration(
                         color: AppColors.primary,
                         shape: BoxShape.circle,

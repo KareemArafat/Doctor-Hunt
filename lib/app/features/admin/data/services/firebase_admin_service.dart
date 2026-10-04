@@ -5,7 +5,7 @@ class FirebaseAdminService {
   Future<List<DoctorModel>> getAllDoctors() async {
     final result = await FirebaseFirestore.instance.collection('doctors').get();
     final doctors = result.docs.map((doc) {
-      return DoctorModel.fromFireBase(doc.data(), doc.id);
+      return DoctorModel.fromFirebase(doc.data(), doc.id);
     }).toList();
     return doctors;
   }
@@ -13,14 +13,14 @@ class FirebaseAdminService {
   Future<void> createDoctor({required DoctorModel doctorModel}) async {
     await FirebaseFirestore.instance
         .collection('doctors')
-        .add(doctorModel.toFireBase());
+        .add(doctorModel.toFirebase());
   }
 
   Future<void> editDoctor({required DoctorModel doctorModel}) async {
     await FirebaseFirestore.instance
         .collection('doctors')
         .doc(doctorModel.id)
-        .update(doctorModel.toFireBase());
+        .update(doctorModel.toFirebase());
   }
 
   Future<void> deleteDoctor({required String id}) async {

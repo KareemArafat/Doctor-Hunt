@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/app/core/utils/errors.dart';
+import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo.dart';
 import 'package:doctor_hunt/app/features/auth/data/service/firebase_auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,18 +10,18 @@ class AuthRepoImp extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
 
   @override
-  Future<Either<Errors, UserCredential>> signup({
+  Future<Either<Errors, void>> signup({
     required String name,
     required String email,
     required String password,
   }) async {
     try {
-      final result = await firebaseAuthService.signup(
+      await firebaseAuthService.signup(
         name: name,
         email: email,
         password: password,
       );
-      return right(result);
+      return right(null);
     } on FirebaseAuthException catch (e) {
       return left(Errors(errorMessage: e.code));
     } catch (e) {
@@ -29,7 +30,7 @@ class AuthRepoImp extends AuthRepo {
   }
 
   @override
-  Future<Either<Errors, UserCredential>> login({
+  Future<Either<Errors, UserModel>> login({
     required String email,
     required String password,
   }) async {
@@ -39,10 +40,7 @@ class AuthRepoImp extends AuthRepo {
         password: password,
       );
 
-      final isSameRuleType = await firebaseAuthService.roleTypeCheck(
-        user: result,
-      );
-      if (!isSameRuleType) return left(Errors(errorMessage: 'Error type'));
+      if (!result.isAdmin) return left(Errors(errorMessage: 'Error type'));
       return right(result);
     } on FirebaseAuthException catch (e) {
       return left(Errors(errorMessage: e.code));
