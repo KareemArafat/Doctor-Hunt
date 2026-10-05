@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
@@ -7,12 +8,15 @@ import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SettingsViewBody extends StatelessWidget {
   const new({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userModel = context.read<UserModelCubit>().userModel;
+
     return Column(
       children: [
         HomePageAppBar(title: t.settings),
@@ -33,9 +37,9 @@ class SettingsViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(t.administrator, style: context.bold16),
+                  Text(userModel.name, style: context.bold16),
                   SizedBox(height: 2),
-                  Text(t.adminAccount, style: context.regular12Secondary),
+                  Text(userModel.email, style: context.regular12Secondary),
                 ],
               ),
             ],

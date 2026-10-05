@@ -2,12 +2,14 @@ import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_view_body.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/settings_view_body.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdminHomePage extends StatefulWidget {
   const new({super.key});
@@ -18,8 +20,13 @@ class AdminHomePage extends StatefulWidget {
 
 class _AdminHomePageState extends State<AdminHomePage> {
   int selectedIndex = 0;
-
   final List<Widget> pages = const [DoctorsViewBody(), SettingsViewBody()];
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserModelCubit>().getUserModel();
+  }
 
   void onItemTapped(int index) => setState(() => selectedIndex = index);
 

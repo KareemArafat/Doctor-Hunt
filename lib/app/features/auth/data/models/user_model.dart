@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class UserModel {
@@ -21,13 +22,13 @@ class UserModel {
   }) {
     return UserModel(
       id: userCredential.user!.uid,
-      name: userCredential.user!.displayName!,
+      name: userCredential.user!.displayName ?? t.admin,
       email: userCredential.user!.email!,
       photo: userCredential.user!.photoURL,
       isAdmin: firestoreData['isAdmin'],
     );
   }
-  
+
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'],

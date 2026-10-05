@@ -2,12 +2,15 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditAdminProfilePage extends StatefulWidget {
   const new({super.key});
@@ -19,11 +22,13 @@ class EditAdminProfilePage extends StatefulWidget {
 class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
   final GlobalKey<FormState> formKey = GlobalKey();
   late TextEditingController nameController;
+  late UserModel userModel;
 
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController(text: 'Admin');
+    userModel = context.read<UserModelCubit>().userModel;
+    nameController = TextEditingController(text: userModel.name);
   }
 
   @override
@@ -65,7 +70,7 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
             SizedBox(height: 8),
             CustomTextField(
               isReadOnly: true,
-              text: 'example@gmail.com',
+              text: userModel.email,
               prefixIcon: Icon(Icons.email, color: AppColors.primary),
             ),
             SizedBox(height: 50),

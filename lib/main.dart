@@ -2,6 +2,7 @@ import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/utils/cubit_observer.dart';
 import 'package:doctor_hunt/app/core/utils/get_it.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/firebase_options.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AllDoctorsCubit()..getAllDoctors(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => UserModelCubit()),
+        BlocProvider(create: (context) => AllDoctorsCubit()..getAllDoctors()),
+      ],
       child: MaterialApp.router(
         routerConfig: appRouter,
         debugShowCheckedModeBanner: false,
