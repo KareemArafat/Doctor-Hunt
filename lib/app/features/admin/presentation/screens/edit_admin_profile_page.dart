@@ -1,7 +1,10 @@
+import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
@@ -75,17 +78,40 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
             ),
             SizedBox(height: 50),
             CustomButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {}
+              onPressed: () async {
+                if (formKey.currentState!.validate()) {
+                  final updatedUser = userModel.copyWith(
+                    name: nameController.text.trim(),
+                  );
+                  context.read<EditAdminProfileCubit>().editAdminProfile(
+                    userModel: updatedUser,
+                  );
+                }
               },
               size: Size(350, 50),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.check, size: 20),
-                  SizedBox(width: 8),
-                  Text(t.saveChanges, style: context.semiBold14White),
-                ],
+              child: BlocConsumer<EditAdminProfileCubit, EditAdminProfileState>(
+                listener: (context, state) {
+                  if (state is EditAdminProfileSuccess) {
+                    context.showCustomSnackBar(
+                      message: t.profileEditedSuccessfully,
+                    );
+                  } else if (state is EditAdminProfileFailure) {
+                    context.showCustomSnackBar(message: state.message);
+                  }
+                },
+                builder: (context, state) {
+                  if (state is EditAdminProfileLoading) {
+                    return CustomLoadingWidget(size: -2);
+                  }
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.check, size: 20),
+                      SizedBox(width: 8),
+                      Text(t.saveChanges, style: context.semiBold14White),
+                    ],
+                  );
+                },
               ),
             ),
           ],

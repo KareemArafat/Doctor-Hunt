@@ -9,8 +9,8 @@ class UserModelCubit extends Cubit<UserModelState> {
   late UserModel userModel;
 
   Future<void> getUserModel() async {
+    emit(UserModelLoading());
     userModel = await SharedPref.getUserModel();
+    emit(UserModelSuccess());
   }
-
-  Future<void> updateUserModel() async {}
 }

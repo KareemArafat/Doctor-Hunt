@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
+import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAdminService {
   Future<List<DoctorModel>> getAllDoctors() async {
@@ -25,5 +27,12 @@ class FirebaseAdminService {
 
   Future<void> deleteDoctor({required String id}) async {
     await FirebaseFirestore.instance.collection('doctors').doc(id).delete();
+  }
+
+  Future<void> editAdminProfile({required UserModel userModel}) async {
+    await FirebaseAuth.instance.currentUser!.updateProfile(
+      displayName: userModel.name,
+      photoURL: userModel.photo,
+    );
   }
 }

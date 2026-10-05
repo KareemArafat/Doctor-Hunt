@@ -78,5 +78,6 @@
     "thisFieldIsRequired": "This field is required",
     "doctorAddedSuccessfully": "Doctor added successfully!",
     "doctorEditedSuccessfully": "Doctor edited successfully!",
-    "doctorDeletedSuccessfully": "Doctor deleted successfully!"
+    "doctorDeletedSuccessfully": "Doctor deleted successfully!",
+    "profileEditedSuccessfully": "Profile edited successfully!"
 }

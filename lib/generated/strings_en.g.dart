@@ -281,6 +281,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Doctor deleted successfully!'
 	String get doctorDeletedSuccessfully => 'Doctor deleted successfully!';
+
+	/// en: 'Profile edited successfully!'
+	String get profileEditedSuccessfully => 'Profile edited successfully!';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -371,6 +374,7 @@ extension on Translations {
 			'doctorAddedSuccessfully' => 'Doctor added successfully!',
 			'doctorEditedSuccessfully' => 'Doctor edited successfully!',
 			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
+			'profileEditedSuccessfully' => 'Profile edited successfully!',
 			_ => null,
 		};
 	}

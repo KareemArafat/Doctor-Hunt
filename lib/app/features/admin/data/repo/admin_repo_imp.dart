@@ -3,6 +3,7 @@ import 'package:doctor_hunt/app/core/utils/errors.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/data/repo/admin_repo.dart';
 import 'package:doctor_hunt/app/features/admin/data/services/firebase_admin_service.dart';
+import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 
 class AdminRepoImp extends AdminRepo {
   final FirebaseAdminService firebaseAdminService;
@@ -46,6 +47,18 @@ class AdminRepoImp extends AdminRepo {
   Future<Either<Errors, void>> deleteDoctor({required String id}) async {
     try {
       await firebaseAdminService.deleteDoctor(id: id);
+      return right(null);
+    } catch (e) {
+      return left(Errors(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Errors, void>> editAdminProfile({
+    required UserModel userModel,
+  }) async {
+    try {
+      await firebaseAdminService.editAdminProfile(userModel: userModel);
       return right(null);
     } catch (e) {
       return left(Errors(errorMessage: e.toString()));

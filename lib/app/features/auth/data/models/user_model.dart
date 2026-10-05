@@ -48,4 +48,20 @@ class UserModel {
       'isAdmin': isAdmin,
     };
   }
+
+  UserModel copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? photo,
+    bool? isAdmin,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      photo: photo ?? this.photo,
+      isAdmin: isAdmin ?? this.isAdmin,
+    );
+  }
 }
