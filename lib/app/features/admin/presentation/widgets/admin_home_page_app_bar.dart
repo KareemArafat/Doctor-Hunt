@@ -5,7 +5,7 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePageAppBar extends StatelessWidget {
+class AdminHomePageAppBar extends StatelessWidget {
   const new({super.key, required this.title, this.isMainPage = true});
   final String title;
   final bool isMainPage;
@@ -25,7 +25,7 @@ class HomePageAppBar extends StatelessWidget {
                     child: Container(
                       height: 32,
                       width: 32,
-                      
+
                       decoration: BoxDecoration(
                         color: AppColors.primary,
                         shape: BoxShape.circle,

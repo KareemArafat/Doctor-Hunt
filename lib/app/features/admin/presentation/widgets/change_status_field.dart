@@ -4,15 +4,15 @@ import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDoctorStatus extends StatefulWidget {
+class ChangeStatusField extends StatefulWidget {
   const new({super.key, required this.statusController});
   final TextEditingController statusController;
 
   @override
-  State<ChangeDoctorStatus> createState() => _ChangeDoctorStatusState();
+  State<ChangeStatusField> createState() => _ChangeStatusFieldState();
 }
 
-class _ChangeDoctorStatusState extends State<ChangeDoctorStatus> {
+class _ChangeStatusFieldState extends State<ChangeStatusField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(

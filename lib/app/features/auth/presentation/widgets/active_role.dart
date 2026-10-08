@@ -21,8 +21,8 @@ class ActiveRole extends StatelessWidget {
           padding: EdgeInsets.all(24),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: AppColors.activeCard,
-            border: Border.all(color: AppColors.activeItems, width: 2),
+            color: AppColors.itemsBackground,
+            border: Border.all(color: AppColors.primary, width: 2),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,14 +30,14 @@ class ActiveRole extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 14),
                 decoration: BoxDecoration(
-                  color: AppColors.disableCard,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Image.asset(
                   image,
                   height: 25,
                   width: 20,
-                  color: AppColors.activeItems,
+                  color: AppColors.primary,
                 ),
               ),
               SizedBox(width: 16),
@@ -56,11 +56,7 @@ class ActiveRole extends StatelessWidget {
         Positioned(
           top: 16,
           right: 16,
-          child: Icon(
-            Icons.check_circle,
-            size: 25,
-            color: AppColors.activeItems,
-          ),
+          child: Icon(Icons.check_circle, size: 25, color: AppColors.primary),
         ),
       ],
     );

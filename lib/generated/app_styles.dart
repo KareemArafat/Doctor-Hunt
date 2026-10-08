@@ -3,7 +3,9 @@
 // Last updated: 2026-09-12 14:07:12.457790
 // Run `dart run generate_styles.dart` to update this file.
 import 'package:flutter/material.dart';
+
 import '../app/core/themes/app_colors.dart';
+
 extension WeightAtoms on BuildContext {
   TextStyle get style => Theme.of(this).textTheme.titleMedium!;
   // .copyWith(
@@ -16,14 +18,13 @@ extension WeightAtoms on BuildContext {
   TextStyle get semiBold => style.copyWith(fontWeight: FontWeight.w600);
   TextStyle get bold => style.copyWith(fontWeight: FontWeight.bold);
 }
-  
+
 extension ColorAtoms on TextStyle {
   TextStyle get white => copyWith(color: AppColors.white);
   TextStyle get primary => copyWith(color: AppColors.primary);
   TextStyle get secondary => copyWith(color: AppColors.secondary);
   TextStyle get errorItems => copyWith(color: AppColors.errorItems);
 }
-
 
 extension FontSizeAtoms on TextStyle {
   TextStyle get px8 => copyWith(fontSize: 8.0);
@@ -44,7 +45,6 @@ extension FontSizeAtoms on TextStyle {
   TextStyle get px36 => copyWith(fontSize: 36.0);
   TextStyle get px40 => copyWith(fontSize: 40.0);
 }
-
 
 extension WeightAndPxMixes on BuildContext {
   TextStyle get light8 => light.px8;
@@ -133,6 +133,7 @@ extension WeightAndPxMixes on BuildContext {
   TextStyle get semiBold40 => semiBold.px40;
   TextStyle get bold40 => bold.px40;
 }
+
 extension LightAtoms on BuildContext {
   TextStyle get light8White => light8.white;
   TextStyle get light8Primary => light8.primary;
@@ -203,6 +204,7 @@ extension LightAtoms on BuildContext {
   TextStyle get light40Secondary => light40.secondary;
   TextStyle get light40ErrorItems => light40.errorItems;
 }
+
 extension RegularAtoms on BuildContext {
   TextStyle get regular8White => regular8.white;
   TextStyle get regular8Primary => regular8.primary;
@@ -273,6 +275,7 @@ extension RegularAtoms on BuildContext {
   TextStyle get regular40Secondary => regular40.secondary;
   TextStyle get regular40ErrorItems => regular40.errorItems;
 }
+
 extension MediumAtoms on BuildContext {
   TextStyle get medium8White => medium8.white;
   TextStyle get medium8Primary => medium8.primary;
@@ -343,6 +346,7 @@ extension MediumAtoms on BuildContext {
   TextStyle get medium40Secondary => medium40.secondary;
   TextStyle get medium40ErrorItems => medium40.errorItems;
 }
+
 extension SemiBoldAtoms on BuildContext {
   TextStyle get semiBold8White => semiBold8.white;
   TextStyle get semiBold8Primary => semiBold8.primary;
@@ -413,6 +417,7 @@ extension SemiBoldAtoms on BuildContext {
   TextStyle get semiBold40Secondary => semiBold40.secondary;
   TextStyle get semiBold40ErrorItems => semiBold40.errorItems;
 }
+
 extension BoldAtoms on BuildContext {
   TextStyle get bold8White => bold8.white;
   TextStyle get bold8Primary => bold8.primary;

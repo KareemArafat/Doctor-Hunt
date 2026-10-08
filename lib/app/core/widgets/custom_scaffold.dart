@@ -20,6 +20,7 @@ class CustomScaffold extends StatelessWidget {
       extendBody: true,
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: floatingActionButton,
+      backgroundColor: AppColors.mainBackground,
       body: Stack(
         children: [
           Positioned(

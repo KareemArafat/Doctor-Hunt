@@ -6,7 +6,7 @@ import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_list
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class DoctorsViewBody extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            HomePageAppBar(title: t.doctors),
+            AdminHomePageAppBar(title: t.doctors),
             SizedBox(height: 20),
             Row(
               children: [

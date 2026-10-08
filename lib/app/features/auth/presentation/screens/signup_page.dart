@@ -42,7 +42,7 @@ class _SignupPageState extends State<SignupPage> {
           return CustomScaffold(
             body: Column(
               children: [
-                SizedBox(height: 130),
+                SizedBox(height: 100),
                 Text(t.signupTittle, style: context.medium24),
                 SizedBox(height: 8),
                 Text(
@@ -84,14 +84,13 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 55),
+                SizedBox(height: 40),
                 CustomButton(
                   onPressed: () => context.read<SignupCubit>().signup(
                     name: nameController.text,
                     email: emailController.text,
                     password: passwordController.text,
                   ),
-                  size: Size(295, 55),
                   child: BlocBuilder<SignupCubit, SignupState>(
                     builder: (context, state) {
                       if (state is SignupLoading) {
@@ -112,7 +111,7 @@ class _SignupPageState extends State<SignupPage> {
                     style: context.regular14Primary,
                   ),
                 ),
-                SizedBox(height: 45),
+                const SizedBox(height: 40),
               ],
             ),
           );

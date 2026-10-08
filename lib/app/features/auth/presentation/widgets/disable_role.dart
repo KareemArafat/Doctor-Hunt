@@ -23,8 +23,8 @@ class DisableRole extends StatelessWidget {
         padding: EdgeInsets.all(24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: AppColors.disableCard,
-          border: Border.all(color: AppColors.disableItems, width: 2),
+          color: AppColors.white,
+          border: Border.all(color: AppColors.disableItemsBackground, width: 2),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class DisableRole extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 14),
               decoration: BoxDecoration(
-                color: AppColors.disableItems,
+                color: AppColors.disableItemsBackground,
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Image.asset(

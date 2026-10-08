@@ -59,7 +59,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
             onTap: onItemTapped,
-            backgroundColor: AppColors.disableCard,
+            backgroundColor: AppColors.white,
             selectedFontSize: 0,
             items: [
               BottomNavigationBarItem(
@@ -97,7 +97,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: isActive ? AppColors.primary : AppColors.disableCard,
+        color: isActive ? AppColors.primary : AppColors.white,
         shape: BoxShape.circle,
       ),
       child: Image.asset(

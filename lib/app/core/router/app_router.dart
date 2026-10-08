@@ -1,5 +1,4 @@
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
@@ -14,7 +13,6 @@ import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/spla
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 part 'app_router.g.dart';
 
@@ -112,10 +110,7 @@ class EditAdminProfileRoute extends GoRouteData with $EditAdminProfileRoute {
   const EditAdminProfileRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return BlocProvider(
-      create: (context) => EditAdminProfileCubit(),
-      child: const EditAdminProfilePage(),
-    );
+    return const EditAdminProfilePage();
   }
 }
 

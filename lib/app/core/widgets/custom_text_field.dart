@@ -72,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         errorStyle: context.light10ErrorItems,
         enabledBorder: _border(AppColors.secondary.withValues(alpha: 0.16)),
         disabledBorder: _border(AppColors.secondary.withValues(alpha: 0.16)),
-        focusedBorder: _border(AppColors.activeItems),
+        focusedBorder: _border(AppColors.primary),
         errorBorder: _border(AppColors.errorItems),
         focusedErrorBorder: _border(AppColors.errorItems),
       ),

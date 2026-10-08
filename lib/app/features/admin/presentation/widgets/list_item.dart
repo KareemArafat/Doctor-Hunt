@@ -25,7 +25,7 @@ class ListItem extends StatelessWidget {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-              color: AppColors.iconsBackground,
+              color: AppColors.itemsBackground,
               borderRadius: BorderRadius.circular(12),
             ),
             child: prefix,

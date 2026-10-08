@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
       child: CustomScaffold(
         body: Column(
           children: [
-            SizedBox(height: 130),
+            SizedBox(height: 100),
             Text(
               widget.isAdmin ? t.adminLogin : t.loginTittle,
               style: context.medium24,
@@ -77,7 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                     email: emailController.text,
                     password: passwordController.text,
                   ),
-                  size: const Size(295, 55),
                   child: state is LoginLoading
                       ? const CustomLoadingWidget(size: -2)
                       : Text(t.login, style: context.medium18White),
@@ -95,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () => SignupRoute().pushReplacement(context),
                 child: Text(t.haveAccount, style: context.regular14Primary),
               ),
-              const SizedBox(height: 45),
+              const SizedBox(height: 40),
             ],
           ],
         ),

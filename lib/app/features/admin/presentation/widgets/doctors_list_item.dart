@@ -53,8 +53,8 @@ class DoctorsListItem extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                       decoration: BoxDecoration(
                         color: doctorModel.status == t.active
-                            ? AppColors.iconsBackground
-                            : AppColors.errorItems,
+                            ? AppColors.itemsBackground
+                            : AppColors.errorItemsBackground,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(

@@ -3,8 +3,8 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_photo.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -22,9 +22,9 @@ class DoctorDetailsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          HomePageAppBar(title: t.doctorDetails, isMainPage: false),
+          AdminHomePageAppBar(title: t.doctorDetails, isMainPage: false),
           SizedBox(height: 50),
-          DoctorImageView(
+          DoctorPhoto(
             image: AppImages.assetsImagesOnboarding1,
             imageIcon: AppImages.assetsIconsCheck,
           ),
@@ -48,7 +48,7 @@ class DoctorDetailsPage extends StatelessWidget {
                   trailing: SizedBox(),
                 ),
                 Divider(
-                  color: AppColors.disableItems,
+                  color: AppColors.disableItemsBackground,
                   height: 1,
                   indent: 16,
                   endIndent: 16,

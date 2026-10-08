@@ -1,7 +1,7 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -19,10 +19,9 @@ class SettingsViewBody extends StatelessWidget {
 
     return Column(
       children: [
-        HomePageAppBar(title: t.settings),
+        AdminHomePageAppBar(title: t.settings),
         SizedBox(height: 20),
         ShadowCard(
-          height: 88,
           horizontalPadding: 16,
           verticalPadding: 16,
           child: Row(
@@ -59,7 +58,7 @@ class SettingsViewBody extends StatelessWidget {
                 description: t.adminProfileDescription,
               ),
               Divider(
-                color: AppColors.disableItems,
+                color: AppColors.disableItemsBackground,
                 height: 1,
                 indent: 16,
                 endIndent: 16,
@@ -74,7 +73,7 @@ class SettingsViewBody extends StatelessWidget {
                 description: t.changePasswordDescription,
               ),
               Divider(
-                color: AppColors.disableItems,
+                color: AppColors.disableItemsBackground,
                 height: 1,
                 indent: 16,
                 endIndent: 16,
@@ -90,7 +89,7 @@ class SettingsViewBody extends StatelessWidget {
                 trailing: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppColors.iconsBackground,
+                    color: AppColors.itemsBackground,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Text('V10.1.1', style: context.semiBold12Secondary),
@@ -102,9 +101,7 @@ class SettingsViewBody extends StatelessWidget {
         SizedBox(height: 32),
         CustomButton(
           onPressed: () {},
-          backgroundColor: AppColors.errorItemsBackground.withValues(
-            alpha: 0.3,
-          ),
+          backgroundColor: AppColors.errorItemsBackground,
           size: Size(double.infinity, 48),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -8,18 +8,15 @@ abstract class AppColors {
   static const primary = Color(0XFF0EBE7F);
   static const secondary = Color(0XFF677294);
 
+  static const mainBackground = Color(0XFFF5F5F5);
   static const greenShadow = Color(0XFF0EBE7E);
   static const blueShadow = Color(0XFF61CEFF);
 
-  static const activeCard = Color(0XFFD5E6E1);
-  static const disableCard = Color(0XFFFAFCFB);
-  static const activeItems = Color(0XFF006C49);
-  static const disableItems = Color(0XFFE6ECEA);
+  static const itemsBackground = Color(0XFFECFAF5);
+  static const disableItemsBackground = Color(0XFFE6ECEA);
+
+  static const errorItems = Color(0XFFD12121);
+  static const errorItemsBackground = Color(0XFFFFECEC);
 
   static const cardBorder = Color(0XFFF1F5F9);
-
-  static const iconsBackground = Color(0XFFEEF6EE);
-
-  static const errorItems = Color(0XFFBA1A1A);
-  static const errorItemsBackground = Color(0XFFFFDAD6);
 }

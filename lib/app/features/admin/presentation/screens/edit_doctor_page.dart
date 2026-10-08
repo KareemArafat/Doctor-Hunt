@@ -9,9 +9,9 @@ import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_doctor_cubit/edit_doctor_cubit.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_doctor_status.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_image_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/home_page_app_bar.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_status_field.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_photo.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -59,9 +59,9 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomePageAppBar(title: t.editDoctor, isMainPage: false),
+              AdminHomePageAppBar(title: t.editDoctor, isMainPage: false),
               SizedBox(height: 50),
-              DoctorImageView(
+              DoctorPhoto(
                 image: AppImages.assetsImagesOnboarding1,
                 imageIcon: AppImages.assetsIconsCamera,
               ),
@@ -92,7 +92,7 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
               SizedBox(height: 20),
               Text(t.doctorStatus, style: context.medium12),
               SizedBox(height: 8),
-              ChangeDoctorStatus(statusController: statusController),
+              ChangeStatusField(statusController: statusController),
               SizedBox(height: 50),
               BlocConsumer<EditDoctorCubit, EditDoctorState>(
                 listener: (context, state) async {
