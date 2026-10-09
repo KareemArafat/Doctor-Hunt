@@ -33,7 +33,7 @@ extension CustomSnackBar on BuildContext {
 
   void showCustomSnackBar({
     required String message,
-    SnackBarStatus status = SnackBarStatus.success,
+    SnackBarStatus status = SnackBarStatus.error,
   }) {
     ScaffoldMessenger.of(this).clearSnackBars();
     ScaffoldMessenger.of(this).showSnackBar(

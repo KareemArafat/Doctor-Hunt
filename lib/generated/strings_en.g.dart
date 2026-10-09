@@ -237,6 +237,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Logout'
 	String get Logout => 'Logout';
 
+	/// en: 'Log out?'
+	String get logoutConfirmationTitle => 'Log out?';
+
+	/// en: 'Are you sure you want to log out?'
+	String get logoutConfirmationMessage => 'Are you sure you want to log out?';
+
+	/// en: 'Cancel'
+	String get cancel => 'Cancel';
+
+	/// en: 'Yes'
+	String get yes => 'Yes';
+
 	/// en: 'Edit Profile'
 	String get editProfile => 'Edit Profile';
 
@@ -356,6 +368,10 @@ extension on Translations {
 			'appInformation' => 'App Information',
 			'buildVersion ' => 'Build version ',
 			'Logout' => 'Logout',
+			'logoutConfirmationTitle' => 'Log out?',
+			'logoutConfirmationMessage' => 'Are you sure you want to log out?',
+			'cancel' => 'Cancel',
+			'yes' => 'Yes',
 			'editProfile' => 'Edit Profile',
 			'fullName' => 'Full Name',
 			'emailAddress' => 'Email Address',

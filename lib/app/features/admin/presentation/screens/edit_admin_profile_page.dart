@@ -54,7 +54,6 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
               SizedBox(height: 50),
               PhotoView(
                 name: userModel.name,
-                photo: AppImages.assetsImagesOnboarding1,
                 icon: AppImages.assetsIconsCamera,
                 radius: 112,
               ),

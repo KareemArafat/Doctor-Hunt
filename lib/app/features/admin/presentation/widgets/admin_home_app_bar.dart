@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -20,10 +21,13 @@ class AdminHomeAppBar extends StatelessWidget {
         BlocBuilder<UserModelCubit, UserModelState>(
           builder: (context, state) {
             final userModel = context.read<UserModelCubit>().userModel;
-            return PhotoView(
-              name: userModel.name,
-              radius: 30,
-              textStyle: context.bold12White,
+            return GestureDetector(
+              onTap: () => EditAdminProfileRoute().push(context),
+              child: PhotoView(
+                name: userModel.name,
+                radius: 30,
+                textStyle: context.bold12White,
+              ),
             );
           },
         ),

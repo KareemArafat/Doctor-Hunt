@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/logout_confirm.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
@@ -102,9 +103,11 @@ class SettingsViewBody extends StatelessWidget {
         ),
         SizedBox(height: 32),
         CustomButton(
-          onPressed: () {},
+          onPressed: () => showDialog(
+            context: context,
+            builder: (context) => LogoutConfirm(),
+          ),
           backgroundColor: AppColors.errorItemsBackground,
-          size: Size(double.infinity, 48),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

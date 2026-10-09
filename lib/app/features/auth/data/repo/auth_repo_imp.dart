@@ -68,4 +68,14 @@ class AuthRepoImp extends AuthRepo {
       return left(Errors(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Errors, void>> signOut() async {
+    try {
+      await firebaseAuthService.signOut();
+      return right(null);
+    } catch (e) {
+      return left(Errors(errorMessage: e.toString()));
+    }
+  }
 }

@@ -26,4 +26,10 @@ abstract class SharedPref {
     );
     return UserModel.fromJson(userMap);
   }
+
+  static Future<void> signOutClear() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('user');
+    await prefs.remove('isAdmin');
+  }
 }

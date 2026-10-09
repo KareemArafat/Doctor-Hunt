@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
-import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -22,17 +22,7 @@ class DoctorsListItem extends StatelessWidget {
           verticalPadding: 18,
           child: Row(
             children: [
-              Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Image.asset(
-                  AppImages.assetsImagesOnboarding1,
-                  fit: BoxFit.fill,
-                ),
-              ),
+              PhotoView(name: doctorModel.name, radius: 60),
               SizedBox(width: 12),
               Expanded(
                 child: Column(
