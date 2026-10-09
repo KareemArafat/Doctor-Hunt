@@ -3,8 +3,8 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomErrorWidget extends StatelessWidget {
-  const new({super.key, required this.errorMessage});
-  final String errorMessage;
+  const new({super.key, required this.message});
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CustomErrorWidget extends StatelessWidget {
           color: AppColors.primary,
         ),
         SizedBox(height: 10),
-        Text(errorMessage, style: context.bold16),
+        Text(message, style: context.bold16),
       ],
     );
   }

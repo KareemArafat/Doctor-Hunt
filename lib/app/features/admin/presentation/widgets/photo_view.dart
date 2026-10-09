@@ -22,6 +22,8 @@ class PhotoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String getFirstLitter() {
+      final trimmedName = name.trim();
+      if (trimmedName.isEmpty) return '';
       final words = name.toUpperCase().trim().split(RegExp(r'\s+'));
       return words.length >= 2 ? '${words[0][0]}${words[1][0]}' : words[0][0];
     }

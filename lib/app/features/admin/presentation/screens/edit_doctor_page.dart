@@ -11,7 +11,6 @@ import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doct
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_doctor_cubit/edit_doctor_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_status_field.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -59,7 +58,7 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdminHomePageAppBar(title: t.editDoctor, isMainPage: false),
+              //      AdminHomeAppBar(title: t.editDoctor, isMainPage: false),
               SizedBox(height: 50),
               PhotoView(
                 name: widget.doctorModel.name,

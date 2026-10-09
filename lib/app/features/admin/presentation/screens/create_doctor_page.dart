@@ -6,7 +6,6 @@ import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/create_doctor_cubit/create_doctor_cubit.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -44,7 +43,7 @@ class _CreateDoctorPageState extends State<CreateDoctorPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdminHomePageAppBar(title: t.createDoctor, isMainPage: false),
+           //   AdminHomeAppBar(title: t.createDoctor, isMainPage: false),
               SizedBox(height: 50),
               Center(
                 child: Image.asset(

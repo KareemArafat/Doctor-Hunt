@@ -12,5 +12,5 @@ abstract class AdminRepo {
 
   Future<Either<Errors, void>> deleteDoctor({required String id});
 
-  Future <Either<Errors,void>> editAdminProfile({required UserModel userModel});
+  Future<Either<Errors, void>> editAdminProfile({required UserModel userModel});
 }

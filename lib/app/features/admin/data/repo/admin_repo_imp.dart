@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/app/core/utils/errors.dart';
+import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/data/repo/admin_repo.dart';
 import 'package:doctor_hunt/app/features/admin/data/services/firebase_admin_service.dart';
@@ -59,9 +60,12 @@ class AdminRepoImp extends AdminRepo {
   }) async {
     try {
       await firebaseAdminService.editAdminProfile(userModel: userModel);
+      await SharedPref.setUserModel(userModel);
       return right(null);
     } catch (e) {
       return left(Errors(errorMessage: e.toString()));
     }
   }
+
+
 }

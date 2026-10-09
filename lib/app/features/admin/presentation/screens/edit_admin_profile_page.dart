@@ -7,7 +7,6 @@ import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -24,8 +23,8 @@ class EditAdminProfilePage extends StatefulWidget {
 
 class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
   final GlobalKey<FormState> formKey = GlobalKey();
-  late TextEditingController nameController;
   late UserModel userModel;
+  late TextEditingController nameController;
 
   @override
   void initState() {
@@ -50,7 +49,7 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdminHomePageAppBar(title: t.editProfile, isMainPage: false),
+              //    AdminHomeAppBar(title: t.editProfile, isMainPage: false),
               SizedBox(height: 50),
               PhotoView(
                 name: userModel.name,
@@ -84,6 +83,7 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
               BlocConsumer<EditAdminProfileCubit, EditAdminProfileState>(
                 listener: (context, state) {
                   if (state is EditAdminProfileSuccess) {
+                    context.read<UserModelCubit>().getUserModel();
                     context.showCustomSnackBar(
                       message: t.profileEditedSuccessfully,
                     );

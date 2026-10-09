@@ -14,7 +14,7 @@ class EditAdminProfileCubit extends Cubit<EditAdminProfileState> {
     final result = await _adminRepo.editAdminProfile(userModel: userModel);
     result.fold(
       (l) => emit(EditAdminProfileFailure(message: l.errorMessage)),
-      (r) => emit(EditAdminProfileSuccess()),
+      (r) => emit(EditAdminProfileSuccess(userModel: userModel)),
     );
   }
 }

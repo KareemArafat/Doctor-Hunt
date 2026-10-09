@@ -6,7 +6,7 @@ part 'user_model_state.dart';
 class UserModelCubit extends Cubit<UserModelState> {
   UserModelCubit() : super(UserModelInitial());
 
-  late UserModel userModel;
+  UserModel userModel = UserModel(id: '', name: '', email: '', isAdmin: true);
 
   Future<void> getUserModel() async {
     emit(UserModelLoading());

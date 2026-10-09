@@ -7,17 +7,20 @@ class CustomScaffold extends StatelessWidget {
     required this.body,
     this.bottomNavigationBar,
     this.floatingActionButton,
+    this.appBar,
     this.isOnboarding = false,
   });
   final Widget body;
   final Widget? bottomNavigationBar;
   final Widget? floatingActionButton;
+  final PreferredSizeWidget? appBar;
   final bool isOnboarding;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
+      appBar: appBar,
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: floatingActionButton,
       backgroundColor: AppColors.mainBackground,
