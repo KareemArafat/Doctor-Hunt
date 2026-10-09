@@ -3,9 +3,9 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_photo.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -24,10 +24,7 @@ class DoctorDetailsPage extends StatelessWidget {
         children: [
           AdminHomePageAppBar(title: t.doctorDetails, isMainPage: false),
           SizedBox(height: 50),
-          DoctorPhoto(
-            image: AppImages.assetsImagesOnboarding1,
-            imageIcon: AppImages.assetsIconsCheck,
-          ),
+          PhotoView(name: doctorModel.name, icon: AppImages.assetsIconsCheck,radius: 112,),
           SizedBox(height: 12),
           Text(
             doctorModel.name,
@@ -38,7 +35,7 @@ class DoctorDetailsPage extends StatelessWidget {
           ShadowCard(
             child: Column(
               children: [
-                ListItem(
+                AdminListsItem(
                   prefix: Image.asset(
                     AppImages.assetsIconsSpecialty,
                     color: AppColors.primary,
@@ -53,7 +50,7 @@ class DoctorDetailsPage extends StatelessWidget {
                   indent: 16,
                   endIndent: 16,
                 ),
-                ListItem(
+                AdminListsItem(
                   prefix: Image.asset(AppImages.assetsIconsStatus),
                   title: t.accountStatus,
                   description: doctorModel.status,

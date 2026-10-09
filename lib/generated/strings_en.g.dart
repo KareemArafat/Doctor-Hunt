@@ -171,8 +171,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'No Doctors Found'
 	String get noDoctorsFound => 'No Doctors Found';
 
-	/// en: 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.'
-	String get noDoctorsFoundDescription => 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.';
+	/// en: 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.'
+	String get noDoctorsFoundDescription => 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.';
 
 	/// en: 'Add Doctor'
 	String get addDoctor => 'Add Doctor';
@@ -206,9 +206,6 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Doctor Status'
 	String get doctorStatus => 'Doctor Status';
-
-	/// en: 'Active & Available'
-	String get activeAndAvailable => 'Active & Available';
 
 	/// en: 'Save Changes'
 	String get saveChanges => 'Save Changes';
@@ -337,7 +334,7 @@ extension on Translations {
 			'totalDoctors' => 'Total Doctors',
 			'searchDoctors' => 'Search doctors...',
 			'noDoctorsFound' => 'No Doctors Found',
-			'noDoctorsFoundDescription' => 'There are currently no doctors registered onDoctor Hunt. Add your first doctor to get started.',
+			'noDoctorsFoundDescription' => 'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.',
 			'addDoctor' => 'Add Doctor',
 			'createDoctor' => 'Create Doctor',
 			'addPhoto' => 'Add Photo',
@@ -349,7 +346,6 @@ extension on Translations {
 			'tapPhotoToChange' => 'Tap photo to change',
 			'specialty' => 'Specialty',
 			'doctorStatus' => 'Doctor Status',
-			'activeAndAvailable' => 'Active & Available',
 			'saveChanges' => 'Save Changes',
 			'deleteDoctor' => 'Delete Doctor',
 			'settings' => 'Settings',

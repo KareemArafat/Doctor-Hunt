@@ -10,7 +10,7 @@ import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_doctor_cubit/edit_doctor_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_status_field.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_photo.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -61,9 +61,11 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
             children: [
               AdminHomePageAppBar(title: t.editDoctor, isMainPage: false),
               SizedBox(height: 50),
-              DoctorPhoto(
-                image: AppImages.assetsImagesOnboarding1,
-                imageIcon: AppImages.assetsIconsCamera,
+              PhotoView(
+                name: widget.doctorModel.name,
+                photo: AppImages.assetsImagesOnboarding1,
+                icon: AppImages.assetsIconsCamera,
+                radius: 112,
               ),
               SizedBox(height: 10),
               Center(

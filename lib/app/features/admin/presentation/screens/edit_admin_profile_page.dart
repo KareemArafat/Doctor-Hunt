@@ -6,7 +6,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctor_photo.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
@@ -52,9 +52,11 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
             children: [
               AdminHomePageAppBar(title: t.editProfile, isMainPage: false),
               SizedBox(height: 50),
-              DoctorPhoto(
-                image: AppImages.assetsImagesOnboarding1,
-                imageIcon: AppImages.assetsIconsCamera,
+              PhotoView(
+                name: userModel.name,
+                photo: AppImages.assetsImagesOnboarding1,
+                icon: AppImages.assetsIconsCamera,
+                radius: 112,
               ),
               SizedBox(height: 10),
               Center(

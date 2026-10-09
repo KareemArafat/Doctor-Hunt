@@ -1,8 +1,9 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/list_item.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -48,7 +49,7 @@ class SettingsViewBody extends StatelessWidget {
         ShadowCard(
           child: Column(
             children: [
-              ListItem(
+              AdminListsItem(
                 prefix: Icon(
                   Icons.manage_accounts,
                   size: 20,
@@ -56,6 +57,7 @@ class SettingsViewBody extends StatelessWidget {
                 ),
                 title: t.adminProfile,
                 description: t.adminProfileDescription,
+                onTap: () => EditAdminProfileRoute().push(context),
               ),
               Divider(
                 color: AppColors.disableItemsBackground,
@@ -63,7 +65,7 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              ListItem(
+              AdminListsItem(
                 prefix: Icon(
                   Icons.lock_reset,
                   size: 20,
@@ -78,7 +80,7 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              ListItem(
+              AdminListsItem(
                 prefix: Icon(
                   Icons.info_outlined,
                   size: 20,

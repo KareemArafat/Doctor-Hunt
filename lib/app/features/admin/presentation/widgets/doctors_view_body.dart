@@ -2,11 +2,11 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_page_app_bar.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class DoctorsViewBody extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            AdminHomePageAppBar(title: t.doctors),
+            AdminHomePageAppBar(title: t.doctors,),
             SizedBox(height: 20),
             Row(
               children: [
