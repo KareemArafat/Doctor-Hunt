@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
@@ -58,7 +59,7 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //      AdminHomeAppBar(title: t.editDoctor, isMainPage: false),
+              CustomAppBar(title: t.editDoctor),
               SizedBox(height: 50),
               PhotoView(
                 name: widget.doctorModel.name,

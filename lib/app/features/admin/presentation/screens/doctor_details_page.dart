@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
@@ -21,7 +22,7 @@ class DoctorDetailsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-     //     AdminHomeAppBar(title: t.doctorDetails, isMainPage: false),
+          CustomAppBar(title: t.doctorDetails),
           SizedBox(height: 50),
           PhotoView(
             name: doctorModel.name,
