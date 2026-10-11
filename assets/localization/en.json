@@ -82,5 +82,9 @@
     "doctorAddedSuccessfully": "Doctor added successfully!",
     "doctorEditedSuccessfully": "Doctor edited successfully!",
     "doctorDeletedSuccessfully": "Doctor deleted successfully!",
-    "profileEditedSuccessfully": "Profile edited successfully!"
+    "profileEditedSuccessfully": "Profile edited successfully!",
+    "findYourDoctor": "Find Your Doctor",
+    "popularDoctors": "Popular Doctor",
+    "topRatedDoctors": "PTop Rated Doctors",
+    "seeAll": "See all"
 }

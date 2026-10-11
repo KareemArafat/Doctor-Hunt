@@ -293,6 +293,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Profile edited successfully!'
 	String get profileEditedSuccessfully => 'Profile edited successfully!';
+
+	/// en: 'Find Your Doctor'
+	String get findYourDoctor => 'Find Your Doctor';
+
+	/// en: 'Popular Doctor'
+	String get popularDoctors => 'Popular Doctor';
+
+	/// en: 'PTop Rated Doctors'
+	String get topRatedDoctors => 'PTop Rated Doctors';
+
+	/// en: 'See all'
+	String get seeAll => 'See all';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -387,6 +399,10 @@ extension on Translations {
 			'doctorEditedSuccessfully' => 'Doctor edited successfully!',
 			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
 			'profileEditedSuccessfully' => 'Profile edited successfully!',
+			'findYourDoctor' => 'Find Your Doctor',
+			'popularDoctors' => 'Popular Doctor',
+			'topRatedDoctors' => 'PTop Rated Doctors',
+			'seeAll' => 'See all',
 			_ => null,
 		};
 	}

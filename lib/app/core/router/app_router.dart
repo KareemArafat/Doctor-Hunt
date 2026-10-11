@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/features/admin/presentation/screens/create_docto
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_admin_profile_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
+import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
@@ -13,6 +14,7 @@ import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/spla
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 part 'app_router.g.dart';
 
@@ -71,9 +73,13 @@ class Onboarding3Route extends GoRouteData with $Onboarding3Route {
 @TypedGoRoute<ChooseRuleRoute>(path: '/chooseRule')
 class ChooseRuleRoute extends GoRouteData with $ChooseRuleRoute {
   const ChooseRuleRoute();
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ChooseRolePage();
+    return BlocProvider(
+      create: (context) => ChooseRoleCubit(),
+      child: const ChooseRolePage(),
+    );
   }
 }
 

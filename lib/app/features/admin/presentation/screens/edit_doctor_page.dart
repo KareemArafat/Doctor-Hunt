@@ -63,7 +63,6 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
               SizedBox(height: 50),
               PhotoView(
                 name: widget.doctorModel.name,
-                photo: AppImages.assetsImagesOnboarding1,
                 icon: AppImages.assetsIconsCamera,
                 radius: 112,
               ),

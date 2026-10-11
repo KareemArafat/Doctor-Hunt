@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
@@ -69,6 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                   widget.isAdmin
                       ? AdminHomeRoute().go(context)
                       : HomeRoute().go(context);
+                } else if (state is LoginFailure) {
+                  context.showCustomSnackBar(message: state.errorMessage);
                 }
               },
               builder: (context, state) {
