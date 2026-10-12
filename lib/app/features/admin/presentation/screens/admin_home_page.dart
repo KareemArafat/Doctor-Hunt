@@ -49,36 +49,21 @@ class _AdminHomePageState extends State<AdminHomePage> {
               ),
             )
           : null,
-      bottomNavigationBar: ClipRRect(
-        child: Theme(
-          data: Theme.of(context).copyWith(
-            highlightColor: Colors.transparent,
-            splashFactory: NoSplash.splashFactory,
-          ),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          highlightColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
             onTap: onTab,
             backgroundColor: AppColors.white,
             selectedFontSize: 0,
             items: [
-              BottomNavigationBarItem(
-                icon: bottomBarItem(context: context, index: 0),
-                label: '',
-                activeIcon: bottomBarItem(
-                  context: context,
-                  index: 0,
-                  isActive: true,
-                ),
-              ),
-              BottomNavigationBarItem(
-                icon: bottomBarItem(context: context, index: 1),
-                label: '',
-                activeIcon: bottomBarItem(
-                  context: context,
-                  index: 1,
-                  isActive: true,
-                ),
-              ),
+              bottomBarItem(image: AppImages.assetsIconsDoctors),
+              bottomBarItem(image: AppImages.assetsIconsSettings),
             ],
           ),
         ),
@@ -86,27 +71,30 @@ class _AdminHomePageState extends State<AdminHomePage> {
     );
   }
 
-  Widget bottomBarItem({
-    required BuildContext context,
-    required int index,
-    bool isActive = false,
-  }) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: isActive ? AppColors.primary : AppColors.white,
-        shape: BoxShape.circle,
+  BottomNavigationBarItem bottomBarItem({required String image}) {
+    return BottomNavigationBarItem(
+      activeIcon: Container(
+        margin: EdgeInsets.symmetric(vertical: 10),
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          color: AppColors.primary,
+          shape: BoxShape.circle,
+        ),
+        child: Image.asset(
+          image,
+          height: 20,
+          width: 20,
+          color: AppColors.white,
+        ),
       ),
-      child: Image.asset(
-        index == 0
-            ? AppImages.assetsIconsDoctors
-            : AppImages.assetsIconsSettings,
+      icon: Image.asset(
+        image,
         height: 20,
         width: 20,
-        color: isActive ? AppColors.white : AppColors.secondary,
+        color: AppColors.secondary,
       ),
+      label: '',
     );
   }
 }
