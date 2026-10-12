@@ -28,7 +28,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
     context.read<UserModelCubit>().getUserModel();
   }
 
-  void onItemTapped(int index) => setState(() => selectedIndex = index);
+  void onTab(int index) => setState(() => selectedIndex = index);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,6 @@ class _AdminHomePageState extends State<AdminHomePage> {
             )
           : null,
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         child: Theme(
           data: Theme.of(context).copyWith(
             highlightColor: Colors.transparent,
@@ -58,7 +57,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
           ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
-            onTap: onItemTapped,
+            onTap: onTab,
             backgroundColor: AppColors.white,
             selectedFontSize: 0,
             items: [
@@ -94,8 +93,8 @@ class _AdminHomePageState extends State<AdminHomePage> {
   }) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      width: 48,
-      height: 48,
+      width: 50,
+      height: 50,
       decoration: BoxDecoration(
         color: isActive ? AppColors.primary : AppColors.white,
         shape: BoxShape.circle,

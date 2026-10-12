@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/app/core/utils/errors.dart';
+import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo.dart';
 import 'package:doctor_hunt/app/features/auth/data/service/firebase_auth_service.dart';
@@ -39,8 +40,10 @@ class AuthRepoImp extends AuthRepo {
         email: email,
         password: password,
       );
-
-      if (!result.isAdmin) return left(Errors(errorMessage: 'Error type'));
+      final type = await SharedPref.getIsAdmin();
+      if (type != result.isAdmin) {
+        return left(Errors(errorMessage: 'Error type'));
+      }
       return right(result);
     } on FirebaseAuthException catch (e) {
       return left(Errors(errorMessage: e.code));
