@@ -10,7 +10,13 @@ class AppImages {
 
   static const String assetsIconsCamera = "assets/icons/camera.png";
 
+  static const String assetsIconsCardiology = "assets/icons/cardiology.png";
+
   static const String assetsIconsCheck = "assets/icons/check.png";
+
+  static const String assetsIconsDentistry = "assets/icons/dentistry.png";
+
+  static const String assetsIconsDermatology = "assets/icons/dermatology.png";
 
   static const String assetsIconsDoctors = "assets/icons/doctors.png";
 
@@ -18,9 +24,17 @@ class AppImages {
 
   static const String assetsIconsLogo = "assets/icons/logo.png";
 
+  static const String assetsIconsNeurology = "assets/icons/neurology.png";
+
   static const String assetsIconsNotification = "assets/icons/notification.png";
 
+  static const String assetsIconsOphthalmology = "assets/icons/ophthalmology.png";
+
+  static const String assetsIconsOrthopedics = "assets/icons/orthopedics.png";
+
   static const String assetsIconsPatient = "assets/icons/patient.png";
+
+  static const String assetsIconsPediatrics = "assets/icons/pediatrics.png";
 
   static const String assetsIconsProfile = "assets/icons/profile.png";
 

@@ -1,68 +1,88 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
+import 'package:doctor_hunt/app/features/home/presentation/widgets/specialty_card.dart';
+import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/generated/app_styles.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const new({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final List<Widget> pages = [
-    SeeAllPage(),
-    SeeAllPage(),
-    SeeAllPage(),
-    SeeAllPage(),
-  ];
-  int currentIndex = 0;
-
-  void onTap(int value) => setState(() => currentIndex = value);
-
-  @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          highlightColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-          child: BottomNavigationBar(
-            backgroundColor: AppColors.white,
-            currentIndex: currentIndex,
-            selectedFontSize: 0,
-            onTap: onTap,
-            items: [
-              bottomBarItem(icon: Icons.home),
-              bottomBarItem(icon: Icons.favorite),
-              bottomBarItem(icon: Icons.menu_book_sharp),
-              bottomBarItem(icon: Icons.settings),
-            ],
-          ),
-        ),
+    final specialtiesCards = [
+      SpecialtyCard(
+        color: AppColors.dentistryCard,
+        icon: AppImages.assetsIconsDentistry,
       ),
-    );
-  }
+      SpecialtyCard(
+        color: AppColors.cardiologyCard,
+        icon: AppImages.assetsIconsCardiology,
+      ),
+      SpecialtyCard(
+        color: AppColors.dermatologyCard,
+        icon: AppImages.assetsIconsDermatology,
+      ),
+      SpecialtyCard(
+        color: AppColors.ophthalmologyCard,
+        icon: AppImages.assetsIconsOphthalmology,
+      ),
+      SpecialtyCard(
+        color: AppColors.pediatricsCard,
+        icon: AppImages.assetsIconsPediatrics,
+      ),
+      SpecialtyCard(
+        color: AppColors.orthopedicsCard,
+        icon: AppImages.assetsIconsOrthopedics,
+      ),
+      SpecialtyCard(
+        color: AppColors.neurologyCard,
+        icon: AppImages.assetsIconsNeurology,
+      ),
+    ];
 
-  BottomNavigationBarItem bottomBarItem({required IconData icon}) {
-    return BottomNavigationBarItem(
-      activeIcon: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: AppColors.primary,
-        ),
-        child: Icon(icon, color: AppColors.white, size: 25),
+    return SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Hi Handwerker!', style: context.light20White),
+                    Text(t.findYourDoctor, style: context.bold26White),
+                  ],
+                ),
+                Image.asset(
+                  AppImages.assetsImagesOnboarding1,
+                  height: 60,
+                  width: 60,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: DoctorsSearchBar(),
+          ),
+          SizedBox(height: 30),
+          SizedBox(
+            height: 90,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              itemCount: specialtiesCards.length,
+              separatorBuilder: (context, index) => const SizedBox(width: 10),
+              itemBuilder: (context, index) => specialtiesCards[index],
+            ),
+          ),
+        ],
       ),
-      icon: Icon(icon, color: AppColors.secondary, size: 25),
-      label: '',
     );
   }
 }

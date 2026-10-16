@@ -7,6 +7,5 @@ abstract class AppConsts {
     'Neurology',
     'Dentistry',
     'Ophthalmology',
-    'Psychiatry',
   ];
 }
