@@ -1,6 +1,9 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
+import 'package:doctor_hunt/app/features/home/presentation/widgets/home_upper_section.dart';
+import 'package:doctor_hunt/app/features/home/presentation/widgets/popular_doctors_card.dart';
+import 'package:doctor_hunt/app/features/home/presentation/widgets/see_all_button.dart';
 import 'package:doctor_hunt/app/features/home/presentation/widgets/specialty_card.dart';
+import 'package:doctor_hunt/app/features/home/presentation/widgets/top_rated_doctors_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -42,34 +45,10 @@ class HomePage extends StatelessWidget {
       ),
     ];
 
-    return SafeArea(
+    return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Hi Handwerker!', style: context.light20White),
-                    Text(t.findYourDoctor, style: context.bold26White),
-                  ],
-                ),
-                Image.asset(
-                  AppImages.assetsImagesOnboarding1,
-                  height: 60,
-                  width: 60,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: DoctorsSearchBar(),
-          ),
+          HomeUpperSection(),
           SizedBox(height: 30),
           SizedBox(
             height: 90,
@@ -81,6 +60,51 @@ class HomePage extends StatelessWidget {
               itemBuilder: (context, index) => specialtiesCards[index],
             ),
           ),
+          SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(t.popularDoctors, style: context.semiBold18),
+                SeeAllButton(),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+          SizedBox(
+            height: 260,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              itemCount: 6,
+              separatorBuilder: (context, index) => const SizedBox(width: 10),
+              itemBuilder: (context, index) => PopularDoctorsCard(),
+            ),
+          ),
+          SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(t.topRatedDoctors, style: context.semiBold18),
+                SeeAllButton(),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+          SizedBox(
+            height: 130,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              itemCount: 6,
+              separatorBuilder: (context, index) => const SizedBox(width: 10),
+              itemBuilder: (context, index) => TopRatedDoctorsCard(),
+            ),
+          ),
+          SizedBox(height: 50),
         ],
       ),
     );

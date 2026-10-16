@@ -30,7 +30,7 @@ class SpecialtyCard extends StatelessWidget {
               backgroundColor: AppColors.white.withValues(alpha: 0.08),
             ),
           ),
-          Center(child: Image.asset(icon, height: 35, width: 35)),
+          Center(child: Image.asset(icon, height: 30, width: 30)),
         ],
       ),
     );

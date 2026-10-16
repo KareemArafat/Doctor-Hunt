@@ -8,15 +8,13 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNavigationBar,
     this.floatingActionButton,
     this.appBar,
-    this.isOnboarding = false,
-    this.isHome = false,
+    this.withPadding = false,
   });
   final Widget body;
   final Widget? bottomNavigationBar;
   final Widget? floatingActionButton;
   final PreferredSizeWidget? appBar;
-  final bool isOnboarding;
-  final bool isHome;
+  final bool withPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -62,22 +60,11 @@ class CustomScaffold extends StatelessWidget {
               ),
             ),
           ),
-          if (isHome)
-            Positioned(
-              child: Container(
-                height: 150,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(20),
-                  ),
-                  color: AppColors.primary,
-                ),
-              ),
-            ),
+
           SafeArea(
-            top: !isOnboarding && !isHome,
+            top: !withPadding,
             child: Padding(
-              padding: isOnboarding || isHome
+              padding: withPadding
                   ? EdgeInsets.zero
                   : const EdgeInsets.symmetric(horizontal: 20),
               child: body,

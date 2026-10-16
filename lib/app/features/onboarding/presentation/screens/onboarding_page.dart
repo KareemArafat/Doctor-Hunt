@@ -25,7 +25,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      isOnboarding: true,
+      withPadding: true,
       body: Stack(
         children: [
           BackgroundCircle(isRight: isRight),

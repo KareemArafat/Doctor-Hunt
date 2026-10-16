@@ -20,6 +20,9 @@ abstract class AppColors {
 
   static const cardBorder = Color(0XFFF1F5F9);
 
+  static const rateStar = Color(0XFFF6D060);
+  static const fav = Color(0XFFFF0000);
+
   static const cardiologyCard = LinearGradient(
     begin: AlignmentGeometry.topLeft,
     end: AlignmentGeometry.bottomRight,

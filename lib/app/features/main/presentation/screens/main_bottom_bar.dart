@@ -25,7 +25,7 @@ class _MainBottomBarState extends State<MainBottomBar> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      isHome: currentIndex == 0,
+      withPadding: currentIndex == 0,
       body: pages[currentIndex],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(

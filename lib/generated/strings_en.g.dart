@@ -298,10 +298,10 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	String get findYourDoctor => 'Find Your Doctor';
 
 	/// en: 'Popular Doctor'
-	String get popularDoctors => 'Popular Doctor';
+	String get popularDoctors => 'Popular Doctors';
 
 	/// en: 'PTop Rated Doctors'
-	String get topRatedDoctors => 'PTop Rated Doctors';
+	String get topRatedDoctors => 'Top Rated Doctors';
 
 	/// en: 'See all'
 	String get seeAll => 'See all';
