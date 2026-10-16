@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(t.popularDoctors, style: context.semiBold18),
-                SeeAllButton(),
+                SeeAllButton(title: t.popularDoctors),
               ],
             ),
           ),
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(t.topRatedDoctors, style: context.semiBold18),
-                SeeAllButton(),
+                SeeAllButton(title: t.topRatedDoctors),
               ],
             ),
           ),

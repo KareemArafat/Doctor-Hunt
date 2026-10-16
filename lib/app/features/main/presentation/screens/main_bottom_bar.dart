@@ -1,7 +1,6 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/home_page.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_page.dart';
 import 'package:flutter/material.dart';
 
 class MainBottomBar extends StatefulWidget {
@@ -14,9 +13,9 @@ class MainBottomBar extends StatefulWidget {
 class _MainBottomBarState extends State<MainBottomBar> {
   final List<Widget> pages = [
     HomePage(),
-    SeeAllPage(),
-    SeeAllPage(),
-    SeeAllPage(),
+    SafeArea(child: SizedBox()),
+    SafeArea(child: SizedBox()),
+    SafeArea(child: SizedBox()),
   ];
   int currentIndex = 0;
 

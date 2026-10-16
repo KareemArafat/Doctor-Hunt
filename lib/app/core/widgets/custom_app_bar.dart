@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget {
           onPressed: () => context.pop(),
           child: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: AppColors.black,
+            color: AppColors.secondary,
             size: 20,
           ),
         ),

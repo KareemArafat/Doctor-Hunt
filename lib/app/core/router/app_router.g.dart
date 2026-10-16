@@ -20,6 +20,7 @@ List<RouteBase> get $appRoutes => [
   $editDoctorRoute,
   $doctorDetailsRoute,
   $homeRoute,
+  $seeAllDoctorsRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -380,6 +381,38 @@ mixin $HomeRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/home');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $seeAllDoctorsRoute => GoRouteData.$route(
+  path: '/seeAllDoctors',
+  hasOverriddenOnExit: false,
+  factory: $SeeAllDoctorsRoute._fromState,
+);
+
+mixin $SeeAllDoctorsRoute on GoRouteData {
+  static SeeAllDoctorsRoute _fromState(GoRouterState state) =>
+      SeeAllDoctorsRoute(title: state.uri.queryParameters['title']!);
+
+  SeeAllDoctorsRoute get _self => this as SeeAllDoctorsRoute;
+
+  @override
+  String get location => GoRouteData.$location(
+    '/seeAllDoctors',
+    queryParams: {'title': _self.title},
+  );
 
   @override
   void go(BuildContext context) => context.go(location);

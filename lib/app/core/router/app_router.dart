@@ -8,6 +8,7 @@ import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_ro
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
+import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_doctors_page.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/main_bottom_bar.dart';
 import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_page.dart';
 import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
@@ -156,5 +157,15 @@ class HomeRoute extends GoRouteData with $HomeRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const MainBottomBar();
+  }
+}
+
+@TypedGoRoute<SeeAllDoctorsRoute>(path: '/seeAllDoctors')
+class SeeAllDoctorsRoute extends GoRouteData with $SeeAllDoctorsRoute {
+  const SeeAllDoctorsRoute({required this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SeeAllDoctorsPage(title: title);
   }
 }
