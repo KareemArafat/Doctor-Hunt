@@ -1,4 +1,4 @@
-import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
+import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';

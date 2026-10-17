@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_search_bar.dart';
+import 'package:doctor_hunt/app/features/shared/models/doctors_search_bar.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -12,13 +12,11 @@ class HomeUpperSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
-          child: Container(
-            height: 150,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-              color: AppColors.primary,
-            ),
+        Container(
+          height: 150,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+            color: AppColors.primary,
           ),
         ),
         SafeArea(

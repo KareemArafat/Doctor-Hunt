@@ -4,7 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
-import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
+import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/create_doctor_cubit/create_doctor_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';

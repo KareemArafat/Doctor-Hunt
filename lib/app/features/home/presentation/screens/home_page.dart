@@ -18,30 +18,37 @@ class HomePage extends StatelessWidget {
       SpecialtyCard(
         color: AppColors.dentistryCard,
         icon: AppImages.assetsIconsDentistry,
+        specialty: 'Dentistry',
       ),
       SpecialtyCard(
         color: AppColors.cardiologyCard,
         icon: AppImages.assetsIconsCardiology,
+        specialty: 'Cardiology',
       ),
       SpecialtyCard(
         color: AppColors.dermatologyCard,
         icon: AppImages.assetsIconsDermatology,
+        specialty: 'Dermatology',
       ),
       SpecialtyCard(
         color: AppColors.ophthalmologyCard,
         icon: AppImages.assetsIconsOphthalmology,
+        specialty: 'Ophthalmology',
       ),
       SpecialtyCard(
         color: AppColors.pediatricsCard,
         icon: AppImages.assetsIconsPediatrics,
+        specialty: 'Pediatrics',
       ),
       SpecialtyCard(
         color: AppColors.orthopedicsCard,
         icon: AppImages.assetsIconsOrthopedics,
+        specialty: 'Orthopedics',
       ),
       SpecialtyCard(
         color: AppColors.neurologyCard,
         icon: AppImages.assetsIconsNeurology,
+        specialty: 'Neurology',
       ),
     ];
 

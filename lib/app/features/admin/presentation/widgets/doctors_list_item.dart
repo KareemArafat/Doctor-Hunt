@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/admin/data/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
