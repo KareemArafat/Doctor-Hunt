@@ -5,8 +5,8 @@ import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doct
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_list_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctors_search_bar.dart';
+import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/shared/models/doctors_search_bar.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class DoctorsViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is AllDoctorsSuccess) {
           final totalList = state.doctorsList;
-          final activeList = totalList.where((e) => e.status == t.active);
+          final activeList = totalList.where((e) => e.isActive == t.active);
           totalDoctors = '${totalList.length}';
           activeDoctors = '${activeList.length}';
         }

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

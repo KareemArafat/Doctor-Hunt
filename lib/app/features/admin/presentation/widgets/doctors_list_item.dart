@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class DoctorsListItem extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                       decoration: BoxDecoration(
-                        color: doctorModel.status == t.active
+                        color: doctorModel.isActive
                             ? AppColors.itemsBackground
                             : AppColors.errorItemsBackground,
                         borderRadius: BorderRadius.circular(12),
@@ -53,14 +53,14 @@ class DoctorsListItem extends StatelessWidget {
                           Icon(
                             Icons.circle,
                             size: 8,
-                            color: doctorModel.status == t.active
+                            color: doctorModel.isActive
                                 ? AppColors.primary
                                 : AppColors.errorItems,
                           ),
                           SizedBox(width: 4),
                           Text(
-                            doctorModel.status,
-                            style: doctorModel.status == t.active
+                            doctorModel.isActive ? t.active : t.inactive,
+                            style: doctorModel.isActive
                                 ? context.bold11Primary
                                 : context.bold11ErrorItems,
                           ),

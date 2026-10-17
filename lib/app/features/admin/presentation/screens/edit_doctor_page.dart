@@ -7,11 +7,11 @@ import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_doctor_cubit/edit_doctor_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/change_status_field.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/specialty_drop_menu.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -37,7 +37,9 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
   void initState() {
     super.initState();
     nameController = TextEditingController(text: widget.doctorModel.name);
-    statusController = TextEditingController(text: widget.doctorModel.status);
+    statusController = TextEditingController(
+      text: widget.doctorModel.isActive ? t.active : t.inactive,
+    );
     specialtyNotifier = ValueNotifier(widget.doctorModel.specialty);
   }
 
@@ -124,11 +126,10 @@ class _EditDoctorPageState extends State<EditDoctorPage> {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             context.read<EditDoctorCubit>().editDoctor(
-                              doctorModel: DoctorModel(
-                                id: widget.doctorModel.id,
+                              doctorModel: widget.doctorModel.copyWith(
                                 name: nameController.text,
                                 specialty: specialtyNotifier.value,
-                                status: statusController.text,
+                                isActive: statusController.text == t.active,
                               ),
                             );
                           }

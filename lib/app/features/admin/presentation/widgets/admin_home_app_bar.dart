@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:flutter/material.dart';

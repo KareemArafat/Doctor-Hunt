@@ -5,8 +5,8 @@ import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_mod
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/logout_confirm.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';

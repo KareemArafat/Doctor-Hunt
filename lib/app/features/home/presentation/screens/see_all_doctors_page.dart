@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/doctors_list_card.dart';
+import 'package:doctor_hunt/app/shared/widgets/doctors_list_card.dart';
 import 'package:flutter/material.dart';
 
 class SeeAllDoctorsPage extends StatelessWidget {

@@ -3,10 +3,10 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/photo_view.dart';
+import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -57,7 +57,7 @@ class DoctorDetailsPage extends StatelessWidget {
                 AdminListsItem(
                   prefix: Image.asset(AppImages.assetsIconsStatus),
                   title: t.accountStatus,
-                  description: doctorModel.status,
+                  description: doctorModel.isActive ? t.active : t.inactive,
                   trailing: SizedBox(),
                 ),
               ],

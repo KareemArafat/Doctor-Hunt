@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/app/core/utils/errors.dart';
 import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
-import 'package:doctor_hunt/app/features/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/data/repo/admin_repo.dart';
 import 'package:doctor_hunt/app/features/admin/data/services/firebase_admin_service.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';

@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/shared/widgets/shadow_card.dart';
+import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:flutter/material.dart';
