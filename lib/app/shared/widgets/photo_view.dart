@@ -11,6 +11,8 @@ class PhotoView extends StatelessWidget {
     this.icon,
     this.onTap,
     this.textStyle,
+    this.isAvatar = true,
+    this.backGroundColor = AppColors.primary,
   });
   final String name;
   final String? photo;
@@ -18,6 +20,8 @@ class PhotoView extends StatelessWidget {
   final Function()? onTap;
   final double radius;
   final TextStyle? textStyle;
+  final bool isAvatar;
+  final Color backGroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +40,11 @@ class PhotoView extends StatelessWidget {
               height: radius,
               width: radius,
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: backGroundColor,
                 border: icon != null
                     ? Border.all(color: AppColors.white, width: 3)
                     : null,
-                shape: BoxShape.circle,
+                shape: isAvatar ? BoxShape.circle : BoxShape.rectangle,
               ),
               child: photo != null
                   ? Image.asset(photo!)

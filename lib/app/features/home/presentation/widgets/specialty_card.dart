@@ -16,7 +16,7 @@ class SpecialtyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => SeeAllDoctorsRoute(title: specialty).push(context),
+      onTap: () => SpecialtyDoctorsRoute(specialty: specialty).push(context),
       child: Container(
         width: 80,
         decoration: BoxDecoration(

@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/shared/models/doctors_search_bar.dart';
-import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +34,10 @@ class HomeUpperSection extends StatelessWidget {
                         Text(t.findYourDoctor, style: context.bold26White),
                       ],
                     ),
-                    Image.asset(
-                      AppImages.assetsImagesOnboarding1,
-                      height: 60,
-                      width: 60,
+                    PhotoView(
+                      name: 'A',
+                      radius: 60,
+                      backGroundColor: AppColors.secondary,
                     ),
                   ],
                 ),

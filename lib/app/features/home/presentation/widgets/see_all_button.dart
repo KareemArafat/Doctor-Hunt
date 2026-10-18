@@ -1,17 +1,16 @@
-import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class SeeAllButton extends StatelessWidget {
-  const new({super.key, required this.title});
-  final String title;
+  const new({super.key, required this.onTap});
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => SeeAllDoctorsRoute(title: title).push(context),
+      onTap: onTap,
       child: Row(
         children: [
           Text(t.seeAll, style: context.light12Secondary),

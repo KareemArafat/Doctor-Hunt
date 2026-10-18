@@ -20,7 +20,9 @@ List<RouteBase> get $appRoutes => [
   $editDoctorRoute,
   $doctorDetailsRoute,
   $homeRoute,
-  $seeAllDoctorsRoute,
+  $seeAllPopularDoctorsRoute,
+  $seeAllTopRatedDoctorsRoute,
+  $specialtyDoctorsRoute,
 ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -396,22 +398,84 @@ mixin $HomeRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $seeAllDoctorsRoute => GoRouteData.$route(
-  path: '/seeAllDoctors',
+RouteBase get $seeAllPopularDoctorsRoute => GoRouteData.$route(
+  path: '/seeAllPopularDoctors',
   hasOverriddenOnExit: false,
-  factory: $SeeAllDoctorsRoute._fromState,
+  factory: $SeeAllPopularDoctorsRoute._fromState,
 );
 
-mixin $SeeAllDoctorsRoute on GoRouteData {
-  static SeeAllDoctorsRoute _fromState(GoRouterState state) =>
-      SeeAllDoctorsRoute(title: state.uri.queryParameters['title']!);
+mixin $SeeAllPopularDoctorsRoute on GoRouteData {
+  static SeeAllPopularDoctorsRoute _fromState(GoRouterState state) =>
+      SeeAllPopularDoctorsRoute($extra: state.extra as PopularDoctorsCubit);
 
-  SeeAllDoctorsRoute get _self => this as SeeAllDoctorsRoute;
+  SeeAllPopularDoctorsRoute get _self => this as SeeAllPopularDoctorsRoute;
+
+  @override
+  String get location => GoRouteData.$location('/seeAllPopularDoctors');
+
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+
+  @override
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: _self.$extra);
+
+  @override
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
+}
+
+RouteBase get $seeAllTopRatedDoctorsRoute => GoRouteData.$route(
+  path: '/seeAllTopRatedDoctors',
+  hasOverriddenOnExit: false,
+  factory: $SeeAllTopRatedDoctorsRoute._fromState,
+);
+
+mixin $SeeAllTopRatedDoctorsRoute on GoRouteData {
+  static SeeAllTopRatedDoctorsRoute _fromState(GoRouterState state) =>
+      SeeAllTopRatedDoctorsRoute($extra: state.extra as TopRatedDoctorsCubit);
+
+  SeeAllTopRatedDoctorsRoute get _self => this as SeeAllTopRatedDoctorsRoute;
+
+  @override
+  String get location => GoRouteData.$location('/seeAllTopRatedDoctors');
+
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+
+  @override
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: _self.$extra);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: _self.$extra);
+
+  @override
+  void replace(BuildContext context) =>
+      context.replace(location, extra: _self.$extra);
+}
+
+RouteBase get $specialtyDoctorsRoute => GoRouteData.$route(
+  path: '/specialtyDoctors',
+  hasOverriddenOnExit: false,
+  factory: $SpecialtyDoctorsRoute._fromState,
+);
+
+mixin $SpecialtyDoctorsRoute on GoRouteData {
+  static SpecialtyDoctorsRoute _fromState(GoRouterState state) =>
+      SpecialtyDoctorsRoute(specialty: state.uri.queryParameters['specialty']!);
+
+  SpecialtyDoctorsRoute get _self => this as SpecialtyDoctorsRoute;
 
   @override
   String get location => GoRouteData.$location(
-    '/seeAllDoctors',
-    queryParams: {'title': _self.title},
+    '/specialtyDoctors',
+    queryParams: {'specialty': _self.specialty},
   );
 
   @override

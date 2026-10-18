@@ -87,5 +87,8 @@
     "popularDoctors": "Popular Doctors",
     "topRatedDoctors": "Top Rated Doctors",
     "seeAll": "See all",
-    "findDoctors": "Find Doctors"
+    "findDoctors": "Find Doctors",
+    "noPopularDoctors": "No popular doctors available right now.",
+    "noTopRatedDoctors": "No top rated doctors available right now.",
+    "noDoctorsAvailableForThisSpecialty": "No doctors available for this specialty right now."
 }

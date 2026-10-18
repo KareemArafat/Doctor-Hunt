@@ -308,6 +308,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Find Doctors'
 	String get findDoctors => 'Find Doctors';
+
+	/// en: 'No popular doctors available right now.'
+	String get noPopularDoctors => 'No popular doctors available right now.';
+
+	/// en: 'No top rated doctors available right now.'
+	String get noTopRatedDoctors => 'No top rated doctors available right now.';
+
+	/// en: 'No doctors available for this specialty right now.'
+	String get noDoctorsAvailableForThisSpecialty => 'No doctors available for this specialty right now.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -407,6 +416,9 @@ extension on Translations {
 			'topRatedDoctors' => 'Top Rated Doctors',
 			'seeAll' => 'See all',
 			'findDoctors' => 'Find Doctors',
+			'noPopularDoctors' => 'No popular doctors available right now.',
+			'noTopRatedDoctors' => 'No top rated doctors available right now.',
+			'noDoctorsAvailableForThisSpecialty' => 'No doctors available for this specialty right now.',
 			_ => null,
 		};
 	}

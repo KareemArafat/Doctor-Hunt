@@ -1,3 +1,8 @@
+import 'package:doctor_hunt/app/features/home/presentation/controller/doctors_by_specialty_cubit/doctors_by_specialty_cubit.dart';
+import 'package:doctor_hunt/app/features/home/presentation/controller/popular_doctors_cubit/popular_doctors_cubit.dart';
+import 'package:doctor_hunt/app/features/home/presentation/controller/top_rated_doctors_cubit/top_rated_doctors_cubit.dart';
+import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_top_rated_doctors_page.dart';
+import 'package:doctor_hunt/app/features/home/presentation/screens/specialty_doctors_page.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
@@ -8,7 +13,7 @@ import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_ro
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
-import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_doctors_page.dart';
+import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_popular_doctors_page.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/main_bottom_bar.dart';
 import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_page.dart';
 import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
@@ -156,16 +161,56 @@ class HomeRoute extends GoRouteData with $HomeRoute {
   const HomeRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const MainBottomBar();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PopularDoctorsCubit()..getPopularDoctors(),
+        ),
+        BlocProvider(
+          create: (context) => TopRatedDoctorsCubit()..getTopRatedDoctors(),
+        ),
+      ],
+      child: const MainBottomBar(),
+    );
   }
 }
 
-@TypedGoRoute<SeeAllDoctorsRoute>(path: '/seeAllDoctors')
-class SeeAllDoctorsRoute extends GoRouteData with $SeeAllDoctorsRoute {
-  const SeeAllDoctorsRoute({required this.title});
-  final String title;
+@TypedGoRoute<SeeAllPopularDoctorsRoute>(path: '/seeAllPopularDoctors')
+class SeeAllPopularDoctorsRoute extends GoRouteData
+    with $SeeAllPopularDoctorsRoute {
+  const SeeAllPopularDoctorsRoute({required this.$extra});
+  final PopularDoctorsCubit $extra;
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return SeeAllDoctorsPage(title: title);
+    return BlocProvider.value(value: $extra, child: SeeAllPopularDoctorsPage());
+  }
+}
+
+@TypedGoRoute<SeeAllTopRatedDoctorsRoute>(path: '/seeAllTopRatedDoctors')
+class SeeAllTopRatedDoctorsRoute extends GoRouteData
+    with $SeeAllTopRatedDoctorsRoute {
+  const SeeAllTopRatedDoctorsRoute({required this.$extra});
+  final TopRatedDoctorsCubit $extra;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider.value(
+      value: $extra,
+      child: SeeAllTopRatedDoctorsPage(),
+    );
+  }
+}
+
+@TypedGoRoute<SpecialtyDoctorsRoute>(path: '/specialtyDoctors')
+class SpecialtyDoctorsRoute extends GoRouteData with $SpecialtyDoctorsRoute {
+  const SpecialtyDoctorsRoute({required this.specialty});
+  final String specialty;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider(
+      create: (context) =>
+          DoctorsBySpecialtyCubit()
+            ..getDoctorsBySpecialty(specialty: specialty),
+      child: SpecialtyDoctorsPage(specialty: specialty),
+    );
   }
 }
