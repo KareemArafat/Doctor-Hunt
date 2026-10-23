@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RolesTypes extends StatelessWidget {
-  const new({super.key});
+  const RolesTypes({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,57 +15,35 @@ class RolesTypes extends StatelessWidget {
 
     return BlocBuilder<ChooseRoleCubit, ChooseRoleState>(
       builder: (context, state) {
-        if (state is ChooseRoleAdmin) {
-          return Column(
-            children: [
-              DisableRole(
-                title: t.patient,
-                description: t.chooseRolePatientDescription,
-                image: AppImages.assetsIconsPatient,
-                onTap: () => cubit.chooseRolePatient(),
-              ),
-              SizedBox(height: 16),
-              ActiveRole(
-                title: t.admin,
-                description: t.chooseRoleAdminDescription,
-                image: AppImages.assetsIconsAdmin,
-              ),
-            ],
-          );
-        }
-        if (state is ChooseRolePatient) {
-          return Column(
-            children: [
-              ActiveRole(
-                title: t.patient,
-                description: t.chooseRolePatientDescription,
-                image: AppImages.assetsIconsPatient,
-              ),
-              SizedBox(height: 16),
-              DisableRole(
-                title: t.admin,
-                description: t.chooseRoleAdminDescription,
-                image: AppImages.assetsIconsAdmin,
-                onTap: () => cubit.chooseRoleAdmin(),
-              ),
-            ],
-          );
-        }
         return Column(
           children: [
-            DisableRole(
-              title: t.patient,
-              description: t.chooseRolePatientDescription,
-              image: AppImages.assetsIconsPatient,
-              onTap: () async => await cubit.chooseRolePatient(),
-            ),
-            SizedBox(height: 16),
-            DisableRole(
-              title: t.admin,
-              description: t.chooseRoleAdminDescription,
-              image: AppImages.assetsIconsAdmin,
-              onTap: () async => await cubit.chooseRoleAdmin(),
-            ),
+            if (state.isAdmin == false)
+              ActiveRole(
+                title: t.patient,
+                description: t.chooseRolePatientDescription,
+                image: AppImages.assetsIconsPatient,
+              )
+            else
+              DisableRole(
+                title: t.patient,
+                description: t.chooseRolePatientDescription,
+                image: AppImages.assetsIconsPatient,
+                onTap: () => cubit.setRole(isAdmin: false),
+              ),
+            const SizedBox(height: 16),
+            if (state.isAdmin == true)
+              ActiveRole(
+                title: t.admin,
+                description: t.chooseRoleAdminDescription,
+                image: AppImages.assetsIconsAdmin,
+              )
+            else
+              DisableRole(
+                title: t.admin,
+                description: t.chooseRoleAdminDescription,
+                image: AppImages.assetsIconsAdmin,
+                onTap: () => cubit.setRole(isAdmin: true),
+              ),
           ],
         );
       },

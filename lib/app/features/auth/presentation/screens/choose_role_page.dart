@@ -14,14 +14,15 @@ class ChooseRolePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ChooseRoleCubit>();
     return CustomScaffold(
       body: Column(
         children: [
-          SizedBox(height: 32),
+          SizedBox(height: 40),
           Image.asset(AppImages.assetsIconsLogo, height: 70),
           SizedBox(height: 10),
           Text(t.appName, style: context.bold24),
-          SizedBox(height: 60),
+          SizedBox(height: 50),
           Text(t.chooseRoleTittle, style: context.regular28),
           SizedBox(height: 8),
           Text(
@@ -29,19 +30,27 @@ class ChooseRolePage extends StatelessWidget {
             style: context.regular14Secondary,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 30),
           RolesTypes(),
-          Spacer(),
+          SizedBox(height: 30),
           CustomButton(
             onPressed: () {
-              final isAdmin = context.read<ChooseRoleCubit>().state.isAdmin;
-              if (isAdmin == null) return;
-              LoginRoute(isAdmin: isAdmin).push(context);
+              final isAdmin = cubit.state.isAdmin;
+              isAdmin != null
+                  ? LoginRoute(isAdmin: isAdmin).push(context)
+                  : cubit.validateRole();
             },
             size: Size(350, 55),
             child: Text(t.kContinue, style: context.semiBold16White),
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 8),
+          BlocBuilder<ChooseRoleCubit, ChooseRoleState>(
+            builder: (context, state) {
+              return state.showError
+                  ? Text(t.pleaseChooseRole, style: context.regular14ErrorItems)
+                  : const SizedBox.shrink();
+            },
+          ),
         ],
       ),
     );

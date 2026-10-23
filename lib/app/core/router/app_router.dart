@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/controller/doctors_by_specialty_cubit/doctors_by_specialty_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/controller/popular_doctors_cubit/popular_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/controller/top_rated_doctors_cubit/top_rated_doctors_cubit.dart';
@@ -10,7 +11,6 @@ import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_detai
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_admin_profile_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
-import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_popular_doctors_page.dart';

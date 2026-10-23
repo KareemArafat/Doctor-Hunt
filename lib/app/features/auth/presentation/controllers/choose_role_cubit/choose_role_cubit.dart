@@ -3,15 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'choose_role_state.dart';
 
 class ChooseRoleCubit extends Cubit<ChooseRoleState> {
-  ChooseRoleCubit() : super(ChooseRoleInitial(isAdmin: null));
+  ChooseRoleCubit() : super(ChooseRoleState(isAdmin: null));
 
-  Future<void> chooseRolePatient() async {
-    await SharedPref.setIsAdmin(false);
-    emit(ChooseRolePatient(isAdmin: false));
+  Future<void> setRole({required bool isAdmin}) async {
+    if (isAdmin) {
+      await SharedPref.setIsAdmin(isAdmin);
+      emit(ChooseRoleState(isAdmin: isAdmin));
+    } else {
+      await SharedPref.setIsAdmin(isAdmin);
+      emit(ChooseRoleState(isAdmin: isAdmin));
+    }
   }
 
-  Future<void> chooseRoleAdmin() async {
-    await SharedPref.setIsAdmin(true);
-    emit(ChooseRoleAdmin(isAdmin: true));
-  }
+  void validateRole() => emit(ChooseRoleState(showError: true));
 }

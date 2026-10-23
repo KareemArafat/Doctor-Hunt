@@ -317,6 +317,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'No doctors available for this specialty right now.'
 	String get noDoctorsAvailableForThisSpecialty => 'No doctors available for this specialty right now.';
+
+	/// en: 'Please choose role'
+	String get pleaseChooseRole => 'Please choose role';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -419,6 +422,7 @@ extension on Translations {
 			'noPopularDoctors' => 'No popular doctors available right now.',
 			'noTopRatedDoctors' => 'No top rated doctors available right now.',
 			'noDoctorsAvailableForThisSpecialty' => 'No doctors available for this specialty right now.',
+			'pleaseChooseRole' => 'Please choose role',
 			_ => null,
 		};
 	}
