@@ -86,6 +86,7 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
                     context.read<UserModelCubit>().getUserModel();
                     context.showCustomSnackBar(
                       message: t.profileEditedSuccessfully,
+                      status: SnackBarStatus.success,
                     );
                   } else if (state is EditAdminProfileFailure) {
                     context.showCustomSnackBar(message: state.message);

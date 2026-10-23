@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/app/core/router/app_router.dart';
+import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
-import 'package:doctor_hunt/app/features/onboarding/presentation/widgets/background_circle.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +25,17 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      withPadding: true,
+      withPadding: false,
       body: Stack(
         children: [
-          BackgroundCircle(isRight: isRight),
+          Positioned(
+            top: -20,
+            left: isRight ? 175 : -105,
+            child: CircleAvatar(
+              backgroundColor: AppColors.primary,
+              radius: 171,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(

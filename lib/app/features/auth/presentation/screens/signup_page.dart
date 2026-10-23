@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
@@ -24,6 +25,15 @@ class _SignupPageState extends State<SignupPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool iAgree = false;
+  late bool isAdmin;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserRole();
+  }
+
+  Future<void> loadUserRole() async => isAdmin = await SharedPref.getIsAdmin();
 
   @override
   void dispose() {
@@ -58,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
                 CustomTextField(controller: emailController, hintText: t.email),
                 SizedBox(height: 18),
                 CustomTextField(
-                  controller: passwordController,
+                  controller: passwordController, 
                   hintText: t.password,
                   isPassword: true,
                 ),
@@ -91,7 +101,14 @@ class _SignupPageState extends State<SignupPage> {
                     email: emailController.text,
                     password: passwordController.text,
                   ),
-                  child: BlocBuilder<SignupCubit, SignupState>(
+                  child: BlocConsumer<SignupCubit, SignupState>(
+                    listener: (context, state) {
+                      if (state is SignupSuccess) {
+                        LoginRoute(isAdmin: isAdmin).pushReplacement(context);
+                      } else if (state is SignupFailure) {
+                        context.showCustomSnackBar(message: state.errorMessage);
+                      }
+                    },
                     builder: (context, state) {
                       if (state is SignupLoading) {
                         return CustomLoadingWidget(size: -2);
@@ -102,10 +119,8 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 Spacer(),
                 GestureDetector(
-                  onTap: () async {
-                    final isAdmin = await SharedPref.getIsAdmin();
-                    LoginRoute(isAdmin: isAdmin).pushReplacement(context);
-                  },
+                  onTap: () =>
+                      LoginRoute(isAdmin: isAdmin).pushReplacement(context),
                   child: Text(
                     t.DoNotHaveAccount,
                     style: context.regular14Primary,

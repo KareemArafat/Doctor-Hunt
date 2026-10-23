@@ -54,7 +54,7 @@ class DoctorsListCard extends StatelessWidget {
                     Text('${doctorModel.rating}', style: context.semiBold14),
                     SizedBox(width: 6),
                     Text(
-                      '${doctorModel.reviews}',
+                      '(${doctorModel.reviews})',
                       style: context.medium14Secondary,
                     ),
                   ],

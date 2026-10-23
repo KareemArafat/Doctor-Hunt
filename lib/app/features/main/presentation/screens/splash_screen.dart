@@ -21,8 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     timer = Timer(const Duration(seconds: 3), () {
-      if (!mounted) return;
-      Onboarding1Route().go(context);
+      if (mounted) Onboarding1Route().go(context);
     });
   }
 

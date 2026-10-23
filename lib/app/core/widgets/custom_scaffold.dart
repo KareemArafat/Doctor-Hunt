@@ -8,7 +8,7 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNavigationBar,
     this.floatingActionButton,
     this.appBar,
-    this.withPadding = false,
+    this.withPadding = true,
   });
   final Widget body;
   final Widget? bottomNavigationBar;
@@ -19,6 +19,7 @@ class CustomScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBody: true,
       appBar: appBar,
       bottomNavigationBar: bottomNavigationBar,
@@ -36,8 +37,8 @@ class CustomScaffold extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.blueShadow.withValues(alpha: 0.72),
-                    blurRadius: 269,
+                    color: AppColors.blueShadow.withValues(alpha: 0.75),
+                    blurRadius: 270,
                   ),
                 ],
               ),
@@ -54,19 +55,18 @@ class CustomScaffold extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.greenShadow.withValues(alpha: 0.3),
-                    blurRadius: 121,
+                    blurRadius: 120,
                   ),
                 ],
               ),
             ),
           ),
-
           SafeArea(
-            top: !withPadding,
+            top: withPadding,
             child: Padding(
               padding: withPadding
-                  ? EdgeInsets.zero
-                  : const EdgeInsets.symmetric(horizontal: 20),
+                  ? const EdgeInsets.symmetric(horizontal: 20)
+                  : EdgeInsets.zero,
               child: body,
             ),
           ),

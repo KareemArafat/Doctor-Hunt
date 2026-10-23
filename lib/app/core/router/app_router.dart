@@ -15,8 +15,8 @@ import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.da
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_popular_doctors_page.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/main_bottom_bar.dart';
-import 'package:doctor_hunt/app/features/onboarding/presentation/screens/onboarding_page.dart';
-import 'package:doctor_hunt/app/features/splash_screen/presentation/screens/splash_screen.dart';
+import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding_page.dart';
+import 'package:doctor_hunt/app/features/main/presentation/screens/splash_screen.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
