@@ -4,6 +4,16 @@ import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class SharedPref {
+  static Future<void> setOnboarding() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding', false);
+  }
+
+  static Future<bool> getOnboarding() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('onboarding') ?? true;
+  }
+
   static Future<void> setIsAdmin(bool isAdmin) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isAdmin', isAdmin);

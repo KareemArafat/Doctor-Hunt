@@ -13,8 +13,11 @@ class LoginCubit extends Cubit<LoginState> {
 
     final result = await authRepo.login(email: email, password: password);
 
-    result.fold((l) => emit(LoginFailure(errorMessage: l.errorMessage)), (r) {
-      SharedPref.setUserModel(r);
+    result.fold((l) => emit(LoginFailure(errorMessage: l.errorMessage)), (
+      r,
+    ) async {
+      await SharedPref.setUserModel(r);
+      await SharedPref.setOnboarding();
       emit(LoginSuccess());
     });
   }

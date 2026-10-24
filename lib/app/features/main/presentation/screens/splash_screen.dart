@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:doctor_hunt/app/core/router/app_router.dart';
+import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -20,8 +21,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    timer = Timer(const Duration(seconds: 3), () {
-      if (mounted) Onboarding1Route().go(context);
+    timer = Timer(const Duration(seconds: 3), () async {
+      final onboardingValue = await SharedPref.getOnboarding();
+      final isAdmin = await SharedPref.getIsAdmin();
+      if (!mounted) return;
+      onboardingValue
+          ? const Onboarding1Route().go(context)
+          : isAdmin == true
+          ? const AdminHomeRoute().go(context)
+          : isAdmin == false
+          ? const HomeRoute().go(context)
+          : const ChooseRuleRoute().go(context);
     });
   }
 
