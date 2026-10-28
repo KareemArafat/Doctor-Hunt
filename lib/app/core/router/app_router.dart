@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/app/features/auth/presentation/controllers/login_cubit/login_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/choose_role_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/controller/doctors_by_specialty_cubit/doctors_by_specialty_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/controller/popular_doctors_cubit/popular_doctors_cubit.dart';
@@ -104,7 +105,10 @@ class LoginRoute extends GoRouteData with $LoginRoute {
   final bool isAdmin;
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return LoginPage(isAdmin: isAdmin);
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: LoginPage(isAdmin: isAdmin),
+    );
   }
 }
 

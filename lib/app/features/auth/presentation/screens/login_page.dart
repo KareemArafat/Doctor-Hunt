@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/login_cubit/login_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/forgot_password_bottom_sheet.dart';
@@ -37,70 +38,67 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: CustomScaffold(
-        body: Column(
-          children: [
-            SizedBox(height: 100),
-            Text(
-              widget.isAdmin ? t.adminLogin : t.loginTittle,
-              style: context.medium24,
+    return CustomScaffold(
+      body: Column(
+        children: [
+          SizedBox(height: 100),
+          Text(
+            widget.isAdmin ? t.adminLogin : t.loginTittle,
+            style: context.medium24,
+          ),
+          SizedBox(height: 8),
+          Text(
+            widget.isAdmin ? t.adminLoginDescription : t.signDescription,
+            style: context.regular14Secondary,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 65),
+          widget.isAdmin ? SizedBox(height: 55) : GoogleAuthButton(),
+          SizedBox(height: 34),
+          CustomTextField(controller: emailController, hintText: t.email),
+          SizedBox(height: 18),
+          CustomTextField(
+            controller: passwordController,
+            hintText: t.password,
+            isPassword: true,
+          ),
+          SizedBox(height: 55),
+          BlocConsumer<LoginCubit, LoginState>(
+            listener: (context, state) {
+              if (state is LoginSuccess) {
+                widget.isAdmin
+                    ? AdminHomeRoute().go(context)
+                    : HomeRoute().go(context);
+              } else if (state is LoginFailure) {
+                context.showCustomSnackBar(message: state.errorMessage);
+              }
+            },
+            builder: (context, state) {
+              return CustomButton(
+                onPressed: () => context.read<LoginCubit>().login(
+                  email: emailController.text,
+                  password: passwordController.text,
+                ),
+                child: state is LoginLoading
+                    ? const CustomLoadingWidget(size: -2)
+                    : Text(t.login, style: context.medium18White),
+              );
+            },
+          ),
+          if (!widget.isAdmin) ...[
+            const SizedBox(height: 20),
+            CustomTextButton(
+              onPressed: () => showForgotPasswordBottomSheet(context),
+              child: Text(t.forgotPassword, style: context.regular14Primary),
             ),
-            SizedBox(height: 8),
-            Text(
-              widget.isAdmin ? t.adminLoginDescription : t.signDescription,
-              style: context.regular14Secondary,
-              textAlign: TextAlign.center,
+            const Spacer(),
+            CustomTextButton(
+              onPressed: () => SignupRoute().pushReplacement(context),
+              child: Text(t.haveAccount, style: context.regular14Primary),
             ),
-            SizedBox(height: 65),
-            widget.isAdmin ? SizedBox(height: 55) : GoogleAuthButton(),
-            SizedBox(height: 34),
-            CustomTextField(controller: emailController, hintText: t.email),
-            SizedBox(height: 18),
-            CustomTextField(
-              controller: passwordController,
-              hintText: t.password,
-              isPassword: true,
-            ),
-            SizedBox(height: 55),
-            BlocConsumer<LoginCubit, LoginState>(
-              listener: (context, state) {
-                if (state is LoginSuccess) {
-                  widget.isAdmin
-                      ? AdminHomeRoute().go(context)
-                      : HomeRoute().go(context);
-                } else if (state is LoginFailure) {
-                  context.showCustomSnackBar(message: state.errorMessage);
-                }
-              },
-              builder: (context, state) {
-                return CustomButton(
-                  onPressed: () => context.read<LoginCubit>().login(
-                    email: emailController.text,
-                    password: passwordController.text,
-                  ),
-                  child: state is LoginLoading
-                      ? const CustomLoadingWidget(size: -2)
-                      : Text(t.login, style: context.medium18White),
-                );
-              },
-            ),
-            if (!widget.isAdmin) ...[
-              const SizedBox(height: 17),
-              GestureDetector(
-                onTap: () => showForgotPasswordBottomSheet(context),
-                child: Text(t.forgotPassword, style: context.regular14Primary),
-              ),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => SignupRoute().pushReplacement(context),
-                child: Text(t.haveAccount, style: context.regular14Primary),
-              ),
-              const SizedBox(height: 40),
-            ],
+            const SizedBox(height: 40),
           ],
-        ),
+        ],
       ),
     );
   }

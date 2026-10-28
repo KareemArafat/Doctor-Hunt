@@ -33,7 +33,7 @@ class OnboardingPage extends StatelessWidget {
             left: isRight ? 175 : -105,
             child: CircleAvatar(
               backgroundColor: AppColors.primary,
-              radius: 171,
+              radius: 170,
             ),
           ),
           Padding(
@@ -59,6 +59,7 @@ class OnboardingPage extends StatelessWidget {
                     style: context.medium18White,
                   ),
                 ),
+                SizedBox(height: 10),
                 if (!isEnd)
                   CustomTextButton(
                     onPressed: () => ChooseRuleRoute().go(context),

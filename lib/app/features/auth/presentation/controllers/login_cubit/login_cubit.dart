@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
       r,
     ) async {
       await SharedPref.setUserModel(r);
-      await SharedPref.setOnboarding();
+      //  await SharedPref.setOnboarding();
       emit(LoginSuccess());
     });
   }
