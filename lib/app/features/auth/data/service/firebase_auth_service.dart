@@ -35,13 +35,16 @@ class FirebaseAuthService {
     );
   }
 
-  Future<UserCredential> signWithGoogle() async {
+  Future<UserModel> signWithGoogle() async {
     final googleUser = await GoogleSignIn.instance.authenticate();
     final googleAuth = googleUser.authentication;
     final credential = GoogleAuthProvider.credential(
       idToken: googleAuth.idToken,
     );
-    return FirebaseAuth.instance.signInWithCredential(credential);
+    final userCredential = await FirebaseAuth.instance.signInWithCredential(
+      credential,
+    );
+    return UserModel.fromFirebase(userCredential: userCredential);
   }
 
   Future<void> resetPassword({required String email}) async {

@@ -18,14 +18,14 @@ class UserModel {
 
   factory UserModel.fromFirebase({
     required UserCredential userCredential,
-    required Map<String, dynamic> firestoreData,
+     Map<String, dynamic>? firestoreData,
   }) {
     return UserModel(
       id: userCredential.user!.uid,
       name: userCredential.user!.displayName ?? t.admin,
       email: userCredential.user!.email!,
       photo: userCredential.user!.photoURL,
-      isAdmin: firestoreData['isAdmin'],
+      isAdmin: firestoreData?['isAdmin'] ?? false,
     );
   }
 

@@ -10,9 +10,19 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login({required String email, required String password}) async {
     emit(LoginLoading());
-
     final result = await authRepo.login(email: email, password: password);
+    result.fold((l) => emit(LoginFailure(errorMessage: l.errorMessage)), (
+      r,
+    ) async {
+      await SharedPref.setUserModel(r);
+      //  await SharedPref.setOnboarding();
+      emit(LoginSuccess());
+    });
+  }
 
+  Future<void> loginWithGoogle() async {
+    emit(LoginLoading());
+    final result = await authRepo.signWithGoogle();
     result.fold((l) => emit(LoginFailure(errorMessage: l.errorMessage)), (
       r,
     ) async {

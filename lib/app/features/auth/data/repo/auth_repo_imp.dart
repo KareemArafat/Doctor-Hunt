@@ -51,7 +51,7 @@ class AuthRepoImp extends AuthRepo {
   }
 
   @override
-  Future<Either<Errors, UserCredential>> signWithGoogle() async {
+  Future<Either<Errors, UserModel>> signWithGoogle() async {
     try {
       final result = await firebaseAuthService.signWithGoogle();
       return right(result);

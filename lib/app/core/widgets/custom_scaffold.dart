@@ -46,7 +46,7 @@ class CustomScaffold extends StatelessWidget {
           ),
           Positioned(
             bottom: -33,
-            right: -69,
+            right: -70,
             child: Container(
               height: 216,
               width: 216,

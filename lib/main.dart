@@ -8,6 +8,7 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -15,6 +16,10 @@ void main() async {
   setupGetIt();
   Bloc.observer = CubitObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await GoogleSignIn.instance.initialize(
+    serverClientId:
+        '404095667798-1atootsfdmt62qj3ajiiu37fn80nm69h.apps.googleusercontent.com',
+  );
   runApp(TranslationProvider(child: const MyApp()));
 }
 

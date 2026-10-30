@@ -30,7 +30,8 @@ class OnboardingPage extends StatelessWidget {
         children: [
           Positioned(
             top: -20,
-            left: isRight ? 175 : -105,
+            left: !isRight ? -105 : null,
+            right: isRight ? -175 : null,
             child: CircleAvatar(
               backgroundColor: AppColors.primary,
               radius: 170,
@@ -38,34 +39,39 @@ class OnboardingPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                SizedBox(height: 90),
-                Image.asset(image, width: 335, height: 335),
-                SizedBox(height: 90),
-                Text(title, style: context.medium28),
-                SizedBox(height: 5),
-                Text(
-                  t.onboardingDescription,
-                  style: context.regular14Secondary,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 50),
-                CustomButton(
-                  onPressed: onPressed,
-                  size: Size(295, 55),
-                  child: Text(
-                    isEnd ? t.getStarted : t.next,
-                    style: context.medium18White,
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Spacer(flex: 2),
+                  Image.asset(image, width: 335, height: 335),
+                  Spacer(flex: 2),
+                  Text(title, style: context.medium28),
+                  SizedBox(height: 5),
+                  Text(
+                    t.onboardingDescription,
+                    style: context.regular14Secondary,
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                SizedBox(height: 10),
-                if (!isEnd)
-                  CustomTextButton(
-                    onPressed: () => ChooseRuleRoute().go(context),
-                    child: Text(t.skip, style: context.regular14Secondary),
+                  Spacer(),
+                  CustomButton(
+                    onPressed: onPressed,
+                    size: Size(295, 55),
+                    child: Text(
+                      isEnd ? t.getStarted : t.next,
+                      style: context.medium18White,
+                    ),
                   ),
-              ],
+                  SizedBox(height: 10),
+                  if (!isEnd)
+                    CustomTextButton(
+                      onPressed: () => ChooseRuleRoute().go(context),
+                      child: Text(t.skip, style: context.regular14Secondary),
+                    ),
+                  Spacer(),
+                ],
+              ),
             ),
           ),
         ],
