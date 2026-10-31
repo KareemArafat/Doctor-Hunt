@@ -5,22 +5,27 @@ import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_view_body.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/settings_view_body.dart';
-import 'package:doctor_hunt/generated/app_images.dart';
+import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AdminHomePage extends StatefulWidget {
+class AdminMainPage extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<AdminHomePage> createState() => _AdminHomePageState();
+  State<AdminMainPage> createState() => _AdminMainPageState();
 }
 
-class _AdminHomePageState extends State<AdminHomePage> {
+class _AdminMainPageState extends State<AdminMainPage> {
   int selectedIndex = 0;
-  final List<Widget> pages = const [DoctorsViewBody(), SettingsViewBody()];
+  final List<Widget> pages = const [
+    DoctorsViewBody(),
+    SettingsViewBody(),
+    DoctorsViewBody(),
+  ];
 
   @override
   void initState() {
@@ -62,39 +67,13 @@ class _AdminHomePageState extends State<AdminHomePage> {
             backgroundColor: AppColors.white,
             selectedFontSize: 0,
             items: [
-              bottomBarItem(image: AppImages.assetsIconsDoctors),
-              bottomBarItem(image: AppImages.assetsIconsSettings),
+              bottomBarItem(icon: FontAwesomeIcons.solidHouse.data),
+              bottomBarItem(icon: FontAwesomeIcons.bookOpen.data),
+              bottomBarItem(icon: FontAwesomeIcons.gear.data),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  BottomNavigationBarItem bottomBarItem({required String image}) {
-    return BottomNavigationBarItem(
-      activeIcon: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          shape: BoxShape.circle,
-        ),
-        child: Image.asset(
-          image,
-          height: 20,
-          width: 20,
-          color: AppColors.white,
-        ),
-      ),
-      icon: Image.asset(
-        image,
-        height: 20,
-        width: 20,
-        color: AppColors.secondary,
-      ),
-      label: '',
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/home_page.dart';
+import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainBottomBar extends StatefulWidget {
   const new({super.key});
@@ -39,31 +41,14 @@ class _MainBottomBarState extends State<MainBottomBar> {
             selectedFontSize: 0,
             onTap: onTap,
             items: [
-              bottomBarItem(icon: Icons.home_rounded),
-              bottomBarItem(icon: Icons.favorite_rounded),
-              bottomBarItem(icon: Icons.menu_book_rounded),
-              bottomBarItem(icon: Icons.settings_rounded),
+              bottomBarItem(icon: FontAwesomeIcons.solidHouse.data),
+              bottomBarItem(icon: FontAwesomeIcons.solidHeart.data),
+              bottomBarItem(icon: FontAwesomeIcons.bookOpen.data),
+              bottomBarItem(icon: FontAwesomeIcons.userGear.data),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  BottomNavigationBarItem bottomBarItem({required IconData icon}) {
-    return BottomNavigationBarItem(
-      activeIcon: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: AppColors.primary,
-        ),
-        child: Icon(icon, color: AppColors.white, size: 25),
-      ),
-      icon: Icon(icon, color: AppColors.secondary, size: 25),
-      label: '',
     );
   }
 }

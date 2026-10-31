@@ -6,7 +6,7 @@ import 'package:doctor_hunt/app/features/home/presentation/controller/top_rated_
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_top_rated_doctors_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/specialty_doctors_page.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_home_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_main_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_admin_profile_page.dart';
@@ -117,7 +117,7 @@ class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
   const AdminHomeRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AdminHomePage();
+    return const AdminMainPage();
   }
 }
 

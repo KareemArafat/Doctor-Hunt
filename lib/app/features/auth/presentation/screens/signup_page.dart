@@ -5,6 +5,7 @@ import 'package:doctor_hunt/app/core/utils/shared_pref.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/signup_cubit/signup_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/widgets/google_auth_button.dart';
@@ -68,7 +69,7 @@ class _SignupPageState extends State<SignupPage> {
                 CustomTextField(controller: emailController, hintText: t.email),
                 SizedBox(height: 18),
                 CustomTextField(
-                  controller: passwordController, 
+                  controller: passwordController,
                   hintText: t.password,
                   isPassword: true,
                 ),
@@ -118,8 +119,8 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
                 Spacer(),
-                GestureDetector(
-                  onTap: () =>
+                CustomTextButton(
+                  onPressed: () =>
                       LoginRoute(isAdmin: isAdmin).pushReplacement(context),
                   child: Text(
                     t.DoNotHaveAccount,

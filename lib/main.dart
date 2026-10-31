@@ -17,8 +17,7 @@ void main() async {
   Bloc.observer = CubitObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await GoogleSignIn.instance.initialize(
-    serverClientId:
-        '404095667798-1atootsfdmt62qj3ajiiu37fn80nm69h.apps.googleusercontent.com',
+    serverClientId: '404095667798-1atootsfdmt62qj3ajiiu37fn80nm69h.apps.googleusercontent.com',
   );
   runApp(TranslationProvider(child: const MyApp()));
 }
