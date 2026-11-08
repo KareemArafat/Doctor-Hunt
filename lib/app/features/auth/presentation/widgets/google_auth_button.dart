@@ -1,18 +1,17 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
-import 'package:doctor_hunt/app/features/auth/presentation/controllers/login_cubit/login_cubit.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GoogleAuthButton extends StatelessWidget {
-  const new({super.key});
+  const new({super.key, required this.onTap});
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.read<LoginCubit>().loginWithGoogle(),
+      onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       splashColor: AppColors.black.withValues(alpha: 0.1),
       highlightColor: AppColors.black.withValues(alpha: 0.05),

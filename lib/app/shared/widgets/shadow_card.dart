@@ -22,31 +22,35 @@ class ShadowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
+    return Material(
       borderRadius: BorderRadius.circular(radius),
-      splashColor: AppColors.primary.withValues(alpha: 0.1),
-      highlightColor: AppColors.primary.withValues(alpha: 0.05),
-      child: Ink(
-        height: height,
-        width: width,
-        padding: EdgeInsets.symmetric(
-          horizontal: horizontalPadding,
-          vertical: verticalPadding,
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        splashColor: AppColors.primary.withValues(alpha: 0.1),
+        highlightColor: AppColors.primary.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(radius),
+        child: Ink(
+          height: height,
+          width: width,
+          padding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding,
+            vertical: verticalPadding,
+          ),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(radius),
+            border: Border.all(color: AppColors.cardBorder),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 8,
+                offset: Offset(0, 2),
+                color: AppColors.black.withValues(alpha: 0.05),
+              ),
+            ],
+          ),
+          child: child,
         ),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(radius),
-          border: Border.all(color: AppColors.cardBorder),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 8,
-              offset: Offset(0, 2),
-              color: AppColors.black.withValues(alpha: 0.05),
-            ),
-          ],
-        ),
-        child: child,
       ),
     );
   }

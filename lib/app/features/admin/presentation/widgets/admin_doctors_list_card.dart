@@ -7,38 +7,32 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
-class DoctorsListItem extends StatelessWidget {
+class AdminDoctorsListCard extends StatelessWidget {
   const new({super.key, required this.doctorModel});
   final DoctorModel doctorModel;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ShadowCard(
       onTap: () => DoctorDetailsRoute($extra: doctorModel).push(context),
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: ShadowCard(
-          horizontalPadding: 14,
-          verticalPadding: 18,
-          child: Row(
-            children: [
-              PhotoView(name: doctorModel.name, radius: 60),
-              SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      horizontalPadding: 12,
+      verticalPadding: 12,
+      child: Row(
+        children: [
+          PhotoView(name: doctorModel.name, radius: 80),
+          SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       doctorModel.name,
-                      style: context.bold14,
-                      maxLines: 1,
+                      style: context.semiBold18,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text(
-                      doctorModel.specialty,
-                      style: context.regular11Secondary,
-                    ),
-                    SizedBox(height: 2),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                       decoration: BoxDecoration(
@@ -69,10 +63,32 @@ class DoctorsListItem extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            ],
+                Text(doctorModel.specialty, style: context.light14Secondary),
+                Row(
+                  children: [
+                    ...List.generate(
+                      5,
+                      (index) => Icon(
+                        Icons.star_rate_rounded,
+                        size: 18,
+                        color: doctorModel.rating > index
+                            ? AppColors.rateStar
+                            : AppColors.secondary,
+                      ),
+                    ),
+                    Spacer(),
+                    Text('${doctorModel.rating}', style: context.semiBold14),
+                    SizedBox(width: 6),
+                    Text(
+                      '(${doctorModel.reviews})',
+                      style: context.medium14Secondary,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

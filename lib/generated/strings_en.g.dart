@@ -42,8 +42,14 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 
+	/// en: 'App'
+	String get comment__1 => 'App';
+
 	/// en: 'Doctor Hunt'
 	String get appName => 'Doctor Hunt';
+
+	/// en: 'Onboarding'
+	String get comment__2 => 'Onboarding';
 
 	/// en: 'Find Trusted Doctors'
 	String get onboarding1Title => 'Find Trusted Doctors';
@@ -66,14 +72,17 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Get Started'
 	String get getStarted => 'Get Started';
 
+	/// en: 'Role Selection'
+	String get comment__3 => 'Role Selection';
+
 	/// en: 'Choose your role'
 	String get chooseRoleTittle => 'Choose your role';
 
 	/// en: 'The selected role determines the experience and available features.'
 	String get chooseRoleDescription => 'The selected role determines the experience and available features.';
 
-	/// en: 'Patient'
-	String get patient => 'Patient';
+	/// en: 'Patient5'
+	String get patient => 'Patient5';
 
 	/// en: 'Find doctors, book appointments, and manage your medical records.'
 	String get chooseRolePatientDescription => 'Find doctors, book appointments, and manage your medical records.';
@@ -83,6 +92,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Manage doctors, appointments, users, and the platform.'
 	String get chooseRoleAdminDescription => 'Manage doctors, appointments, users, and the platform.';
+
+	/// en: 'Authentication'
+	String get comment__4 => 'Authentication';
 
 	/// en: 'Join us to start searching'
 	String get signupTittle => 'Join us to start searching';
@@ -120,6 +132,15 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Don’t have an account? Join us'
 	String get DoNotHaveAccount => 'Don’t have an account? Join us';
 
+	/// en: 'Admin Login'
+	String get adminLogin => 'Admin Login';
+
+	/// en: 'Sign in to access your admin dashboard'
+	String get adminLoginDescription => 'Sign in to access your admin dashboard';
+
+	/// en: 'Password Recovery'
+	String get comment__5 => 'Password Recovery';
+
 	/// en: 'Forgot Password'
 	String get forgotPassword => 'Forgot Password';
 
@@ -150,11 +171,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Update Password'
 	String get updatePassword => 'Update Password';
 
-	/// en: 'Admin Login'
-	String get adminLogin => 'Admin Login';
-
-	/// en: 'Sign in to access your admin dashboard'
-	String get adminLoginDescription => 'Sign in to access your admin dashboard';
+	/// en: 'Doctors Management'
+	String get comment__6 => 'Doctors Management';
 
 	/// en: 'Doctors'
 	String get doctors => 'Doctors';
@@ -213,6 +231,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Delete Doctor'
 	String get deleteDoctor => 'Delete Doctor';
 
+	/// en: 'Admin Settings'
+	String get comment__7 => 'Admin Settings';
+
 	/// en: 'Settings'
 	String get settings => 'Settings';
 
@@ -249,6 +270,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Yes'
 	String get yes => 'Yes';
 
+	/// en: 'Profile'
+	String get comment__8 => 'Profile';
+
 	/// en: 'Edit Profile'
 	String get editProfile => 'Edit Profile';
 
@@ -276,11 +300,26 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'admin@doctorhunt.com'
 	String get adminAccount => 'admin@doctorhunt.com';
 
+	/// en: 'Validation & Messages'
+	String get comment__9 => 'Validation & Messages';
+
 	/// en: 'Please select specialty'
 	String get pleaseSelectSpecialty => 'Please select specialty';
 
 	/// en: 'This field is required'
 	String get thisFieldIsRequired => 'This field is required';
+
+	/// en: 'Name must be at least 3 characters'
+	String get invalidName => 'Name must be at least 3 characters';
+
+	/// en: 'Please enter a valid email address'
+	String get invalidEmail => 'Please enter a valid email address';
+
+	/// en: 'Password must be at least 6 characters'
+	String get invalidPassword => 'Password must be at least 6 characters';
+
+	/// en: 'You must agree to the privacy policy'
+	String get youMustAgreeToThePrivacyPolicy => 'You must agree to the privacy policy';
 
 	/// en: 'Doctor added successfully!'
 	String get doctorAddedSuccessfully => 'Doctor added successfully!';
@@ -293,6 +332,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Profile edited successfully!'
 	String get profileEditedSuccessfully => 'Profile edited successfully!';
+
+	/// en: 'Home'
+	String get comment__10 => 'Home';
 
 	/// en: 'Find Your Doctor'
 	String get findYourDoctor => 'Find Your Doctor';
@@ -330,7 +372,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
+			'comment__1' => 'App',
 			'appName' => 'Doctor Hunt',
+			'comment__2' => 'Onboarding',
 			'onboarding1Title' => 'Find Trusted Doctors',
 			'onboarding2Title' => 'Choose Best Doctors',
 			'onboarding3Title' => 'Easy Appointments',
@@ -338,12 +382,14 @@ extension on Translations {
 			'next' => 'Next',
 			'skip' => 'Skip',
 			'getStarted' => 'Get Started',
+			'comment__3' => 'Role Selection',
 			'chooseRoleTittle' => 'Choose your role',
 			'chooseRoleDescription' => 'The selected role determines the experience and available features.',
-			'patient' => 'Patient',
+			'patient' => 'Patient5',
 			'chooseRolePatientDescription' => 'Find doctors, book appointments, and manage your medical records.',
 			'admin' => 'Admin',
 			'chooseRoleAdminDescription' => 'Manage doctors, appointments, users, and the platform.',
+			'comment__4' => 'Authentication',
 			'signupTittle' => 'Join us to start searching',
 			'loginTittle' => 'Welcome back',
 			'signDescription' => 'You can search course, apply course and find scholarship for abroad studies',
@@ -356,6 +402,9 @@ extension on Translations {
 			'haveAccount' => 'Have an account? Log in',
 			'login' => 'Login',
 			'DoNotHaveAccount' => 'Don’t have an account? Join us',
+			'adminLogin' => 'Admin Login',
+			'adminLoginDescription' => 'Sign in to access your admin dashboard',
+			'comment__5' => 'Password Recovery',
 			'forgotPassword' => 'Forgot Password',
 			'forgotPasswordDescription' => 'Enter your email for the verification process, we will send 4 digits code to your email.',
 			'enterDigitsTittle' => 'Enter 4 Digits Code',
@@ -366,8 +415,7 @@ extension on Translations {
 			'reEnterPassword' => 'Re-enter Password',
 			'kContinue' => 'continue',
 			'updatePassword' => 'Update Password',
-			'adminLogin' => 'Admin Login',
-			'adminLoginDescription' => 'Sign in to access your admin dashboard',
+			'comment__6' => 'Doctors Management',
 			'doctors' => 'Doctors',
 			'activeDoctors' => 'Active Doctors',
 			'totalDoctors' => 'Total Doctors',
@@ -387,6 +435,7 @@ extension on Translations {
 			'doctorStatus' => 'Doctor Status',
 			'saveChanges' => 'Save Changes',
 			'deleteDoctor' => 'Delete Doctor',
+			'comment__7' => 'Admin Settings',
 			'settings' => 'Settings',
 			'adminProfile' => 'Admin Profile',
 			'adminProfileDescription' => 'Edit super admin details & permissions',
@@ -399,6 +448,7 @@ extension on Translations {
 			'logoutConfirmationMessage' => 'Are you sure you want to log out?',
 			'cancel' => 'Cancel',
 			'yes' => 'Yes',
+			'comment__8' => 'Profile',
 			'editProfile' => 'Edit Profile',
 			'fullName' => 'Full Name',
 			'emailAddress' => 'Email Address',
@@ -408,12 +458,18 @@ extension on Translations {
 			'inactive' => 'Inactive',
 			'administrator' => 'Administrator',
 			'adminAccount' => 'admin@doctorhunt.com',
+			'comment__9' => 'Validation & Messages',
 			'pleaseSelectSpecialty' => 'Please select specialty',
 			'thisFieldIsRequired' => 'This field is required',
+			'invalidName' => 'Name must be at least 3 characters',
+			'invalidEmail' => 'Please enter a valid email address',
+			'invalidPassword' => 'Password must be at least 6 characters',
+			'youMustAgreeToThePrivacyPolicy' => 'You must agree to the privacy policy',
 			'doctorAddedSuccessfully' => 'Doctor added successfully!',
 			'doctorEditedSuccessfully' => 'Doctor edited successfully!',
 			'doctorDeletedSuccessfully' => 'Doctor deleted successfully!',
 			'profileEditedSuccessfully' => 'Profile edited successfully!',
+			'comment__10' => 'Home',
 			'findYourDoctor' => 'Find Your Doctor',
 			'popularDoctors' => 'Popular Doctors',
 			'topRatedDoctors' => 'Top Rated Doctors',

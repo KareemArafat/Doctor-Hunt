@@ -3,7 +3,7 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_view_body.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_doctors_view_body.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/settings_view_body.dart';
 import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -22,9 +22,9 @@ class AdminMainPage extends StatefulWidget {
 class _AdminMainPageState extends State<AdminMainPage> {
   int selectedIndex = 0;
   final List<Widget> pages = const [
-    DoctorsViewBody(),
+    AdminDoctorsViewBody(),
     SettingsViewBody(),
-    DoctorsViewBody(),
+    AdminDoctorsViewBody(),
   ];
 
   @override
@@ -62,12 +62,13 @@ class _AdminMainPageState extends State<AdminMainPage> {
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           child: BottomNavigationBar(
+            type: BottomNavigationBarType.shifting,
             currentIndex: selectedIndex,
             onTap: onTab,
             backgroundColor: AppColors.white,
             selectedFontSize: 0,
             items: [
-              bottomBarItem(icon: FontAwesomeIcons.solidHouse.data),
+              bottomBarItem(icon: FontAwesomeIcons.stethoscope.data),
               bottomBarItem(icon: FontAwesomeIcons.bookOpen.data),
               bottomBarItem(icon: FontAwesomeIcons.gear.data),
             ],

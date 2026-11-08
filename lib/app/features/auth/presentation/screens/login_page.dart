@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/extensions/custom_snack_bar.dart';
 import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/app/core/utils/validators.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
@@ -27,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController(text: 'kareem@gmail.com');
   final passwordController = TextEditingController(text: '12345678');
   final forgotPasswordEmailController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   void dispose() {
@@ -39,66 +41,82 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 100),
-          Text(
-            widget.isAdmin ? t.adminLogin : t.loginTittle,
-            style: context.medium24,
-          ),
-          SizedBox(height: 8),
-          Text(
-            widget.isAdmin ? t.adminLoginDescription : t.signDescription,
-            style: context.regular14Secondary,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 65),
-          widget.isAdmin ? SizedBox(height: 55) : GoogleAuthButton(),
-          SizedBox(height: 34),
-          CustomTextField(controller: emailController, hintText: t.email),
-          SizedBox(height: 18),
-          CustomTextField(
-            controller: passwordController,
-            hintText: t.password,
-            isPassword: true,
-          ),
-          SizedBox(height: 55),
-          BlocConsumer<LoginCubit, LoginState>(
-            listener: (context, state) {
-              if (state is LoginSuccess) {
-                widget.isAdmin
-                    ? AdminHomeRoute().go(context)
-                    : HomeRoute().go(context);
-              } else if (state is LoginFailure) {
-                context.showCustomSnackBar(message: state.errorMessage);
-              }
-            },
-            builder: (context, state) {
-              return CustomButton(
-                onPressed: () => context.read<LoginCubit>().login(
-                  email: emailController.text,
-                  password: passwordController.text,
-                ),
-                child: state is LoginLoading
-                    ? const CustomLoadingWidget(size: -2)
-                    : Text(t.login, style: context.medium18White),
-              );
-            },
-          ),
-          if (!widget.isAdmin) ...[
-            const SizedBox(height: 20),
-            CustomTextButton(
-              onPressed: () => showForgotPasswordBottomSheet(context),
-              child: Text(t.forgotPassword, style: context.regular14Primary),
+      body: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            SizedBox(height: 100),
+            Text(
+              widget.isAdmin ? t.adminLogin : t.loginTittle,
+              style: context.medium24,
             ),
-            const Spacer(),
-            CustomTextButton(
-              onPressed: () => SignupRoute().pushReplacement(context),
-              child: Text(t.haveAccount, style: context.regular14Primary),
+            SizedBox(height: 8),
+            Text(
+              widget.isAdmin ? t.adminLoginDescription : t.signDescription,
+              style: context.regular14Secondary,
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: 65),
+            widget.isAdmin
+                ? SizedBox(height: 55)
+                : GoogleAuthButton(
+                    onTap: () => context.read<LoginCubit>().loginWithGoogle(),
+                  ),
+            SizedBox(height: 34),
+            CustomTextField(
+              controller: emailController,
+              hintText: t.email,
+              validator: (value) => Validators.validateEmail(value),
+            ),
+            SizedBox(height: 18),
+            CustomTextField(
+              controller: passwordController,
+              hintText: t.password,
+              isPassword: true,
+              validator: (value) => Validators.validatePassword(value),
+            ),
+            SizedBox(height: 55),
+            BlocConsumer<LoginCubit, LoginState>(
+              listener: (context, state) {
+                if (state is LoginSuccess) {
+                  widget.isAdmin
+                      ? AdminHomeRoute().go(context)
+                      : HomeRoute().go(context);
+                } else if (state is LoginFailure) {
+                  context.showCustomSnackBar(message: state.errorMessage);
+                }
+              },
+              builder: (context, state) {
+                return CustomButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      context.read<LoginCubit>().login(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                    }
+                  },
+                  child: state is LoginLoading
+                      ? const CustomLoadingWidget(size: -2)
+                      : Text(t.login, style: context.medium18White),
+                );
+              },
+            ),
+            if (!widget.isAdmin) ...[
+              const SizedBox(height: 20),
+              CustomTextButton(
+                onPressed: () => showForgotPasswordBottomSheet(context),
+                child: Text(t.forgotPassword, style: context.regular14Primary),
+              ),
+              const Spacer(),
+              CustomTextButton(
+                onPressed: () => SignupRoute().pushReplacement(context),
+                child: Text(t.haveAccount, style: context.regular14Primary),
+              ),
+              const SizedBox(height: 40),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

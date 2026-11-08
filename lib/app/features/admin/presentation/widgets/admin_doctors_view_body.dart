@@ -3,7 +3,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/doctors_list_item.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_doctors_list_card.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/shared/models/doctors_search_bar.dart';
@@ -12,7 +12,7 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DoctorsViewBody extends StatelessWidget {
+class AdminDoctorsViewBody extends StatelessWidget {
   const new({super.key});
 
   @override
@@ -79,11 +79,15 @@ class DoctorsViewBody extends StatelessWidget {
               child: state is AllDoctorsSuccess
                   ? state.doctorsList.isEmpty
                         ? EmptyDoctorsList()
-                        : ListView.builder(
+                        : ListView.separated(
+                            padding: EdgeInsets.symmetric(vertical: 20),
                             itemCount: state.doctorsList.length,
-                            itemBuilder: (context, index) => DoctorsListItem(
-                              doctorModel: state.doctorsList[index],
-                            ),
+                            separatorBuilder: (context, index) =>
+                                SizedBox(height: 10),
+                            itemBuilder: (context, index) =>
+                                AdminDoctorsListCard(
+                                  doctorModel: state.doctorsList[index],
+                                ),
                           )
                   : state is AllDoctorsFailure
                   ? CustomErrorWidget(message: state.errorMessage)

@@ -1,6 +1,5 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
-import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -9,6 +8,7 @@ class CustomTextField extends StatefulWidget {
     this.controller,
     this.text,
     this.hintText,
+    this.validator,
     this.suffixIcon,
     this.prefixIcon,
     this.isPassword = false,
@@ -17,6 +17,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final String? text;
   final String? hintText;
+  final FormFieldValidator<String>? validator;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool isPassword;
@@ -44,8 +45,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (value) =>
-          value == null || value.isEmpty ? t.thisFieldIsRequired : null,
+      validator: widget.validator,
       readOnly: widget.isReadOnly,
       initialValue: widget.text,
       controller: widget.controller,
