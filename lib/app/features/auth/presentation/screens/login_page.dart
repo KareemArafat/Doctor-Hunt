@@ -14,7 +14,6 @@ import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const new({super.key, required this.isAdmin});
@@ -27,14 +26,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController(text: 'kareem@gmail.com');
   final passwordController = TextEditingController(text: '12345678');
-  final forgotPasswordEmailController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-    forgotPasswordEmailController.dispose();
     super.dispose();
   }
 
@@ -129,10 +126,7 @@ class _LoginPageState extends State<LoginPage> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
-      builder: (context) => ForgotPasswordBottomSheet(
-        controller: forgotPasswordEmailController,
-        onPressed: () => context.pop(),
-      ),
+      builder: (context) => ForgotPasswordBottomSheet(),
     );
   }
 }

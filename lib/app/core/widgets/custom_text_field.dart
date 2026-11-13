@@ -45,6 +45,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorErrorColor: AppColors.errorItems,
       validator: widget.validator,
       readOnly: widget.isReadOnly,
       initialValue: widget.text,

@@ -81,8 +81,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'The selected role determines the experience and available features.'
 	String get chooseRoleDescription => 'The selected role determines the experience and available features.';
 
-	/// en: 'Patient5'
-	String get patient => 'Patient5';
+	/// en: 'Patient'
+	String get patient => 'Patient';
 
 	/// en: 'Find doctors, book appointments, and manage your medical records.'
 	String get chooseRolePatientDescription => 'Find doctors, book appointments, and manage your medical records.';
@@ -138,14 +138,20 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Sign in to access your admin dashboard'
 	String get adminLoginDescription => 'Sign in to access your admin dashboard';
 
+	/// en: 'Send Reset Link'
+	String get sendResetLink => 'Send Reset Link';
+
+	/// en: 'Reset link sent successfully! Please check your email'
+	String get resetLinkSentSuccessfully => 'Reset link sent successfully! Please check your email';
+
 	/// en: 'Password Recovery'
 	String get comment__5 => 'Password Recovery';
 
 	/// en: 'Forgot Password'
 	String get forgotPassword => 'Forgot Password';
 
-	/// en: 'Enter your email for the verification process, we will send 4 digits code to your email.'
-	String get forgotPasswordDescription => 'Enter your email for the verification process, we will send 4 digits code to your email.';
+	/// en: 'Enter your email address and we'll send you a password reset link.'
+	String get forgotPasswordDescription => 'Enter your email address and we\'ll send you a password reset link.';
 
 	/// en: 'Enter 4 Digits Code'
 	String get enterDigitsTittle => 'Enter 4 Digits Code';
@@ -315,8 +321,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Please enter a valid email address'
 	String get invalidEmail => 'Please enter a valid email address';
 
-	/// en: 'Password must be at least 6 characters'
-	String get invalidPassword => 'Password must be at least 6 characters';
+	/// en: 'Password must be at least 8 characters'
+	String get invalidPassword => 'Password must be at least 8 characters';
 
 	/// en: 'You must agree to the privacy policy'
 	String get youMustAgreeToThePrivacyPolicy => 'You must agree to the privacy policy';
@@ -385,7 +391,7 @@ extension on Translations {
 			'comment__3' => 'Role Selection',
 			'chooseRoleTittle' => 'Choose your role',
 			'chooseRoleDescription' => 'The selected role determines the experience and available features.',
-			'patient' => 'Patient5',
+			'patient' => 'Patient',
 			'chooseRolePatientDescription' => 'Find doctors, book appointments, and manage your medical records.',
 			'admin' => 'Admin',
 			'chooseRoleAdminDescription' => 'Manage doctors, appointments, users, and the platform.',
@@ -404,9 +410,11 @@ extension on Translations {
 			'DoNotHaveAccount' => 'Don’t have an account? Join us',
 			'adminLogin' => 'Admin Login',
 			'adminLoginDescription' => 'Sign in to access your admin dashboard',
+			'sendResetLink' => 'Send Reset Link',
+			'resetLinkSentSuccessfully' => 'Reset link sent successfully! Please check your email',
 			'comment__5' => 'Password Recovery',
 			'forgotPassword' => 'Forgot Password',
-			'forgotPasswordDescription' => 'Enter your email for the verification process, we will send 4 digits code to your email.',
+			'forgotPasswordDescription' => 'Enter your email address and we\'ll send you a password reset link.',
 			'enterDigitsTittle' => 'Enter 4 Digits Code',
 			'enterDigitsDescription' => 'Enter the 4 digits code that you received on your email.',
 			'resetPasswordTittle' => 'Reset Password',
@@ -463,7 +471,7 @@ extension on Translations {
 			'thisFieldIsRequired' => 'This field is required',
 			'invalidName' => 'Name must be at least 3 characters',
 			'invalidEmail' => 'Please enter a valid email address',
-			'invalidPassword' => 'Password must be at least 6 characters',
+			'invalidPassword' => 'Password must be at least 8 characters',
 			'youMustAgreeToThePrivacyPolicy' => 'You must agree to the privacy policy',
 			'doctorAddedSuccessfully' => 'Doctor added successfully!',
 			'doctorEditedSuccessfully' => 'Doctor edited successfully!',

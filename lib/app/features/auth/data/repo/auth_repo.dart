@@ -16,7 +16,7 @@ abstract class AuthRepo {
 
   Future<Either<Errors, UserModel>> signWithGoogle();
 
-  Future<Either<Errors, void>> resetPassword({required String email});
+  Future<Either<Errors, void>> forgotPassword({required String email});
 
   Future<Either<Errors, void>> signOut();
 }

@@ -61,7 +61,7 @@ class AuthRepoImp extends AuthRepo {
   }
 
   @override
-  Future<Either<Errors, void>> resetPassword({required String email}) async {
+  Future<Either<Errors, void>> forgotPassword({required String email}) async {
     try {
       await firebaseAuthService.resetPassword(email: email);
       return right(null);
