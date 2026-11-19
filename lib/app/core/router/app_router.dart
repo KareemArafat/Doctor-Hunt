@@ -5,11 +5,12 @@ import 'package:doctor_hunt/app/features/home/presentation/controller/popular_do
 import 'package:doctor_hunt/app/features/home/presentation/controller/top_rated_doctors_cubit/top_rated_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_top_rated_doctors_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/specialty_doctors_page.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/screens/privacy_policy_page.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_main_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_admin_profile_page.dart';
+import 'package:doctor_hunt/app/shared/screens/edit_profile_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
@@ -126,7 +127,7 @@ class EditAdminProfileRoute extends GoRouteData with $EditAdminProfileRoute {
   const EditAdminProfileRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const EditAdminProfilePage();
+    return const EditProfilePage();
   }
 }
 
@@ -216,5 +217,14 @@ class SpecialtyDoctorsRoute extends GoRouteData with $SpecialtyDoctorsRoute {
             ..getDoctorsBySpecialty(specialty: specialty),
       child: SpecialtyDoctorsPage(specialty: specialty),
     );
+  }
+}
+
+@TypedGoRoute<PrivacyPolicyRoute>(path: '/privacyPolicy')
+class PrivacyPolicyRoute extends GoRouteData with $PrivacyPolicyRoute {
+  const PrivacyPolicyRoute();
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return PrivacyPolicyPage();
   }
 }

@@ -4,6 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
@@ -15,14 +16,14 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class EditAdminProfilePage extends StatefulWidget {
+class EditProfilePage extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<EditAdminProfilePage> createState() => _EditAdminProfilePageState();
+  State<EditProfilePage> createState() => _EditProfilePageState();
 }
 
-class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
+class _EditProfilePageState extends State<EditProfilePage> {
   final GlobalKey<FormState> formKey = GlobalKey();
   late UserModel userModel;
   late TextEditingController nameController;
@@ -66,10 +67,7 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
               SizedBox(height: 8),
               CustomTextField(
                 controller: nameController,
-                prefixIcon: Image.asset(
-                  AppImages.assetsIconsProfile,
-                  color: AppColors.primary,
-                ),
+                prefixIcon: Icon(Icons.person, color: AppColors.primary),
               ),
               SizedBox(height: 20),
               Text(t.emailAddress, style: context.medium12),
@@ -78,6 +76,18 @@ class _EditAdminProfilePageState extends State<EditAdminProfilePage> {
                 isReadOnly: true,
                 text: userModel.email,
                 prefixIcon: Icon(Icons.email, color: AppColors.primary),
+              ),
+              SizedBox(height: 20),
+              Text(t.password, style: context.medium12),
+              SizedBox(height: 8),
+              CustomTextField(
+                isReadOnly: true,
+                text: '∗∗∗∗∗∗∗∗∗',
+                prefixIcon: Icon(Icons.password, color: AppColors.primary),
+                suffixIcon: CustomTextButton(
+                  onPressed: () {},
+                  child: Text(t.change, style: context.regular12Primary),
+                ),
               ),
               SizedBox(height: 50),
               BlocConsumer<EditAdminProfileCubit, EditAdminProfileState>(

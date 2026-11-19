@@ -5,7 +5,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_list_tile.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_images.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -39,7 +39,7 @@ class DoctorDetailsPage extends StatelessWidget {
           ShadowCard(
             child: Column(
               children: [
-                AdminListsItem(
+                CustomListTile(
                   prefix: Image.asset(
                     AppImages.assetsIconsSpecialty,
                     color: AppColors.primary,
@@ -54,7 +54,7 @@ class DoctorDetailsPage extends StatelessWidget {
                   indent: 16,
                   endIndent: 16,
                 ),
-                AdminListsItem(
+                CustomListTile(
                   prefix: Image.asset(AppImages.assetsIconsStatus),
                   title: t.accountStatus,
                   description: doctorModel.isActive ? t.active : t.inactive,

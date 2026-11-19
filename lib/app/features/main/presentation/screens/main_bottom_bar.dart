@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/home_page.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/screens/settings_page.dart';
 import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,7 +18,7 @@ class _MainBottomBarState extends State<MainBottomBar> {
     HomePage(),
     SafeArea(child: SizedBox()),
     SafeArea(child: SizedBox()),
-    SafeArea(child: SizedBox()),
+    SettingsPage(),
   ];
   int currentIndex = 0;
 
@@ -26,7 +27,7 @@ class _MainBottomBarState extends State<MainBottomBar> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      withPadding: currentIndex == 0,
+      withPadding: currentIndex != 0,
       body: pages[currentIndex],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(

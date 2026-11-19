@@ -55,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       cursorColor: AppColors.black,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(16),
-        suffixIcon: widget.isPassword
+        suffix: widget.isPassword
             ? IconButton(
                 highlightColor: AppColors.transparent,
                 onPressed: () => setState(() => isPassword = !isPassword),

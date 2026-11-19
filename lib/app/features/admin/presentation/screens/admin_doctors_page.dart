@@ -12,7 +12,7 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdminDoctorsViewBody extends StatelessWidget {
+class AdminDoctorsPage extends StatelessWidget {
   const new({super.key});
 
   @override

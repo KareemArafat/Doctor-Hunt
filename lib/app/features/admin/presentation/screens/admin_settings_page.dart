@@ -3,7 +3,7 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_lists_item.dart';
+import 'package:doctor_hunt/app/core/widgets/custom_list_tile.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/logout_confirm.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
@@ -13,7 +13,7 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SettingsViewBody extends StatelessWidget {
+class AdminSettingsPage extends StatelessWidget {
   const new({super.key});
 
   @override
@@ -50,7 +50,7 @@ class SettingsViewBody extends StatelessWidget {
         ShadowCard(
           child: Column(
             children: [
-              AdminListsItem(
+              CustomListTile(
                 prefix: Icon(
                   Icons.manage_accounts,
                   size: 20,
@@ -66,7 +66,7 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              AdminListsItem(
+              CustomListTile(
                 prefix: Icon(
                   Icons.lock_reset,
                   size: 20,
@@ -81,7 +81,7 @@ class SettingsViewBody extends StatelessWidget {
                 indent: 16,
                 endIndent: 16,
               ),
-              AdminListsItem(
+              CustomListTile(
                 prefix: Icon(
                   Icons.info_outlined,
                   size: 20,

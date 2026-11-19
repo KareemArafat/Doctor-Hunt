@@ -107,5 +107,14 @@
     "noPopularDoctors": "No popular doctors available right now.",
     "noTopRatedDoctors": "No top rated doctors available right now.",
     "noDoctorsAvailableForThisSpecialty": "No doctors available for this specialty right now.",
-    "pleaseChooseRole": "Please choose role"
+    "pleaseChooseRole": "Please choose role",
+    "privacyPolicy": "Privacy Policy",
+    "privacyPolicyTitle": "Doctor Hunt App Privacy Policy",
+    "privacyPolicyDescription": "We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use the Doctor Hunt application. By using our app, you agree to the practices described in this policy.",
+    "privacyPolicyPoint1": "We collect personal information such as your name, email address, and other details necessary to provide our services.",
+    "privacyPolicyPoint2": "Your information is used to improve your experience, provide our services, and ensure the proper functionality of the application.",
+    "privacyPolicyPoint3": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, or disclosure.",
+    "privacyPolicyPoint4": "We do not sell or share your personal information with third parties, except when necessary to provide our services or comply with legal obligations.",
+    "privacyPolicyFooter": "We may update this Privacy Policy from time to time. Any changes will be reflected on this page. We encourage you to review this policy regularly to stay informed about how we protect your privacy.",
+    "change": "Change"
 }

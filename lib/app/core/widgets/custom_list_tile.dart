@@ -2,18 +2,18 @@ import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class AdminListsItem extends StatelessWidget {
+class CustomListTile extends StatelessWidget {
   const new({
     super.key,
     required this.prefix,
     required this.title,
-    required this.description,
+    this.description,
     this.trailing,
     this.onTap,
   });
   final Widget prefix;
   final String title;
-  final String description;
+  final String? description;
   final Widget? trailing;
   final Function()? onTap;
 
@@ -21,6 +21,7 @@ class AdminListsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      behavior: HitTestBehavior.opaque,
       child: Padding(
         padding: EdgeInsets.all(16),
         child: Row(
@@ -41,7 +42,8 @@ class AdminListsItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(title, style: context.semiBold14),
-                  Text(description, style: context.regular12Secondary),
+                  if (description != null)
+                    Text(description!, style: context.regular12Secondary),
                 ],
               ),
             ),
