@@ -116,5 +116,13 @@
     "privacyPolicyPoint3": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, or disclosure.",
     "privacyPolicyPoint4": "We do not sell or share your personal information with third parties, except when necessary to provide our services or comply with legal obligations.",
     "privacyPolicyFooter": "We may update this Privacy Policy from time to time. Any changes will be reflected on this page. We encourage you to review this policy regularly to stay informed about how we protect your privacy.",
-    "change": "Change"
+    "change": "Change",
+    "currentPassword": "Current Password",
+    "confirmPassword": "Confirm Password",
+    "incorrectCurrentPassword": "The current password is incorrect.",
+    "recentLoginRequired": "Please sign in again before changing your password.",
+    "passwordAccountUnavailable": "Password changes are unavailable for this account.",
+    "passwordChangeFailed": "Unable to change password. Please try again.",
+    "passwordChangedSuccessfully": "Password changed successfully.",
+    "passwordsDoNotMatch": "Passwords do not match."
 }

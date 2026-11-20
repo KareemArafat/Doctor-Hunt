@@ -264,8 +264,8 @@ RouteBase get $editAdminProfileRoute => GoRouteData.$route(
 );
 
 mixin $EditAdminProfileRoute on GoRouteData {
-  static EditAdminProfileRoute _fromState(GoRouterState state) =>
-      const EditAdminProfileRoute();
+  static EditProfileRoute _fromState(GoRouterState state) =>
+      const EditProfileRoute();
 
   @override
   String get location => GoRouteData.$location('/editAdminProfile');

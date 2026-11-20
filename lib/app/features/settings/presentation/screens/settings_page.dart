@@ -51,7 +51,7 @@ class SettingsPage extends StatelessWidget {
                   color: AppColors.primary,
                 ),
                 title: t.editProfile,
-                onTap: () => EditAdminProfileRoute().push(context),
+                onTap: () => EditProfileRoute().push(context),
               ),
               Divider(
                 color: AppColors.disableItemsBackground,

@@ -21,4 +21,20 @@ class SettingsRepoImp extends SettingsRepo {
       return left(Errors(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Errors, void>> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      await settingsFirebaseService.changePassword(
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      );
+      return right(null);
+    } catch (e) {
+      return left(Errors(errorMessage: e.toString()));
+    }
+  }
 }

@@ -7,18 +7,25 @@ class CustomTextButton extends StatelessWidget {
     required this.onPressed,
     required this.child,
     this.clickableColor = AppColors.primary,
+    this.size = const Size(0, 0),
+    this.borderRadius = 100,
   });
   final Function() onPressed;
   final Widget child;
   final Color clickableColor;
+  final Size size;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
         foregroundColor: clickableColor,
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-        minimumSize: Size.zero,
+        minimumSize: size,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       onPressed: onPressed,

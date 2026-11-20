@@ -395,6 +395,30 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Change'
 	String get change => 'Change';
+
+	/// en: 'Current Password'
+	String get currentPassword => 'Current Password';
+
+	/// en: 'Confirm Password'
+	String get confirmPassword => 'Confirm Password';
+
+	/// en: 'The current password is incorrect.'
+	String get incorrectCurrentPassword => 'The current password is incorrect.';
+
+	/// en: 'Please sign in again before changing your password.'
+	String get recentLoginRequired => 'Please sign in again before changing your password.';
+
+	/// en: 'Password changes are unavailable for this account.'
+	String get passwordAccountUnavailable => 'Password changes are unavailable for this account.';
+
+	/// en: 'Unable to change password. Please try again.'
+	String get passwordChangeFailed => 'Unable to change password. Please try again.';
+
+	/// en: 'Password changed successfully.'
+	String get passwordChangedSuccessfully => 'Password changed successfully.';
+
+	/// en: 'Passwords do not match.'
+	String get passwordsDoNotMatch => 'Passwords do not match.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -523,6 +547,14 @@ extension on Translations {
 			'privacyPolicyPoint4' => 'We do not sell or share your personal information with third parties, except when necessary to provide our services or comply with legal obligations.',
 			'privacyPolicyFooter' => 'We may update this Privacy Policy from time to time. Any changes will be reflected on this page. We encourage you to review this policy regularly to stay informed about how we protect your privacy.',
 			'change' => 'Change',
+			'currentPassword' => 'Current Password',
+			'confirmPassword' => 'Confirm Password',
+			'incorrectCurrentPassword' => 'The current password is incorrect.',
+			'recentLoginRequired' => 'Please sign in again before changing your password.',
+			'passwordAccountUnavailable' => 'Password changes are unavailable for this account.',
+			'passwordChangeFailed' => 'Unable to change password. Please try again.',
+			'passwordChangedSuccessfully' => 'Password changed successfully.',
+			'passwordsDoNotMatch' => 'Passwords do not match.',
 			_ => null,
 		};
 	}

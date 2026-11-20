@@ -22,7 +22,7 @@ class AdminHomeAppBar extends StatelessWidget {
           builder: (context, state) {
             final userModel = context.read<UserModelCubit>().userModel;
             return GestureDetector(
-              onTap: () => EditAdminProfileRoute().push(context),
+              onTap: () => EditProfileRoute().push(context),
               child: PhotoView(
                 name: userModel.name,
                 radius: 30,

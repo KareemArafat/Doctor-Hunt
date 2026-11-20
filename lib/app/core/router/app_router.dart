@@ -5,6 +5,7 @@ import 'package:doctor_hunt/app/features/home/presentation/controller/popular_do
 import 'package:doctor_hunt/app/features/home/presentation/controller/top_rated_doctors_cubit/top_rated_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_top_rated_doctors_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/specialty_doctors_page.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/settings/presentation/screens/privacy_policy_page.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_main_bottom_bar.dart';
@@ -122,12 +123,15 @@ class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
   }
 }
 
-@TypedGoRoute<EditAdminProfileRoute>(path: '/editAdminProfile')
-class EditAdminProfileRoute extends GoRouteData with $EditAdminProfileRoute {
-  const EditAdminProfileRoute();
+@TypedGoRoute<EditProfileRoute>(path: '/editAProfile')
+class EditProfileRoute extends GoRouteData with $EditAdminProfileRoute {
+  const EditProfileRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const EditProfilePage();
+    return BlocProvider(
+      create: (context) => EditProfileCubit(),
+      child: const EditProfilePage(),
+    );
   }
 }
 

@@ -8,4 +8,17 @@ class FirebaseSettingsService {
       photoURL: userModel.photo,
     );
   }
+
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    final user = FirebaseAuth.instance.currentUser;
+    final credential = EmailAuthProvider.credential(
+      email: user!.email!,
+      password: currentPassword,
+    );
+    await user.reauthenticateWithCredential(credential);
+    await user.updatePassword(newPassword);
+  }
 }
