@@ -6,7 +6,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_field.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/controllers/edit_admin_profile_cubit/edit_admin_profile_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
@@ -44,7 +44,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EditAdminProfileCubit(),
+      create: (context) => EditProfileCubit(),
       child: CustomScaffold(
         body: Form(
           key: formKey,
@@ -90,15 +90,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
               ),
               SizedBox(height: 50),
-              BlocConsumer<EditAdminProfileCubit, EditAdminProfileState>(
+              BlocConsumer<EditProfileCubit, EditProfileState>(
                 listener: (context, state) {
-                  if (state is EditAdminProfileSuccess) {
+                  if (state is EditProfileSuccess) {
                     context.read<UserModelCubit>().getUserModel();
                     context.showCustomSnackBar(
                       message: t.profileEditedSuccessfully,
                       status: SnackBarStatus.success,
                     );
-                  } else if (state is EditAdminProfileFailure) {
+                  } else if (state is EditProfileFailure) {
                     context.showCustomSnackBar(message: state.message);
                   }
                 },
@@ -109,13 +109,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         final updatedUser = userModel.copyWith(
                           name: nameController.text.trim(),
                         );
-                        context.read<EditAdminProfileCubit>().editAdminProfile(
+                        context.read<EditProfileCubit>().editProfile(
                           userModel: updatedUser,
                         );
                       }
                     },
                     size: Size(350, 50),
-                    child: state is EditAdminProfileLoading
+                    child: state is EditProfileLoading
                         ? CustomLoadingWidget(size: -2)
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,

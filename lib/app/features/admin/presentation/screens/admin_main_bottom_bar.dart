@@ -4,7 +4,7 @@ import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/user_model_cubit/user_model_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_doctors_page.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_settings_page.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/screens/settings_page.dart';
 import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -12,18 +12,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AdminMainPage extends StatefulWidget {
+class AdminMainBottomBar extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<AdminMainPage> createState() => _AdminMainPageState();
+  State<AdminMainBottomBar> createState() => _AdminMainBottomBarState();
 }
 
-class _AdminMainPageState extends State<AdminMainPage> {
-  int selectedIndex = 0;
+class _AdminMainBottomBarState extends State<AdminMainBottomBar> {
+  int currentIndex = 0;
   final List<Widget> pages = const [
     AdminDoctorsPage(),
-    AdminSettingsPage(),
+    SettingsPage(),
     AdminDoctorsPage(),
   ];
 
@@ -33,13 +33,13 @@ class _AdminMainPageState extends State<AdminMainPage> {
     context.read<UserModelCubit>().getUserModel();
   }
 
-  void onTab(int index) => setState(() => selectedIndex = index);
+  void onTab(int index) => setState(() => currentIndex = index);
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: pages[selectedIndex],
-      floatingActionButton: selectedIndex == 0
+      body: pages[currentIndex],
+      floatingActionButton: currentIndex == 0
           ? CustomButton(
               onPressed: () => CreateDoctorRoute().push(context),
               size: Size(120, 40),
@@ -63,7 +63,7 @@ class _AdminMainPageState extends State<AdminMainPage> {
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
-            currentIndex: selectedIndex,
+            currentIndex: currentIndex,
             onTap: onTab,
             backgroundColor: AppColors.white,
             selectedFontSize: 0,

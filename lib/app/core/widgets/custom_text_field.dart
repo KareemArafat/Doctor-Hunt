@@ -55,16 +55,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
       cursorColor: AppColors.black,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(16),
-        suffix: widget.isPassword
-            ? IconButton(
-                highlightColor: AppColors.transparent,
-                onPressed: () => setState(() => isPassword = !isPassword),
-                icon: Icon(
-                  isPassword ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.secondary,
-                ),
-              )
-            : widget.suffixIcon,
+        suffixIconConstraints: const BoxConstraints(minHeight: 0),
+        suffixIcon: Padding(
+          padding: EdgeInsetsGeometry.only(right: 10),
+          child: widget.isPassword
+              ? IconButton(
+                  highlightColor: AppColors.transparent,
+                  onPressed: () => setState(() => isPassword = !isPassword),
+                  icon: Icon(
+                    isPassword ? Icons.visibility_off : Icons.visibility,
+                    color: AppColors.secondary,
+                  ),
+                )
+              : widget.suffixIcon,
+        ),
         prefixIcon: widget.prefixIcon,
         hintText: widget.hintText,
         hintStyle: context.light16Secondary,

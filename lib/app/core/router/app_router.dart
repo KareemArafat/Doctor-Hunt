@@ -7,10 +7,10 @@ import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_top_r
 import 'package:doctor_hunt/app/features/home/presentation/screens/specialty_doctors_page.dart';
 import 'package:doctor_hunt/app/features/settings/presentation/screens/privacy_policy_page.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_main_page.dart';
+import 'package:doctor_hunt/app/features/admin/presentation/screens/admin_main_bottom_bar.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/create_doctor_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/doctor_details_page.dart';
-import 'package:doctor_hunt/app/shared/screens/edit_profile_page.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/screens/edit_profile_page.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
@@ -118,7 +118,7 @@ class AdminHomeRoute extends GoRouteData with $AdminHomeRoute {
   const AdminHomeRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const AdminMainPage();
+    return const AdminMainBottomBar();
   }
 }
 

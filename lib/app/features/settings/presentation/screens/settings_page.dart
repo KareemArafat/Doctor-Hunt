@@ -2,7 +2,7 @@ import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_list_tile.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/logout_confirm.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/widgets/logout_confirm.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';

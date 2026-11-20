@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/app/core/utils/errors.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
-import 'package:doctor_hunt/app/features/auth/data/models/user_model.dart';
 
 abstract class AdminRepo {
   Future<Either<Errors, List<DoctorModel>>> getAllDoctors();
@@ -11,6 +10,4 @@ abstract class AdminRepo {
   Future<Either<Errors, void>> editDoctor({required DoctorModel doctorModel});
 
   Future<Either<Errors, void>> deleteDoctor({required String id});
-
-  Future<Either<Errors, void>> editAdminProfile({required UserModel userModel});
 }

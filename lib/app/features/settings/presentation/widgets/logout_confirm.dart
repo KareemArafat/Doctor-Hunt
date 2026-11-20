@@ -3,7 +3,7 @@ import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_text_button.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/controllers/cubit_cubit/signout_cubit.dart';
+import 'package:doctor_hunt/app/features/settings/presentation/controllers/signout_cubit/signout_cubit.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
