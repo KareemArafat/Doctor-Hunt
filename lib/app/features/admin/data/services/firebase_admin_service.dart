@@ -5,7 +5,7 @@ class FirebaseAdminService {
   Future<List<DoctorModel>> getAllDoctors() async {
     final result = await FirebaseFirestore.instance.collection('doctors').get();
     final doctors = result.docs.map((doc) {
-      return DoctorModel.fromFirebase(doc.data(), doc.id);
+      return DoctorModel.fromFirebase(data: doc.data(), id: doc.id);
     }).toList();
     return doctors;
   }

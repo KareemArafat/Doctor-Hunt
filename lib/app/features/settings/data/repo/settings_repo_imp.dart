@@ -6,15 +6,15 @@ import 'package:doctor_hunt/app/features/settings/data/repo/settings_repo.dart';
 import 'package:doctor_hunt/app/features/settings/data/service/firebase_settings_service.dart';
 
 class SettingsRepoImp extends SettingsRepo {
-  final FirebaseSettingsService settingsFirebaseService;
-  new({required this.settingsFirebaseService});
+  final FirebaseSettingsService firebaseSettingsService;
+  new({required this.firebaseSettingsService});
 
   @override
   Future<Either<Errors, void>> editProfile({
     required UserModel userModel,
   }) async {
     try {
-      await settingsFirebaseService.editProfile(userModel: userModel);
+      await firebaseSettingsService.editProfile(userModel: userModel);
       await SharedPref.setUserModel(userModel);
       return right(null);
     } catch (e) {
@@ -28,7 +28,7 @@ class SettingsRepoImp extends SettingsRepo {
     required String newPassword,
   }) async {
     try {
-      await settingsFirebaseService.changePassword(
+      await firebaseSettingsService.changePassword(
         currentPassword: currentPassword,
         newPassword: newPassword,
       );

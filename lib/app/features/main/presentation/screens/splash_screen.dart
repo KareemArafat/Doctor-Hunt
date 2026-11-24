@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
           : isAdmin == true
           ? const AdminHomeRoute().go(context)
           : isAdmin == false
-          ? const HomeRoute().go(context)
+          ? const UserMainRoute().go(context)
           : const ChooseRuleRoute().go(context);
     });
   }

@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
+import 'package:doctor_hunt/app/features/favorite/presentation/widgets/favorite_button.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
@@ -20,7 +21,7 @@ class TopRatedDoctorsCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.favorite_rounded, size: 14, color: AppColors.fav),
+              FavoriteButton(doctorId: doctorModel.id!),
               Spacer(),
               Icon(
                 Icons.star_rate_rounded,

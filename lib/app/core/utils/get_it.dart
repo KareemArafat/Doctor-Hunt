@@ -4,6 +4,9 @@ import 'package:doctor_hunt/app/features/admin/data/services/firebase_admin_serv
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo.dart';
 import 'package:doctor_hunt/app/features/auth/data/repo/auth_repo_imp.dart';
 import 'package:doctor_hunt/app/features/auth/data/service/firebase_auth_service.dart';
+import 'package:doctor_hunt/app/features/favorite/data/repo/fav_repo.dart';
+import 'package:doctor_hunt/app/features/favorite/data/repo/fav_repo_imp.dart';
+import 'package:doctor_hunt/app/features/favorite/data/services/firebase_fav_service.dart';
 import 'package:doctor_hunt/app/features/home/data/repo/home_repo.dart';
 import 'package:doctor_hunt/app/features/home/data/repo/home_repo_imp.dart';
 import 'package:doctor_hunt/app/features/home/data/service/firebase_home_service.dart';
@@ -19,6 +22,7 @@ void setupGetIt() {
   getIt.registerLazySingleton(() => FirebaseAdminService());
   getIt.registerLazySingleton(() => FirebaseHomeService());
   getIt.registerLazySingleton(() => FirebaseSettingsService());
+  getIt.registerLazySingleton(() => FirebaseFavService());
 
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImp(firebaseAuthService: getIt()),
@@ -30,6 +34,9 @@ void setupGetIt() {
     () => HomeRepoImp(firebaseHomeService: getIt()),
   );
   getIt.registerLazySingleton<SettingsRepo>(
-    () => SettingsRepoImp(settingsFirebaseService: getIt()),
+    () => SettingsRepoImp(firebaseSettingsService: getIt()),
+  );
+  getIt.registerLazySingleton<FavRepo>(
+    () => FavRepoImp(firebaseFavService: getIt()),
   );
 }

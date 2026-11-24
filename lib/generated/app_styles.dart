@@ -13,7 +13,7 @@ extension WeightAtoms on BuildContext {
   //       fontFamily: 'Almarai',
   //     );
   TextStyle get light => style.copyWith(fontWeight: FontWeight.w300);
-  TextStyle get regular => style.copyWith(fontWeight: FontWeight.normal);
+  TextStyle get regular => style.copyWith(fontWeight: FontWeight.w400);
   TextStyle get medium => style.copyWith(fontWeight: FontWeight.w500);
   TextStyle get semiBold => style.copyWith(fontWeight: FontWeight.w600);
   TextStyle get bold => style.copyWith(fontWeight: FontWeight.bold);

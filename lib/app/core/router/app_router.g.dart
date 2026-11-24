@@ -380,7 +380,7 @@ RouteBase get $homeRoute => GoRouteData.$route(
 );
 
 mixin $HomeRoute on GoRouteData {
-  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+  static UserMainRoute _fromState(GoRouterState state) => const UserMainRoute();
 
   @override
   String get location => GoRouteData.$location('/home');

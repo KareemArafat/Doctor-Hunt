@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                 if (state is LoginSuccess) {
                   widget.isAdmin
                       ? AdminHomeRoute().go(context)
-                      : HomeRoute().go(context);
+                      : UserMainRoute().go(context);
                 } else if (state is LoginFailure) {
                   context.showCustomSnackBar(message: state.errorMessage);
                 }

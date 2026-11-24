@@ -171,8 +171,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Re-enter Password'
 	String get reEnterPassword => 'Re-enter Password';
 
-	/// en: 'continue'
-	String get kContinue => 'continue';
+	/// en: 'Continue'
+	String get kContinue => 'Continue';
 
 	/// en: 'Update Password'
 	String get updatePassword => 'Update Password';
@@ -402,23 +402,17 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// en: 'Confirm Password'
 	String get confirmPassword => 'Confirm Password';
 
-	/// en: 'The current password is incorrect.'
-	String get incorrectCurrentPassword => 'The current password is incorrect.';
-
-	/// en: 'Please sign in again before changing your password.'
-	String get recentLoginRequired => 'Please sign in again before changing your password.';
-
-	/// en: 'Password changes are unavailable for this account.'
-	String get passwordAccountUnavailable => 'Password changes are unavailable for this account.';
-
-	/// en: 'Unable to change password. Please try again.'
-	String get passwordChangeFailed => 'Unable to change password. Please try again.';
-
 	/// en: 'Password changed successfully.'
 	String get passwordChangedSuccessfully => 'Password changed successfully.';
 
 	/// en: 'Passwords do not match.'
 	String get passwordsDoNotMatch => 'Passwords do not match.';
+
+	/// en: 'Favorite Doctors'
+	String get favoriteDoctors => 'Favorite Doctors';
+
+	/// en: 'You haven't added any favorite doctors yet.'
+	String get noFavoriteDoctors => 'You haven\'t added any favorite doctors yet.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -472,7 +466,7 @@ extension on Translations {
 			'resetPasswordDescription' => 'Set the new password for your account so you can login and access all the features.',
 			'newPassword' => 'New Password',
 			'reEnterPassword' => 'Re-enter Password',
-			'kContinue' => 'continue',
+			'kContinue' => 'Continue',
 			'updatePassword' => 'Update Password',
 			'comment__6' => 'Doctors Management',
 			'doctors' => 'Doctors',
@@ -549,12 +543,10 @@ extension on Translations {
 			'change' => 'Change',
 			'currentPassword' => 'Current Password',
 			'confirmPassword' => 'Confirm Password',
-			'incorrectCurrentPassword' => 'The current password is incorrect.',
-			'recentLoginRequired' => 'Please sign in again before changing your password.',
-			'passwordAccountUnavailable' => 'Password changes are unavailable for this account.',
-			'passwordChangeFailed' => 'Unable to change password. Please try again.',
 			'passwordChangedSuccessfully' => 'Password changed successfully.',
 			'passwordsDoNotMatch' => 'Passwords do not match.',
+			'favoriteDoctors' => 'Favorite Doctors',
+			'noFavoriteDoctors' => 'You haven\'t added any favorite doctors yet.',
 			_ => null,
 		};
 	}

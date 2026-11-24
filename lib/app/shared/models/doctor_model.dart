@@ -23,7 +23,10 @@ class DoctorModel {
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
-  factory DoctorModel.fromFirebase(Map<String, dynamic> data, String id) {
+  factory DoctorModel.fromFirebase({
+    required Map<String, dynamic> data,
+    required String id,
+  }) {
     return DoctorModel(
       id: id,
       photo: data['photo'],

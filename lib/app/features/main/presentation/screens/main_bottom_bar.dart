@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_scaffold.dart';
+import 'package:doctor_hunt/app/features/favorite/presentation/screens/fav_doctors_page.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/home_page.dart';
 import 'package:doctor_hunt/app/features/settings/presentation/screens/settings_page.dart';
 import 'package:doctor_hunt/app/shared/functions/bottom_bar_item.dart';
@@ -16,7 +17,7 @@ class MainBottomBar extends StatefulWidget {
 class _MainBottomBarState extends State<MainBottomBar> {
   final List<Widget> pages = [
     HomePage(),
-    SafeArea(child: SizedBox()),
+    FavDoctorsPage(),
     SafeArea(child: SizedBox()),
     SettingsPage(),
   ];

@@ -11,7 +11,7 @@ class FirebaseHomeService {
         .where('specialty', isEqualTo: specialty)
         .get();
     return result.docs
-        .map((e) => DoctorModel.fromFirebase(e.data(), e.id))
+        .map((e) => DoctorModel.fromFirebase(data: e.data(), id: e.id))
         .toList();
   }
 
@@ -21,7 +21,7 @@ class FirebaseHomeService {
         .limit(10)
         .get();
     return result.docs
-        .map((e) => DoctorModel.fromFirebase(e.data(), e.id))
+        .map((e) => DoctorModel.fromFirebase(data: e.data(), id: e.id))
         .toList();
   }
 
@@ -31,7 +31,7 @@ class FirebaseHomeService {
         .limit(10)
         .get();
     return result.docs
-        .map((e) => DoctorModel.fromFirebase(e.data(), e.id))
+        .map((e) => DoctorModel.fromFirebase(data: e.data(), id: e.id))
         .toList();
   }
 }

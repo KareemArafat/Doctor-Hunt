@@ -16,6 +16,7 @@ import 'package:doctor_hunt/app/features/admin/presentation/screens/edit_doctor_
 import 'package:doctor_hunt/app/features/auth/presentation/controllers/choose_role_cubit/choose_role_cubit.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/login_page.dart';
 import 'package:doctor_hunt/app/features/auth/presentation/screens/signup_page.dart';
+import 'package:doctor_hunt/app/features/favorite/presentation/controllers/fav_cubit/fav_cubit.dart';
 import 'package:doctor_hunt/app/features/home/presentation/screens/see_all_popular_doctors_page.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/main_bottom_bar.dart';
 import 'package:doctor_hunt/app/features/main/presentation/screens/onboarding_page.dart';
@@ -165,9 +166,9 @@ class DoctorDetailsRoute extends GoRouteData with $DoctorDetailsRoute {
   }
 }
 
-@TypedGoRoute<HomeRoute>(path: '/home')
-class HomeRoute extends GoRouteData with $HomeRoute {
-  const HomeRoute();
+@TypedGoRoute<UserMainRoute>(path: '/userMain')
+class UserMainRoute extends GoRouteData with $HomeRoute {
+  const UserMainRoute();
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MultiBlocProvider(
@@ -178,6 +179,7 @@ class HomeRoute extends GoRouteData with $HomeRoute {
         BlocProvider(
           create: (context) => TopRatedDoctorsCubit()..getTopRatedDoctors(),
         ),
+        BlocProvider(create: (context) => FavCubit()..getAllFav()),
       ],
       child: const MainBottomBar(),
     );
