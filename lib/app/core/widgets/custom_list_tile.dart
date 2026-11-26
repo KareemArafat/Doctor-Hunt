@@ -13,7 +13,7 @@ class CustomListTile extends StatelessWidget {
   });
   final Widget prefix;
   final String title;
-  final String? description;
+  final dynamic description;
   final Widget? trailing;
   final Function()? onTap;
 
@@ -43,7 +43,9 @@ class CustomListTile extends StatelessWidget {
                 children: [
                   Text(title, style: context.semiBold14),
                   if (description != null)
-                    Text(description!, style: context.regular12Secondary),
+                    description is String
+                        ? Text(description, style: context.regular12Secondary)
+                        : description,
                 ],
               ),
             ),

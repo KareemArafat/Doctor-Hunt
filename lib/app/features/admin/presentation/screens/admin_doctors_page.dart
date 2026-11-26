@@ -3,8 +3,8 @@ import 'package:doctor_hunt/app/core/widgets/custom_error_widget.dart';
 import 'package:doctor_hunt/app/core/widgets/custom_loading_widget.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/controllers/all_doctors_cubit/all_doctors_cubit.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_home_app_bar.dart';
-import 'package:doctor_hunt/app/features/admin/presentation/widgets/admin_doctors_list_card.dart';
 import 'package:doctor_hunt/app/features/admin/presentation/widgets/empty_doctors_list.dart';
+import 'package:doctor_hunt/app/shared/widgets/doctors_list_card.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/app/shared/models/doctors_search_bar.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -24,7 +24,7 @@ class AdminDoctorsPage extends StatelessWidget {
       listener: (context, state) {
         if (state is AllDoctorsSuccess) {
           final totalList = state.doctorsList;
-          final activeList = totalList.where((e) => e.isActive == t.active);
+          final activeList = totalList.where((e) => e.isActive);
           totalDoctors = '${totalList.length}';
           activeDoctors = '${activeList.length}';
         }
@@ -85,7 +85,7 @@ class AdminDoctorsPage extends StatelessWidget {
                             separatorBuilder: (context, index) =>
                                 SizedBox(height: 10),
                             itemBuilder: (context, index) =>
-                                AdminDoctorsListCard(
+                                DoctorsListCard(
                                   doctorModel: state.doctorsList[index],
                                 ),
                           )

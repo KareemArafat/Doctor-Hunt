@@ -1,5 +1,7 @@
+import 'package:doctor_hunt/app/core/router/app_router.dart';
 import 'package:doctor_hunt/app/core/themes/app_colors.dart';
 import 'package:doctor_hunt/app/shared/models/doctor_model.dart';
+import 'package:doctor_hunt/app/shared/widgets/doctor_status.dart';
 import 'package:doctor_hunt/app/shared/widgets/photo_view.dart';
 import 'package:doctor_hunt/app/shared/widgets/shadow_card.dart';
 import 'package:doctor_hunt/generated/app_styles.dart';
@@ -12,6 +14,7 @@ class DoctorsListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadowCard(
+      onTap: () => DoctorDetailsRoute($extra: doctorModel).push(context),
       horizontalPadding: 12,
       verticalPadding: 12,
       child: Row(
@@ -30,15 +33,11 @@ class DoctorsListCard extends StatelessWidget {
                       style: context.semiBold18,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Icon(
-                      Icons.favorite_rounded,
-                      size: 20,
-                      color: AppColors.fav,
-                    ),
+                    DoctorStatus(isActive: doctorModel.isActive),
                   ],
                 ),
                 Text(doctorModel.specialty, style: context.light14Secondary),
-                Row(
+               Row(
                   children: [
                     ...List.generate(
                       5,
@@ -51,7 +50,7 @@ class DoctorsListCard extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    Text('${doctorModel.rating}', style: context.semiBold14),
+                    Text ('${doctorModel.rating}', style: context.semiBold14),
                     SizedBox(width: 6),
                     Text(
                       '(${doctorModel.reviews})',

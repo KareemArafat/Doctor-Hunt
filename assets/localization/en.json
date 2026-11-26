@@ -122,5 +122,9 @@
     "passwordChangedSuccessfully": "Password changed successfully.",
     "passwordsDoNotMatch": "Passwords do not match.",
     "favoriteDoctors": "Favorite Doctors",
-    "noFavoriteDoctors": "You haven't added any favorite doctors yet."
+    "noFavoriteDoctors": "You haven't added any favorite doctors yet.",
+    "rating": "Rating",
+    "consultationFee": "Consultation Fee",
+    "manageAvailability": "Manage Availability",
+    "reviews": "Reviews"
 }

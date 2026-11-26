@@ -413,6 +413,18 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'You haven't added any favorite doctors yet.'
 	String get noFavoriteDoctors => 'You haven\'t added any favorite doctors yet.';
+
+	/// en: 'Rating'
+	String get rating => 'Rating';
+
+	/// en: 'Consultation Fee'
+	String get consultationFee => 'Consultation Fee';
+
+	/// en: 'Manage Availability'
+	String get manageAvailability => 'Manage Availability';
+
+	/// en: 'Reviews'
+	String get reviews => 'Reviews';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -547,6 +559,10 @@ extension on Translations {
 			'passwordsDoNotMatch' => 'Passwords do not match.',
 			'favoriteDoctors' => 'Favorite Doctors',
 			'noFavoriteDoctors' => 'You haven\'t added any favorite doctors yet.',
+			'rating' => 'Rating',
+			'consultationFee' => 'Consultation Fee',
+			'manageAvailability' => 'Manage Availability',
+			'reviews' => 'Reviews',
 			_ => null,
 		};
 	}
